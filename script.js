@@ -69,3 +69,4 @@ function mudarSlide(direction) {
 
 // Carrega os produtos ao carregar a página
 document.addEventListener('DOMContentLoaded', carregarProdutos);
+
