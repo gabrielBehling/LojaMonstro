@@ -1,11 +1,13 @@
 :root {
-  --cor-preto-profund: #1C1C1C; /* Preto Profundo */
-  --cor-cinza-escuro: #4B4B4B; /* Cinza Escuro */
-  --cor-vermelho-sangue: #A50000; /* Vermelho Sangue */
-  --cor-roxo-escuro: #5E2B91; /* Roxo Escuro */
-  --cor-cinza-medio: #7D7D7D; /* Cinza Médio */
-  --cor-verde-musgo: #4A6E4D; /* Verde Musgo */
-  --cor-branco-fantasma: #EAEAEA; /* Branco Fantasma */
+  --cor-branco: #f8f9fa; /* Branco */
+  --cor-cinza-claro: #e9ecef; /* Cinza Claro */
+  --cor-cinza-medio: #dee2e6; /* Cinza Médio */
+  --cor-cinza-escuro: #ced4da; /* Cinza Escuro */
+  --cor-cinza-mais-escuro: #adb5bd; /* Cinza Mais Escuro */
+  --cor-cinza: #6c757d; /* Cinza */
+  --cor-antracite: #495057; /* Antracite */
+  --cor-preto: #343a40; /* Preto */
+  --cor-preto-mais-escuro: #212529; /* Preto Mais Escuro */
 }
 
 *, ::before, ::after {
@@ -16,43 +18,71 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: white;
+  color: var(--cor-preto); /* Texto Preto */
+  background-color: var(--cor-branco); /* Fundo Branco */
   margin: 0;
   padding: 0;
 }
 
-header {
-  height: 60px;
+.cabecalho {
+  height: 80px;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #121212;
+  background-color: var(--cor-cinza-escuro); /* Cinza Escuro */
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
 
+.cabecalho header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cabecalho header img {
+  height: 60px;
+  object-fit: cover;
+}
+
 #searchBar {
-  background-color: rgba(255, 255, 255, 0.08);
-  padding: 5px;
-  box-shadow: 0px 0px 5px 0 rgba(255, 255, 255, 1);
-  border-radius: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.1); /* Fundo levemente escuro */
+  padding: 10px 5px 5px 5px;
+  border-radius: 20px;
 }
 
-#searchInput {
-  border: none;
-  background-color: unset;
-  border-right: 1px solid #ffffff;
-}
-
-#searchInput:focus-visible {
-  outline: 0;
-}
-
-button {
+#searchBar button {
+  font-size: 25px;
+  padding-left: 10px;
   border: none;
   background-color: unset;
   cursor: pointer;
+  color: var(--cor-preto);
+}
+
+#searchInput {
+  display: flex;
+  height: 100%;
+  padding: 10px 5px;
+  margin-right: 5px;
+  font-size: 20px;
+  border: none;
+  background-color: unset;
+  color: var(--cor-preto);
+}
+
+#searchInput:focus-visible {
+  padding: 10px;
+  outline: 0;
+}
+
+#searchInput::placeholder {
+  padding: 10px;
+  color: var(--cor-cinza);
 }
 
 .githubIcon {
@@ -68,14 +98,15 @@ button {
 }
 
 li {
-  color: #333;
+  color: var(--cor-preto);
 }
 
 footer {
   display: flex;
   justify-content: space-around;
-  background-color: #121212;
+  background-color: var(--cor-antracite); /* Antracite */
   align-items: center;
   height: 100px;
   width: 100vw;
+  color: var(--cor-branco); /* Texto Branco */
 }

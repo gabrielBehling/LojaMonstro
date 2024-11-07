@@ -48,14 +48,18 @@
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta name="msapplication-TileImage" content="./img/icon/ms-icon-144x144.png" />
     <meta name="theme-color" content="#ffffff" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   </head>
   <body>
-    <header>
-      <h1 id="title">Loja NoMob</h1>
-      <div id="searchBar">
-        <input type="text" placeholder="Buscar produto..." id="searchInput" />
-        <button type="button" id="searchButton">🔎</button>
-      </div>
+    <header class="cabecalho">
+      <header>
+        <img src="./img/logo/logo-nobg.png" alt="logo">
+        <h1 id="title">Monsters Antique</h1>
+      </header>
+      <main id="searchBar">
+        <button type="button" id="searchButton"><i class='bx bx-search-alt'></i></button>
+        <input name="search" type="text" placeholder="Buscar produto..." id="searchInput" />
+      </main>
 
       <button type="button">
         <img
