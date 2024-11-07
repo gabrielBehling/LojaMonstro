@@ -110,3 +110,76 @@ footer {
   width: 100vw;
   color: var(--cor-branco); /* Texto Branco */
 }
+
+#carrossel-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carrossel {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    width: 100%;
+    overflow: hidden;
+}
+
+.produto-item {
+    flex: 1 0 30%;
+    margin: 0 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: left;
+    display: none;
+}
+
+.produto-detalhes {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.produto-nome {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.produto-preco {
+    color: #228B22;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.produto-fornecedor {
+    font-style: italic;
+    color: #666;
+}
+
+.carrossel-btn {
+    background-color: #333;
+    color: #fff;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.carrossel-btn:hover {
+    background-color: #555;
+}
+
+#prev-btn {
+    margin-right: 10px;
+}
+
+#next-btn {
+    margin-left: 10px;
+}
