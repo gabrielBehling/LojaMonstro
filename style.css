@@ -233,6 +233,8 @@ li {
 }
 
 #ultimasPostagens {
+  display: flex;
+  flex-direction: row;
   padding: 20px;
   background-color: var(--cor-branco);
 }
