@@ -6,10 +6,26 @@
     <title>Loja NoMob</title>
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="script.js" defer></script>
-    <link rel="apple-touch-icon" sizes="57x57" href="./img/icon/apple-icon-57x57.png" />
-    <link rel="apple-touch-icon" sizes="60x60" href="./img/icon/apple-icon-60x60.png" />
-    <link rel="apple-touch-icon" sizes="72x72" href="./img/icon/apple-icon-72x72.png" />
-    <link rel="apple-touch-icon" sizes="76x76" href="./img/icon/apple-icon-76x76.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="./img/icon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="./img/icon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="./img/icon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="./img/icon/apple-icon-76x76.png"
+    />
     <link
       rel="apple-touch-icon"
       sizes="114x114"
@@ -41,26 +57,53 @@
       sizes="192x192"
       href="./img/icon/android-icon-192x192.png"
     />
-    <link rel="icon" type="image/png" sizes="32x32" href="./img/icon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="96x96" href="./img/icon/favicon-96x96.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./img/icon/favicon-16x16.png" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./img/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="./img/icon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./img/icon/favicon-16x16.png"
+    />
     <link rel="manifest" href="./img/icon/manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="msapplication-TileImage" content="./img/icon/ms-icon-144x144.png" />
+    <meta
+      name="msapplication-TileImage"
+      content="./img/icon/ms-icon-144x144.png"
+    />
     <meta name="theme-color" content="#ffffff" />
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header class="cabecalho">
       <header>
-        <img src="./img/logo/logo-nobg.png" alt="logo">
+        <img src="./img/logo/logo-nobg.png" alt="logo" />
         <h1 id="title">Monsters Antique</h1>
       </header>
       <main id="searchBar">
-        <button type="button" id="searchButton"><i class='bx bx-search-alt'></i></button>
-        <input name="search" type="text" placeholder="Buscar produto..." id="searchInput" />
+        <button type="button" id="searchButton">
+          <i class="bx bx-search-alt"></i>
+        </button>
+        <input
+          name="search"
+          type="text"
+          placeholder="Buscar produto..."
+          id="searchInput"
+        />
       </main>
-
       <button type="button">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIJzvwGX_2AoP6sVrqOl4h3CHNrLOGj6ExpjvxfYZnILimKkCckX6mBsa-cfFlRt47Mrs&usqp=CAU"
@@ -69,28 +112,77 @@
         />
       </button>
     </header>
+    <nav class="sub-navigation">
+      <ul>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#sobreNos">Sobre Nós</a></li>
+        <li><a href="#caridade">Caridade</a></li>
+        <li><a href="#ultimasPostagens">Últimas Postagens</a></li>
+      </ul>
+    </nav>
+
+    <section class="welcome" id="welcome">
+      <h2>Bem-vindo à Loja NoMob!</h2>
+      <p>Seu destino para produtos sobrenaturais.</p>
+      <div class="produtos">
+        <div class="produto">
+          <img src="https://via.placeholder.com/150" alt="Produto 1" />
+          <h3>Produto 1</h3>
+          <p>Descrição do Produto 1</p>
+        </div>
+        <div class="produto">
+          <img src="https://via.placeholder.com/150" alt="Produto 2" />
+          <h3>Produto 2</h3>
+          <p>Descrição do Produto 2</p>
+        </div>
+        <div class="produto">
+          <img src="https://via.placeholder.com/150" alt="Produto 3" />
+          <h3>Produto 3</h3>
+          <p>Descrição do Produto 3</p>
+        </div>
+      </div>
+    </section>
 
     <div id="carrossel-container">
-        <button id="prev-btn" class="carrossel-btn">❮</button>
-        <ul id="produtos" class="carrossel"></ul>
-        <button id="next-btn" class="carrossel-btn">❯</button>
+      <button id="prev-btn" class="carrossel-btn">❮</button>
+      <ul id="produtos" class="carrossel"></ul>
+      <button id="next-btn" class="carrossel-btn">❯</button>
     </div>
 
+    <section id="ultimasPostagens">
+      <h2>Últimas Postagens</h2>
+      <div class="postagem">
+        <img src="https://via.placeholder.com/150" alt="Postagem 1" />
+        <h3>Título da Postagem 1</h3>
+        <p>Subtítulo da Postagem 1</p>
+      </div>
+      <div class="postagem">
+        <img src="https://via.placeholder.com/150" alt="Postagem 2" />
+        <h3>Título da Postagem 2</h3>
+        <p>Subtítulo da Postagem 2</p>
+      </div>
+      <div class="postagem">
+        <img src="https://via.placeholder.com/150" alt="Postagem 3" />
+        <h3>Título da Postagem 3</h3>
+        <p>Subtítulo da Postagem 3</p>
+      </div>
+    </section>
+
     <footer>
-      <a href="https://github.com/gabrielBehling"
-        ><img
+      <a href="https://github.com/gabrielBehling">
+        <img
           src="https://avatars.githubusercontent.com/u/102189169?v=4"
           alt=""
           class="githubIcon"
-      /></a>
-      <a href="https://github.com/tyxiel"
-        ><img
+        />
+      </a>
+      <a href="https://github.com/tyxiel">
+        <img
           src="https://avatars.githubusercontent.com/u/128870773?v=4"
           alt=""
           class="githubIcon"
-      /></a>
+        />
+      </a>
     </footer>
   </body>
 </html>
-
-<!-- https://unsplash.com/pt-br/fotografias/brinquedo-de-pelucia-azul-e-marrom--usSqel0j5U -->

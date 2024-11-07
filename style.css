@@ -10,7 +10,9 @@
   --cor-preto-mais-escuro: #212529; /* Preto Mais Escuro */
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -85,6 +87,85 @@ body {
   color: var(--cor-cinza);
 }
 
+li {
+  color: var(--cor-preto);
+}
+
+.sub-navigation {
+  background-color: var(--cor-cinza-mais-escuro);
+  padding: 10px;
+}
+
+.sub-navigation ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.sub-navigation a {
+  text-decoration: none;
+  color: var(--cor-preto);
+  transition: color 0.3s ease;
+}
+
+.sub-navigation a:hover {
+  color: var(--cor-antracite);
+}
+
+.welcome {
+  text-align: center;
+  padding: 20px;
+  background-image: url("https://cdn.pixabay.com/photo/2022/10/13/21/03/hd-wallpaper-7519974_960_720.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: var(--cor-branco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.produtos {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.produto {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.produto:hover {
+  transform: scale(1.05);
+}
+
+#ultimasPostagens {
+  padding: 20px;
+  background-color: var(--cor-branco);
+}
+
+.postagem {
+  text-align: center;
+  margin: 20px;
+  transition: transform 0.3s ease;
+}
+
+.postagem:hover {
+  transform: translateY(-5px);
+}
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--cor-antracite); /* Antracite */
+  align-items: center;
+  height: 100px;
+  width: 100vw;
+  color: var(--cor-branco); /* Texto Branco */
+}
+
 .githubIcon {
   width: 60px;
   height: auto;
@@ -101,6 +182,71 @@ li {
   color: var(--cor-preto);
 }
 
+.sub-navigation {
+  background-color: var(--cor-cinza-mais-escuro);
+  padding: 10px;
+}
+
+.sub-navigation ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.sub-navigation a {
+  text-decoration: none;
+  color: var(--cor-preto);
+  transition: color 0.3s ease;
+}
+
+.sub-navigation a:hover {
+  color: var(--cor-antracite);
+}
+
+.welcome {
+  text-align: center;
+  padding: 20px;
+  background-image: url("https://cdn.pixabay.com/photo/2022/10/13/21/03/hd-wallpaper-7519974_960_720.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: var(--cor-branco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.produtos {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.produto {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.produto:hover {
+  transform: scale(1.05);
+}
+
+#ultimasPostagens {
+  padding: 20px;
+  background-color: var(--cor-branco);
+}
+
+.postagem {
+  text-align: center;
+  margin: 20px;
+  transition: transform 0.3s ease;
+}
+
+.postagem:hover {
+  transform: translateY(-5px);
+}
+
 footer {
   display: flex;
   justify-content: space-around;
@@ -111,75 +257,87 @@ footer {
   color: var(--cor-branco); /* Texto Branco */
 }
 
+.githubIcon {
+  width: 60px;
+  height: auto;
+  border-radius: 30px;
+}
+
+#profileIcon {
+  width: 30px;
+  height: auto;
+  border-radius: 15px;
+}
+
 #carrossel-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    overflow: hidden;
-    position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
 }
 
 .carrossel {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    list-style-type: none;
-    width: 100%;
-    overflow: hidden;
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  width: 100%;
+  overflow: hidden;
 }
 
 .produto-item {
-    flex: 1 0 30%;
-    margin: 0 5px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-    text-align: left;
-    display: none;
+  flex: 1 0 30%;
+  margin: 0 5px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  text-align: left;
+  display: none;
 }
 
 .produto-detalhes {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .produto-nome {
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 5px;
 }
 
 .produto-preco {
-    color: #228B22;
-    font-weight: bold;
-    margin-bottom: 5px;
+  color: #228b22;
+  font-weight: bold;
+  margin-bottom: 5px;
 }
 
 .produto-fornecedor {
-    font-style: italic;
-    color: #666;
+  font-style: italic;
+  color: #666;
 }
 
 .carrossel-btn {
-    background-color: #333;
-    color: #fff;
-    font-size: 20px;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 .carrossel-btn:hover {
-    background-color: #555;
+  background-color: #555;
 }
 
 #prev-btn {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 #next-btn {
-    margin-left: 10px;
+  margin-left: 10px;
 }
