@@ -2,16 +2,17 @@
     {
         "id": "como-adotar-um-esqueleto",
         "title": "Como Adotar um Esqueleto",
+        "author": "Ana Licântropa",
+        "date": "2024-11-07",
+        "time": "14:30",
         "content": "Adotar um esqueleto pode ser uma experiência única e enriquecedora. Neste guia, você aprenderá tudo sobre cuidados com esqueletos."
     },
     {
         "id": "algum-post-qualquer",
         "title": "Algum Post Qualquer",
+        "author": "Dr. Frankenstein",
+        "date": "2024-10-31",
+        "time": "10:15",
         "content": "Este é apenas um exemplo de post para mostrar como a estrutura funciona."
-    },
-    {
-        "id": "teste",
-        "title": "Outro Post Qualquer",
-        "content": "Este é apenas outro exemplo de post para mostrar como a estrutura funciona."
     }
 ]
