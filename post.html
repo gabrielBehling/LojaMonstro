@@ -6,7 +6,9 @@
     <title>Post</title>
 </head>
 <body>
+    <a href="index.html">Voltar para a lista de posts</a>
     <h1 id="post-title"></h1>
+    <p id="post-meta"></p>
     <p id="post-content"></p>
 
     <script>
@@ -22,11 +24,11 @@
 
                 const response = await fetch('/dados/posts.json');
                 const posts = await response.json();
-
                 const post = posts.find(p => p.id === postId);
 
                 if (post) {
                     document.getElementById('post-title').innerText = post.title;
+                    document.getElementById('post-meta').innerText = `Por ${post.author} em ${post.date} às ${post.time}`;
                     document.getElementById('post-content').innerText = post.content;
                 } else {
                     document.getElementById('post-content').innerText = 'Post não encontrado.';
