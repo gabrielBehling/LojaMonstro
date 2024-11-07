@@ -1,3 +1,13 @@
+:root {
+  --cor-preto-profund: #1C1C1C; /* Preto Profundo */
+  --cor-cinza-escuro: #4B4B4B; /* Cinza Escuro */
+  --cor-vermelho-sangue: #A50000; /* Vermelho Sangue */
+  --cor-roxo-escuro: #5E2B91; /* Roxo Escuro */
+  --cor-cinza-medio: #7D7D7D; /* Cinza Médio */
+  --cor-verde-musgo: #4A6E4D; /* Verde Musgo */
+  --cor-branco-fantasma: #EAEAEA; /* Branco Fantasma */
+}
+
 *, ::before, ::after {
   margin: 0;
   padding: 0;
@@ -12,16 +22,14 @@ body {
 }
 
 header {
-  display: flex;
-  justify-content: space-around;
-  background-color: #121212;
-  align-items: center;
   height: 60px;
-}
-
-h1 {
-  margin: 0;
-  padding: 0;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #121212;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 #searchBar {
@@ -32,7 +40,7 @@ h1 {
 }
 
 #searchInput {
-  border: 0;
+  border: none;
   background-color: unset;
   border-right: 1px solid #ffffff;
 }
@@ -42,7 +50,7 @@ h1 {
 }
 
 button {
-  border: 0;
+  border: none;
   background-color: unset;
   cursor: pointer;
 }
