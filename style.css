@@ -22,19 +22,18 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   color: var(--cor-preto); /* Texto Preto */
   background-color: var(--cor-branco); /* Fundo Branco */
-  margin: 0;
-  padding: 0;
 }
 
 .cabecalho {
+  position: fixed;
+  width: 100%;
   height: 80px;
   padding: 1rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: var(--cor-cinza-escuro); /* Cinza Escuro */
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  z-index: 999; /* Garante que fique acima de outros elementos */
 }
 
 .cabecalho header {
@@ -49,11 +48,14 @@ body {
 }
 
 #searchBar {
+  position: absolute;
+  left: 50%; /* Centraliza horizontalmente */
+  transform: translateX(-50%); /* Ajusta para o centro */
   display: flex;
   flex-direction: row;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.1); /* Fundo levemente escuro */
-  padding: 10px 5px 5px 5px;
+  padding: 10px 5px;
   border-radius: 20px;
 }
 
@@ -78,12 +80,10 @@ body {
 }
 
 #searchInput:focus-visible {
-  padding: 10px;
   outline: 0;
 }
 
 #searchInput::placeholder {
-  padding: 10px;
   color: var(--cor-cinza);
 }
 
@@ -94,6 +94,10 @@ li {
 .sub-navigation {
   background-color: var(--cor-cinza-mais-escuro);
   padding: 10px;
+  position: fixed; /* Fixa a barra de navegação no topo */
+  top: 80px; /* Abaixo da barra de cabeçalho */
+  width: 100%; /* Largura total */
+  z-index: 999; /* Garante que fique acima de outros elementos */
 }
 
 .sub-navigation ul {
@@ -115,11 +119,8 @@ li {
 .welcome {
   text-align: center;
   padding: 20px;
-  background-image: url("https://cdn.pixabay.com/photo/2022/10/13/21/03/hd-wallpaper-7519974_960_720.jpg");
-  background-size: cover;
-  background-position: center;
   height: 100vh;
-  color: var(--cor-branco);
+  color: var(--cor-preto-mais-escuro);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -148,97 +149,7 @@ li {
 
 .postagem {
   text-align: center;
-  margin: 20px;
-  transition: transform 0.3s ease;
-}
 
-.postagem:hover {
-  transform: translateY(-5px);
-}
-
-footer {
-  display: flex;
-  justify-content: space-around;
-  background-color: var(--cor-antracite); /* Antracite */
-  align-items: center;
-  height: 100px;
-  width: 100vw;
-  color: var(--cor-branco); /* Texto Branco */
-}
-
-.githubIcon {
-  width: 60px;
-  height: auto;
-  border-radius: 30px;
-}
-
-#profileIcon {
-  width: 30px;
-  height: auto;
-  border-radius: 15px;
-}
-
-li {
-  color: var(--cor-preto);
-}
-
-.sub-navigation {
-  background-color: var(--cor-cinza-mais-escuro);
-  padding: 10px;
-}
-
-.sub-navigation ul {
-  display: flex;
-  justify-content: space-around;
-  list-style: none;
-}
-
-.sub-navigation a {
-  text-decoration: none;
-  color: var(--cor-preto);
-  transition: color 0.3s ease;
-}
-
-.sub-navigation a:hover {
-  color: var(--cor-antracite);
-}
-
-.welcome {
-  text-align: center;
-  padding: 20px;
-  background-image: url("https://cdn.pixabay.com/photo/2022/10/13/21/03/hd-wallpaper-7519974_960_720.jpg");
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  color: var(--cor-branco);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.produtos {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-  z-index: 1;
-}
-
-.produto {
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.produto:hover {
-  transform: scale(1.05);
-}
-
-#ultimasPostagens {
-  padding: 20px;
-  background-color: var(--cor-branco);
-}
-
-.postagem {
-  text-align: center;
   margin: 20px;
   transition: transform 0.3s ease;
 }
