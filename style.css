@@ -10,7 +10,9 @@
   --cor-preto-mais-escuro: #212529; /* Preto Mais Escuro */
 }
 
-*, ::before, ::after {
+*,
+::before,
+::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -85,20 +87,73 @@ body {
   color: var(--cor-cinza);
 }
 
-.githubIcon {
-  width: 60px;
-  height: auto;
-  border-radius: 30px;
-}
-
-#profileIcon {
-  width: 30px;
-  height: auto;
-  border-radius: 15px;
-}
-
 li {
   color: var(--cor-preto);
+}
+
+.sub-navigation {
+  background-color: var(--cor-cinza-mais-escuro);
+  padding: 10px;
+}
+
+.sub-navigation ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.sub-navigation a {
+  text-decoration: none;
+  color: var(--cor-preto);
+  transition: color 0.3s ease;
+}
+
+.sub-navigation a:hover {
+  color: var(--cor-antracite);
+}
+
+.welcome {
+  text-align: center;
+  padding: 20px;
+  background-image: url('https://cdn.pixabay.com/photo/2022/10/13/21/03/hd-wallpaper-7519974_960_720.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh; 
+  color: var(--cor-branco);
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+.produtos {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  z-index: 1;
+}
+
+.produto {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.produto:hover {
+  transform: scale(1.05);
+}
+
+#ultimasPostagens {
+  padding: 20px;
+  background-color: var(--cor-branco);
+}
+
+.postagem {
+  text-align: center;
+  margin: 20px;
+  transition: transform 0.3s ease;
+}
+
+.postagem:hover {
+  transform: translateY(-5px);
 }
 
 footer {
@@ -109,4 +164,16 @@ footer {
   height: 100px;
   width: 100vw;
   color: var(--cor-branco); /* Texto Branco */
+}
+
+.githubIcon {
+  width: 60px;
+  height: auto;
+  border-radius: 30px;
+}
+
+#profileIcon {
+  width: 30px;
+  height: auto;
+  border-radius: 15px;
 }
