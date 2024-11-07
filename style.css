@@ -68,7 +68,12 @@ body {
   flex-direction: row;
   width: clamp(250px, 30%, 500px);
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.9); /* Fundo branco com leve transparência */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Fundo branco com leve transparência */
   padding: 10px 15px; /* Aumenta o padding para um visual mais espaçoso */
   border-radius: 50px; /* Borda arredondada */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -115,7 +120,6 @@ body {
   color: var(--cor-cinza); /* Cor do placeholder */
   opacity: 0.7; /* Leve transparência no placeholder */
 }
-
 
 .profile {
   width: 50px;
@@ -268,7 +272,6 @@ li {
   background-color: var(--cor-cinza); /* Cor de fundo ao passar o mouse */
   color: var(--cor-cinza-claro); /* Cor do texto ao passar o mouse */
 }
-
 
 footer {
   display: flex;
