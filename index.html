@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Loja NoMob</title>
+    <title>Monsters Antique</title>
+    <meta
+      name="description"
+      content="Your destination for supernatural products!"
+    />
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="script.js" defer></script>
     <link
@@ -90,21 +94,23 @@
   <body>
     <header class="cabecalho">
       <header>
-        <img src="./img/logo/logo-nobg.png" alt="logo" />
+        <img src="./img/logo/logo-nobg.png" alt="Logo da Monsters Antique" />
         <h1 id="title">Monsters Antique</h1>
       </header>
       <main id="searchBar">
-        <button type="button" id="searchButton">
-          <i class="bx bx-search-alt"></i>
+        <button type="button" id="searchButton" aria-label="Buscar">
+          <i class="bx bx-search-alt" aria-hidden="true"></i>
         </button>
         <input
           name="search"
           type="text"
           placeholder="Buscar produto..."
           id="searchInput"
+          aria-label="Campo de busca"
+          required
         />
       </main>
-      <button type="button">
+      <button class="profile" type="button" aria-label="Perfil">
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIJzvwGX_2AoP6sVrqOl4h3CHNrLOGj6ExpjvxfYZnILimKkCckX6mBsa-cfFlRt47Mrs&usqp=CAU"
           alt="Ícone do perfil"
@@ -112,7 +118,7 @@
         />
       </button>
     </header>
-    <nav class="sub-navigation">
+    <nav class="sub-navigation" aria-label="Navegação principal">
       <ul>
         <li><a href="#produtos">Produtos</a></li>
         <li><a href="#sobreNos">Sobre Nós</a></li>
@@ -121,21 +127,21 @@
       </ul>
     </nav>
 
-    <section class="welcome" id="welcome">
-      <h2>Bem-vindo à Loja NoMob!</h2>
+    <section class="welcome" id="welcome" aria-labelledby="welcome">
+      <h2>Bem-vindo à Monsters Antique!</h2>
       <p>Seu destino para produtos sobrenaturais.</p>
-      <div class="produtos">
-        <div class="produto">
+      <div class="produtos" role="list" aria-label="Lista de produtos">
+        <div class="produto" role="listitem">
           <img src="https://via.placeholder.com/150" alt="Produto 1" />
           <h3>Produto 1</h3>
           <p>Descrição do Produto 1</p>
         </div>
-        <div class="produto">
+        <div class="produto" role="listitem">
           <img src="https://via.placeholder.com/150" alt="Produto 2" />
           <h3>Produto 2</h3>
           <p>Descrição do Produto 2</p>
         </div>
-        <div class="produto">
+        <div class="produto" role="listitem">
           <img src="https://via.placeholder.com/150" alt="Produto 3" />
           <h3>Produto 3</h3>
           <p>Descrição do Produto 3</p>
@@ -143,43 +149,64 @@
       </div>
     </section>
 
-    <div id="carrossel-container">
-      <button id="prev-btn" class="carrossel-btn">❮</button>
-      <ul id="produtos" class="carrossel"></ul>
-      <button id="next-btn" class="carrossel-btn">❯</button>
+    <div id="carrossel-container" aria-label="Carrossel de produtos">
+      <button id="prev-btn" class="carrossel-btn" aria-label="Produto anterior">
+        ❮
+      </button>
+      <ul id="produtos" class="carrossel" role="list">
+        <!-- Itens do carrossel serão adicionados aqui -->
+      </ul>
+      <button id="next-btn" class="carrossel-btn" aria-label="Próximo produto">
+        ❯
+      </button>
     </div>
 
-    <section id="ultimasPostagens">
-      <h2>Últimas Postagens</h2>
-      <div class="postagem">
-        <img src="https://via.placeholder.com/150" alt="Postagem 1" />
-        <h3>Título da Postagem 1</h3>
-        <p>Subtítulo da Postagem 1</p>
-      </div>
-      <div class="postagem">
-        <img src="https://via.placeholder.com/150" alt="Postagem 2" />
-        <h3>Título da Postagem 2</h3>
-        <p>Subtítulo da Postagem 2</p>
-      </div>
-      <div class="postagem">
-        <img src="https://via.placeholder.com/150" alt="Postagem 3" />
-        <h3>Título da Postagem 3</h3>
-        <p>Subtítulo da Postagem 3</p>
-      </div>
+    <section id="ultimasPostagens" aria-labelledby="ultimasPostagens">
+      <header>
+        <h2>Últimas Postagens</h2>
+      </header>
+      <main>
+        <div class="postagem" role="article">
+          <img src="https://via.placeholder.com/150" alt="Postagem 1" />
+          <h3>Título da Postagem 1</h3>
+          <p>Subtítulo da Postagem 1</p>
+        </div>
+        <div class="postagem" role="article">
+          <img src="https://via.placeholder.com/150" alt="Postagem 2" />
+          <h3>Título da Postagem 2</h3>
+          <p>Subtítulo da Postagem 2</p>
+        </div>
+        <div class="postagem" role="article">
+          <img src="https://via.placeholder.com/150" alt="Postagem 3" />
+          <h3>Título da Postagem 3</h3>
+          <p>Subtítulo da Postagem 3</p>
+        </div>
+      </main>
+      <aside class="mais-postagens">
+        <a href="outra-pagina.html" aria-label="Ver mais postagens">
+          <i class="bx bx-plus" aria-hidden="true"></i> Mais Postagens
+        </a>
+      </aside>
     </section>
 
     <footer>
-      <a href="https://github.com/gabrielBehling">
+      <a
+        href="https://github.com/gabrielBehling"
+        aria-label="Perfil do GitHub de Gabriel Behling"
+      >
         <img
           src="https://avatars.githubusercontent.com/u/102189169?v=4"
-          alt=""
+          alt="Avatar de Gabriel Behling"
           class="githubIcon"
         />
       </a>
-      <a href="https://github.com/tyxiel">
+      <a
+        href="https://github.com/tyxiel"
+        aria-label="Perfil do GitHub de Tyxiel"
+      >
         <img
           src="https://avatars.githubusercontent.com/u/128870773?v=4"
-          alt=""
+          alt="Avatar de Tyxiel"
           class="githubIcon"
         />
       </a>
