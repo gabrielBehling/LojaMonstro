@@ -368,7 +368,6 @@ footer {
   padding: 25px 15px;
   background-color: var(--cor-antracite);
   align-items: center;
-  height: 150px;
   text-decoration: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -399,6 +398,7 @@ footer {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-top: 10px;
 }
 
 .footer-main a {
