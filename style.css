@@ -320,7 +320,6 @@ li {
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   row-gap: 25px;
   column-gap: 25px;
-  padding: 10px 15px;
 }
 
 .postagem {
