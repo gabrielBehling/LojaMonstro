@@ -270,7 +270,7 @@ li {
   height: 40px;
   background-color: var(--cor-cinza-mais-escuro);
   color: var(--cor-preto);
-  font-size: 1.8rem;
+  font-size: 20px;
   text-align: center;
   text-decoration: none;
   border: none;
@@ -419,7 +419,8 @@ footer {
 .footer-main a {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  font-size: 20px;
+  gap: 0.8rem;
   text-decoration: none;
   color: var(--cor-cinza-claro);
   transition: scale 0.3s ease, font-weight 0.3s ease;
