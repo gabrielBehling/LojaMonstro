@@ -50,6 +50,7 @@ body {
   gap: 1rem;
   text-decoration: none;
   color: var(--cor-preto);
+  text-transform: uppercase;
 }
 
 .cabecalho header img {
@@ -168,6 +169,8 @@ li {
 .sub-navigation a {
   font-weight: 500;
   text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
   color: var(--cor-preto);
   transition: color 0.3s ease;
   padding: 2.5px 5px;
