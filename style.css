@@ -225,61 +225,61 @@ li {
 #ultimasPostagens main {
   display: flex;
   flex-direction: row;
-  padding: 20px;
-  gap: calc(100% / 33);
+  padding: 10px 15px;
+  gap: calc(100% / 40);
 }
 
 .postagem {
   flex: 0 0 30%; /* Largura fixa de 30% */
   text-align: center;
   padding: 20px;
-  background-color: var(--cor-cinza-claro); /* Fundo Cinza Claro */
+  background-color: var(--cor-cinza-claro);
   border-radius: 8px; /* Borda arredondada */
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transição para sombra */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-decoration: none;
 }
 
 .postagem:hover {
   transform: translateY(-5px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Aumenta a sombra ao passar o mouse */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .postagem img {
   max-width: 100%; /* Garante que a imagem não ultrapasse o limite do contêiner */
-  border-radius: 5px; /* Borda arredondada para a imagem */
+  border-radius: 5px;
 }
 
 .postagem h3 {
-  color: var(--cor-preto); /* Título Preto */
-  margin: 10px 0; /* Espaço acima e abaixo do título */
+  color: var(--cor-preto);
+  margin: 10px 0;
 }
 
 .postagem p {
-  color: var(--cor-cinza); /* Texto Cinza */
+  color: var(--cor-cinza);
 }
 
 .mais-postagens {
   text-align: center;
-  margin-top: 20px; /* Espaçamento acima do botão */
+  margin-top: 20px;
 }
 
 .mais-postagens a {
   text-decoration: none;
-  color: var(--cor-antracite); /* Cor do texto */
-  font-size: 18px; /* Tamanho da fonte */
-  display: inline-flex; /* Para alinhar o ícone e o texto */
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
-  padding: 10px 20px; /* Espaçamento interno */
-  background-color: var(--cor-cinza-claro); /* Fundo cinza claro */
-  border-radius: 8px; /* Bordas arredondadas */
-  transition: background-color 0.3s ease; /* Transição suave para a cor de fundo */
+  color: var(--cor-antracite);
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  background-color: var(--cor-cinza-claro);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
 }
 
 .mais-postagens a:hover {
-  background-color: var(--cor-cinza); /* Cor de fundo ao passar o mouse */
-  color: var(--cor-cinza-claro); /* Cor do texto ao passar o mouse */
+  background-color: var(--cor-cinza);
+  color: var(--cor-cinza-claro);
 }
 
 footer {
@@ -289,15 +289,40 @@ footer {
   background-color: var(--cor-antracite);
   align-items: center;
   height: fit-content;
-  color: var(--cor-branco);
+  text-decoration: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+}
+
+.footer-title, .footer-subtitle {
+  text-align: center;
+  width: 100%;
+}
+
+.footer-title {
+  color: var(--cor-cinza-claro);
+}
+
+.footer-subtitle {
+  color: var(--cor-cinza-escuro);
 }
 
 .githubIcon {
   width: 60px;
   height: auto;
   border-radius: 50px;
+}
+
+.footer-link-title {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 500;
+  transition: scale 0.3s ease, font-weight 0.3s ease;
+}
+
+.footer-link-title:hover {
+  font-weight: bold;
+  scale: 1.05;
 }
 
 #carrossel-container {
@@ -354,10 +379,11 @@ footer {
 .carrossel-btn {
   width: 40px;
   height: 40px;
-  background-color: #333;
-  color: #fff;
+  background-color: var(--cor-cinza-mais-escuro);
+  color: var(--cor-cinza-claro);
   font-size: 18px;
   border: none;
+  outline: none;
   cursor: pointer;
   padding: 5px;
   margin: 0 5px;
