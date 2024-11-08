@@ -264,12 +264,16 @@ li {
 }
 
 .carrossel-btn {
-  display: flex;
+  display: inline-flex;
+  place-self: center;
+  place-content: center;
   width: 40px;
   height: 40px;
   background-color: var(--cor-cinza-mais-escuro);
   color: var(--cor-preto);
   font-size: 2rem;
+  text-align: center;
+  text-decoration: none;
   border: none;
   outline: none;
   cursor: pointer;
@@ -282,6 +286,19 @@ li {
 .carrossel-btn:hover {
   color: var(--cor-preto-mais-escuro);
   background-color: var(--cor-cinza);
+}
+
+.carrossel-btn i {
+  color: var(--cor-preto);
+  text-decoration: none;
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  transition: color 0.3s ease;
+}
+
+.carrossel-btn i:hover {
+  color: var(--cor-preto-mais-escuro);
 }
 
 #ultimasPostagens {
