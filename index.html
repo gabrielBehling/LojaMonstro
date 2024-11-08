@@ -6,7 +6,7 @@
     <title>Monsters Antique</title>
     <meta
       name="description"
-      content="Your destination for supernatural products!"
+      content="Seu destino para produtos sobrenaturais!"
     />
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="script.js" defer></script>
@@ -79,7 +79,7 @@
       sizes="16x16"
       href="./img/icon/favicon-16x16.png"
     />
-    <link rel="manifest" href="./img/icon/manifest.json" />
+    <link rel="manifest" href="./manifest.json" />
     <meta name="msapplication-TileColor" content="#ffffff" />
     <meta
       name="msapplication-TileImage"
@@ -128,28 +128,32 @@
     </nav>
 
     <section class="welcome" id="welcome" aria-labelledby="welcome">
-      <h2>Bem-vindo à Monsters Antique!</h2>
-      <p>Seu destino para produtos sobrenaturais.</p>
-      <div class="produtos" role="list" aria-label="Lista de produtos">
-        <div class="produto" role="listitem">
-          <img src="https://via.placeholder.com/150" alt="Produto 1" />
-          <h3>Produto 1</h3>
-          <p>Descrição do Produto 1</p>
+      <header class="welcome-header">
+        <h2>Bem-vindo à Monsters Antique!</h2>
+        <p>Seu destino para produtos sobrenaturais.</p>
+      </header>
+      <main class="welcome-header">
+        <div class="produtos" role="list" aria-label="Lista de produtos">
+          <div class="produto" role="listitem">
+            <img src="https://via.placeholder.com/150" alt="Produto 1" />
+            <h3>Produto 1</h3>
+            <p>Descrição do Produto 1</p>
+          </div>
+          <div class="produto" role="listitem">
+            <img src="https://via.placeholder.com/150" alt="Produto 2" />
+            <h3>Produto 2</h3>
+            <p>Descrição do Produto 2</p>
+          </div>
+          <div class="produto" role="listitem">
+            <img src="https://via.placeholder.com/150" alt="Produto 3" />
+            <h3>Produto 3</h3>
+            <p>Descrição do Produto 3</p>
+          </div>
         </div>
-        <div class="produto" role="listitem">
-          <img src="https://via.placeholder.com/150" alt="Produto 2" />
-          <h3>Produto 2</h3>
-          <p>Descrição do Produto 2</p>
-        </div>
-        <div class="produto" role="listitem">
-          <img src="https://via.placeholder.com/150" alt="Produto 3" />
-          <h3>Produto 3</h3>
-          <p>Descrição do Produto 3</p>
-        </div>
-      </div>
+      </main>
     </section>
 
-    <div id="carrossel-container" aria-label="Carrossel de produtos">
+    <section id="carrossel-container" aria-label="Carrossel de produtos">
       <button id="prev-btn" class="carrossel-btn" aria-label="Produto anterior">
         ❮
       </button>
@@ -159,7 +163,7 @@
       <button id="next-btn" class="carrossel-btn" aria-label="Próximo produto">
         ❯
       </button>
-    </div>
+    </section>
 
     <section id="ultimasPostagens" aria-labelledby="ultimasPostagens">
       <header>
