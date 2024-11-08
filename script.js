@@ -29,7 +29,9 @@ function toggleSubNav() {
 }
 
 // Adiciona o evento de clique no ícone do hambúrguer
-document.querySelector(".hamburger-menu").addEventListener("click", toggleSubNav);
+document
+  .querySelector(".hamburger-menu")
+  .addEventListener("click", toggleSubNav);
 
 // Ajuste no evento de scroll para ajustar a posição da navegação
 document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
@@ -63,13 +65,12 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburgerMenu.addEventListener("click", () => {
       // Alterna a classe 'active' no menu
       subNavigation.classList.toggle("active");
-      hamburgerMenu.classList.toggle('active');
+      hamburgerMenu.classList.toggle("active");
     });
   } else {
     console.error("Erro: Elemento do menu ou navegação não encontrado");
   }
 });
-
 
 let currentSlideIndex = 0; // Índice da primeira exibição do carrossel
 const itemsPerPage = 3; // Número de itens visíveis por vez

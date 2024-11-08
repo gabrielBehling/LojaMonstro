@@ -1,5 +1,9 @@
 /* root and config */
-@font-face { font-family: Creepster; src: url('./fonts/Creepster/Creepster-Regular.ttf'); } 
+@font-face {
+  font-family: Creepster;
+  src: url("./fonts/Creepster/Creepster-Regular.ttf");
+}
+
 
 :root {
   --orange-color: hsl(22, 72%, 50%);
@@ -11,7 +15,16 @@
   --light-purple: #9E186A;
   --purple: #5f0f40;
   --dark-purple: #2B071D;
-
+  --neon-green: #00FF00;  /* Cor verde neon */
+  --yellow-halloween: #FFDD00;  /* Cor amarela brilhante */
+  --pumpkin-orange: #FF7518;  /* Laranja de abóbora */
+  --black-halloween: #111;  /* Preto profundo de Halloween */
+  --blood-red: #9B111E;  /* Vermelho sangue */
+  --haunting-purple: #6200EE; /* Roxo assombrado */
+  --dark-brown: #5A3D3A; /* Marrom escuro */
+  --fog-gray: #D1D1D1; /* Cinza nevoento */
+  --spooky-blue: #243c5a; /* Azul sombrio */
+  
   --body-font: Verdana, sans-serif;
   --second-font: Creepster, cursive;
 
@@ -54,8 +67,9 @@ html {
 body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  background-color: var(--body-color);
-  color:var(--white-color)
+  background-color: var(--purple);
+  color: var(--white-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ul {
@@ -74,18 +88,18 @@ img {
 /* Scrollbar Styles */
 
 ::-webkit-scrollbar {
-  width: .6rem;
-  border-radius: .5rem;
+  width: 0.6rem;
+  border-radius: 0.5rem;
   background-color: hsl(22, 8%, 10%);
 }
 
 ::-webkit-scrollbar-thumb {
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background-color: hsl(22, 8%, 15%);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   background-color: hsl(22, 8%, 20%);
 }
 
@@ -99,7 +113,10 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: var(--dark-purple);
   z-index: var(--z-fixed);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .page-header header {
@@ -127,11 +144,11 @@ img {
   width: clamp(300px, 30%, 500px);
   margin-right: 15px;
   align-items: center;
-  background-color: var(--dark-purple);
+  background-color: var(--orange-color-alt);
   padding: 10px 15px;
   border-radius: 50px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;;
 }
 
 .search:hover {
@@ -145,12 +162,12 @@ img {
   border: none;
   background-color: transparent;
   cursor: pointer;
-  color: var(--text-color-light);
+  color: var(--white-color);
   transition: color 0.3s ease;
 }
 
 .search button:hover {
-  color: var(--white-color);
+  color: var(--pumpkin-orange);
 }
 
 .search__input {
@@ -159,7 +176,7 @@ img {
   padding: 10px 15px;
   margin-left: 10px;
   font-size: var(--normal-font-size);
-  border: 1px solid var(--text-color-light);
+  border: 1px solid var(--white-color);
   border-radius: 25px;
   background-color: transparent;
   color: var(--white-color);
@@ -170,7 +187,7 @@ img {
   .search {
     padding: 10px;
   }
-  
+
   .search__input {
     padding: 10px 7.5px;
     margin-left: 5px;
@@ -179,11 +196,11 @@ img {
 
 .search__input:focus-visible {
   outline: none;
-  border-color: var(--text-color);
+  border-color: var(--pumpkin-orange); 
 }
 
 .search__input::placeholder {
-  color: var(--text-color);
+  color: var(--white-color);
   opacity: 0.7;
 }
 
@@ -201,32 +218,28 @@ img {
   border-radius: 50%;
 }
 
-/* Estilo para o ícone do hamburger */
-/* Estilo da subnavegação */
-/* Estilo para a sub-navegação (menu hambúrguer) */
 .sub-navigation {
-  display: none; /* Inicialmente oculta */
+  display: none;
   position: fixed;
-  top: 75px; /* Ajuste conforme a altura do cabeçalho */
+  top: 75px; 
   left: 0;
   right: 0;
-  background-color: var(--dark-purple);
+  background-color: var(--purple);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   z-index: var(--z-tooltip);
-  opacity: 0; /* Inicialmente invisível */
-  transform: translateY(-10px); /* Inicialmente deslocado para cima */
+  opacity: 0; 
+  transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Quando a classe 'active' for adicionada, exibimos o menu */
 .sub-navigation.active {
-  display: inline-flex; /* Torna o menu visível */
-  opacity: 1; /* Torna o menu visível */
-  transform: translateY(0); /* Restaura a posição original */
+  display: inline-flex;
+  opacity: 1;
+  transform: translateY(0);
 }
 
-/* Estilo para os links da navegação */
 .sub-navigation ul {
   display: flex;
   flex-direction: column;
@@ -240,14 +253,13 @@ img {
   font-size: var(--normal-font-size);
   padding: 10px;
   transition: background-color 0.3s ease;
-  border-radius: 4px;
+  border-radius: 8%;
 }
 
 .sub-navigation a:hover {
-  background-color: var(--orange-color);
+  background-color: var(--pumpkin-orange); 
 }
 
-/* Estilo para o ícone do hambúrguer */
 .hamburger-menu {
   width: calc(var(--biggest-font-size) + 10px);
   height: calc(var(--biggest-font-size) + 10px);
@@ -276,7 +288,8 @@ img {
     display: block; /* Exibe o ícone no mobile */
   }
 
-  .profile, .profile-icon {
+  .profile,
+  .profile-icon {
     display: none;
     width: 0;
     height: 0;
@@ -289,6 +302,9 @@ img {
   position: relative;
   height: 100vh;
   overflow: hidden;
+  background-color: var(--dark-purple);
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .home__container {
@@ -308,7 +324,20 @@ img {
   font-size: var(--biggest-font-size);
   line-height: 140%;
   width: max-content;
-  margin: 0 auto .5rem;
+  margin: 0 auto 0.5rem; 
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  0% {
+    text-shadow: 0 0 5px var(--orange-color-alt), 0 0 10px var(--orange-color-alt), 0 0 15px var(--orange-color-alt);
+  }
+  50% {
+    text-shadow: 0 0 10px var(--orange-color-alt), 0 0 20px var(--orange-color-alt), 0 0 30px var(--orange-color-alt);
+  }
+  100% {
+    text-shadow: 0 0 5px var(--orange-color-alt), 0 0 10px var(--orange-color-alt), 0 0 15px var(--orange-color-alt);
+  }
 }
 
 .home__title i {
@@ -323,12 +352,6 @@ img {
   letter-spacing: 2px;
   font-weight: initial;
   color: var(--orange-color);
-}
-
-.home__title i:first-of-type {
-  top: -1rem;
-  left: -1.5rem;
-  transform: rotate(-15deg);
 }
 
 .home__title-icon-1 {
@@ -356,10 +379,17 @@ img {
 .product {
   text-align: center;
   transition: transform 0.3s ease;
+  background-color: var(--black-halloween); /* fundo escuro */
+  color: var(--white-color); /* texto claro para contraste */
+  border-radius: 8px;
+  padding: 15px;
+  transition: transform 0.3s ease;
 }
+
 
 .product:hover {
   transform: scale(1.05);
+  background-color: var(--spooky-blue);
 }
 
 #carrossel-container {
@@ -369,6 +399,7 @@ img {
   padding: 25px 5px;
   overflow: hidden;
   position: relative;
+  background-color: var(--purple);
 }
 
 .carrossel {
@@ -383,9 +414,10 @@ img {
   flex: 1 0 30%;
   margin: 0 5px;
   padding: 10px;
-  border: 1px solid var(--cor-cinza-mais-escuro);
+  border: 1px solid var(--blood-red); /* borda vermelha sangue */
   border-radius: 8px;
-  background-color: var(--cor-branco);
+  background-color: var(--dark-purple); /* fundo roxo escuro */
+  color: var(--white-color); /* texto branco */
   text-align: left;
   display: none;
 }
@@ -398,27 +430,27 @@ img {
 
 .produto-nome {
   font-weight: bold;
-  color: var(--cor-preto);
+  color: var(--neon-green); /* verde neon para o nome */
   margin-bottom: 5px;
 }
 
 .produto-preco {
-  color: var(--cor-preto-mais-escuro);
+  color: var(--blood-red); /* vermelho sangue para preço */
   font-weight: bold;
   margin-bottom: 5px;
 }
 
 .produto-fornecedor {
   font-style: italic;
-  color: var(--cor-preto);
+  color: var(--fog-gray); /* cinza nevoento para fornecedor */
 }
 
 .carrossel-btn {
   display: inline-flex;
   width: 40px;
   height: 40px;
-  background-color: var(--cor-cinza-mais-escuro);
-  color: var(--cor-preto);
+  background-color: var(--pumpkin-orange); /* laranja de abóbora para os botões */
+  color: var(--white-color);
   font-size: 30px;
   text-align: center;
   border: none;
@@ -429,13 +461,14 @@ img {
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+
 .carrossel-btn:hover {
-  color: var(--cor-preto-mais-escuro);
-  background-color: var(--cor-cinza);
+  color: var(--black-halloween); /* preto profundo no hover */
+  background-color: var(--haunting-purple); /* roxo assombrado no hover */
 }
 
 .carrossel-btn i {
-  color: var(--cor-preto);
+  color: var(--white-color);
   border: none;
   outline: none;
   border-radius: 50%;
@@ -443,14 +476,14 @@ img {
 }
 
 .carrossel-btn i:hover {
-  color: var(--cor-preto-mais-escuro);
+  color: var(--spooky-blue); /* azul sombrio no hover */
 }
 
 #ultimasPostagens {
-  background-color: var(--cor-cinza-claro);
-  margin-top: 25px;
+  background-color: var(--dark-purple);
   padding: 25px 10px;
-  border-radius: 8px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 #ultimasPostagens header {
@@ -458,7 +491,10 @@ img {
   display: flex;
   text-align: center;
   flex-direction: column;
-  color: var(--cor-preto);
+  font-size: var(--h2-font-size);
+  color: var(--blood-red);
+  font-family: var(--second-font);
+  letter-spacing: 2px;
   margin-bottom: 20px;
 }
 
@@ -473,10 +509,11 @@ img {
   flex: 0 0 30%; /* Largura fixa de 30% */
   text-align: center;
   padding: 20px;
-  background-color: var(--cor-cinza-claro);
+  background-color: var(--purple);
   border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  color: var(--white-color);
 }
 
 .postagem:hover {
@@ -490,12 +527,15 @@ img {
 }
 
 .postagem h3 {
-  color: var(--cor-preto);
+  font-size: var(--h3-font-size);
+  color: var(--blood-red);
   margin: 10px 0;
+  font-weight: bold;
 }
 
 .postagem p {
-  color: var(--cor-cinza);
+  color: var(--light-purple);
+  font-weight: 500;
 }
 
 .mais-postagens {
@@ -504,20 +544,20 @@ img {
 }
 
 .mais-postagens a {
-  color: var(--cor-antracite);
+  color: var(--white-color);
   font-size: 18px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  background-color: var(--cor-cinza-medio);
+  background-color: var(--black-halloween);
   border-radius: 8px;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mais-postagens a:hover {
-  background-color: var(--cor-cinza);
-  color: var(--cor-cinza-claro);
+  background-color: var(--orange-color);
+  color: var(--white-color);
 }
 
 footer {
@@ -525,10 +565,12 @@ footer {
   display: flex;
   flex-direction: column;
   padding: 25px 15px;
-  background-color: var(--cor-antracite);
+  background-color: var(--black-halloween);
   align-items: center;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .footer-header {
@@ -537,17 +579,18 @@ footer {
   gap: 1rem;
 }
 
-.footer-title, .footer-subtitle {
+.footer-title,
+.footer-subtitle {
   text-align: center;
   width: 100%;
 }
 
 .footer-title {
-  color: var(--cor-cinza-claro);
+  color: var(--light-purple);
 }
 
 .footer-subtitle {
-  color: var(--cor-cinza-escuro);
+  color: var(--purple); /* laranja de abóbora para o subtítulo */
   text-decoration: underline;
 }
 
@@ -564,7 +607,7 @@ footer {
   align-items: center;
   font-size: 24px;
   gap: 10px;
-  color: var(--cor-cinza-claro);
+  color: var(--white-color);
   transition: scale 0.3s ease, font-weight 0.3s ease;
 }
 
@@ -580,6 +623,7 @@ footer {
 }
 
 .footer-link-title {
+  color: var(--orange-color);
   text-align: center;
   font-size: 20px;
   font-weight: 500;
