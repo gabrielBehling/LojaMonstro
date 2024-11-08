@@ -7,7 +7,7 @@ document.querySelectorAll('.sub-navigation a').forEach(anchor => {
       const targetElement = document.querySelector(targetId);
 
       // Scroll to the target element, adjusting for the fixed header height
-      const headerOffset = 80; // Height of the fixed header
+      const headerOffset = 110; // Height of the fixed header
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
