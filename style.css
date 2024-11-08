@@ -68,12 +68,7 @@ body {
   flex-direction: row;
   width: clamp(250px, 30%, 500px);
   align-items: center;
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.9
-  ); /* Fundo branco com leve transparência */
+  background-color: var(--cor-cinza-mais-escuro);
   padding: 10px 15px; /* Aumenta o padding para um visual mais espaçoso */
   border-radius: 50px; /* Borda arredondada */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -95,7 +90,7 @@ body {
 }
 
 #searchBar button:hover {
-  color: var(--cor-antracite); /* Muda a cor ao passar o mouse */
+  color: var(--cor-preto-mais-escuro); /* Muda a cor ao passar o mouse */
 }
 
 #searchInput {
@@ -104,7 +99,7 @@ body {
   padding: 10px 15px; /* Padding interno */
   margin-left: 10px; /* Espaço entre o botão e o input */
   font-size: 16px; /* Tamanho da fonte */
-  border: 1px solid var(--cor-cinza); /* Borda cinza */
+  border: 1px solid var(--cor-preto); /* Borda cinza */
   border-radius: 25px; /* Borda arredondada */
   background-color: transparent; /* Fundo transparente */
   color: var(--cor-preto);
@@ -113,7 +108,7 @@ body {
 
 #searchInput:focus-visible {
   outline: none; /* Remove o contorno padrão */
-  border-color: var(--cor-antracite); /* Muda a cor da borda ao focar */
+  border-color: var(--cor-preto-mais-escuro); /* Muda a cor da borda ao focar */
 }
 
 #searchInput::placeholder {
@@ -144,13 +139,14 @@ li {
   padding: 10px;
   position: fixed; /* Fixa a barra de navegação no topo */
   top: 80px; /* Abaixo da barra de cabeçalho */
-  width: 100%; /* Largura total */
+  width: clamp(100px, 20%); /* Largura total */
   z-index: 999; /* Garante que fique acima de outros elementos */
 }
 
 .sub-navigation ul {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  text-align: center;
   list-style: none;
 }
 
