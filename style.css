@@ -122,13 +122,9 @@ img {
 }
 
 .search {
-  position: absolute;
-  left: 50%;
-  right: 50%;
-  transform: translateX(-50%);
   display: flex;
   flex-direction: row;
-  width: clamp(275px, 30%, 500px);
+  width: clamp(300px, 30%, 500px);
   margin-right: 15px;
   align-items: center;
   background-color: var(--dark-purple);
@@ -199,44 +195,93 @@ img {
   cursor: pointer;
 }
 
-#profileIcon {
+.profile-icon {
   width: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
 
-/* .sub-navigation {
-  background-color: var();
-  padding: 10px 20px;
+/* Estilo para o ícone do hamburger */
+/* Estilo da subnavegação */
+/* Estilo para a sub-navegação (menu hambúrguer) */
+.sub-navigation {
+  display: none; /* Inicialmente oculta */
   position: fixed;
-  top: 80px;
-  width: 100%;
-  z-index: 999;
-  border-bottom-left-radius: 8px;
-  border-bottom-right-radius: 8px;
+  top: 75px; /* Ajuste conforme a altura do cabeçalho */
+  left: 0;
+  right: 0;
+  background-color: var(--dark-purple);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  z-index: var(--z-tooltip);
+  opacity: 0; /* Inicialmente invisível */
+  transform: translateY(-10px); /* Inicialmente deslocado para cima */
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
+/* Quando a classe 'active' for adicionada, exibimos o menu */
+.sub-navigation.active {
+  display: inline-flex; /* Torna o menu visível */
+  opacity: 1; /* Torna o menu visível */
+  transform: translateY(0); /* Restaura a posição original */
+}
+
+/* Estilo para os links da navegação */
 .sub-navigation ul {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 10px;
   text-align: center;
+  padding: 10px;
 }
 
 .sub-navigation a {
-  font-weight: 500;
-  text-transform: uppercase;
-  text-align: center;
-  color: var(--cor-preto);
-  transition: color 0.3s ease;
-  padding: 2.5px 5px;
-  border-radius: 8px;
-  transition: color 0.3s ease;
+  color: var(--white-color);
+  font-size: var(--normal-font-size);
+  padding: 10px;
+  transition: background-color 0.3s ease;
+  border-radius: 4px;
 }
 
 .sub-navigation a:hover {
-  color: var(--cor-antracite);
-} */
+  background-color: var(--orange-color);
+}
+
+/* Estilo para o ícone do hambúrguer */
+.hamburger-menu {
+  width: calc(var(--biggest-font-size) + 10px);
+  height: calc(var(--biggest-font-size) + 10px);
+  display: none;
+  padding: 5px;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--dark-purple);
+  font-size: var(--biggest-font-size);
+  color: var(--white-color);
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.hamburger-menu.active {
+  transform: rotate(90deg); /* Gira o ícone ao ser clicado */
+}
+
+.hamburger-menu:hover {
+  color: var(--orange-color);
+}
+
+/* Exibir o hamburger no mobile */
+@media (max-width: 570px) {
+  .hamburger-menu {
+    display: block; /* Exibe o ícone no mobile */
+  }
+
+  .profile, .profile-icon {
+    display: none;
+    width: 0;
+    height: 0;
+  }
+}
 
 /* Home */
 
@@ -251,6 +296,10 @@ img {
 }
 
 .home__data {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
   text-align: center;
 }
 

@@ -1,36 +1,75 @@
 // Impede que quando clicar em link, a barra de navegação não cobre a seção
-document.querySelectorAll('.sub-navigation a').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-      e.preventDefault();
+document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
 
-      const targetId = this.getAttribute('href');
-      const targetElement = document.querySelector(targetId);
+    const targetId = this.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
 
-      // Scroll to the target element, adjusting for the fixed header height
-      const headerOffset = 126; // Height of the fixed header
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    // Scroll to the target element, adjusting for the fixed header height
+    const headerOffset = 126; // Height of the fixed header
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth' // Optional: for smooth scrolling
-      });
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth", // Optional: for smooth scrolling
     });
   });
+});
 
-document.addEventListener("DOMContentLoaded", () => {
-  const searchInput = document.getElementById("searchInput");
+// Toggle da sub-navegação e rotação do ícone de hambúrguer
+function toggleSubNav() {
+  const subNavigation = document.getElementById("sub-navigation");
+  const hamburger = document.querySelector(".hamburger-menu");
 
-  searchInput.addEventListener("focus", () => {
-    searchInput.placeholder = ""; // Remove o placeholder ao focar
-  });
+  // Alterna a classe "open" para sub-navegação e hambúrguer
+  subNavigation.classList.toggle("open");
+  hamburger.classList.toggle("open");
+}
 
-  searchInput.addEventListener("blur", () => {
-    if (searchInput.value === "") {
-      searchInput.placeholder = "Buscar produto..."; // Restaura o placeholder se o campo estiver vazio
-    }
+// Adiciona o evento de clique no ícone do hambúrguer
+document.querySelector(".hamburger-menu").addEventListener("click", toggleSubNav);
+
+// Ajuste no evento de scroll para ajustar a posição da navegação
+document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const targetId = this.getAttribute("href");
+    const targetElement = document.querySelector(targetId);
+
+    // Scroll to the target element, adjusting for the fixed header height
+    const headerOffset = 126; // Altura do cabeçalho fixo
+    const elementPosition = targetElement.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth", // Optional: for smooth scrolling
+    });
+
+    // Fecha a subnavegação após o clique
+    toggleSubNav();
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburgerMenu = document.getElementById("hamburger-menu");
+  const subNavigation = document.querySelector(".sub-navigation");
+
+  // Verificar se os elementos estão presentes no DOM
+  if (hamburgerMenu && subNavigation) {
+    hamburgerMenu.addEventListener("click", () => {
+      // Alterna a classe 'active' no menu
+      subNavigation.classList.toggle("active");
+      hamburgerMenu.classList.toggle('active');
+    });
+  } else {
+    console.error("Erro: Elemento do menu ou navegação não encontrado");
+  }
+});
+
 
 let currentSlideIndex = 0; // Índice da primeira exibição do carrossel
 const itemsPerPage = 3; // Número de itens visíveis por vez
