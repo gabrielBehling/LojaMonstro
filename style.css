@@ -44,7 +44,7 @@ body {
   z-index: 999;
 }
 
-.cabecalho header a {
+.cabecalho a {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -52,7 +52,7 @@ body {
   color: var(--cor-preto);
 }
 
-.cabecalho header a img {
+.cabecalho a img {
   height: 60px;
   object-fit: cover;
 }
