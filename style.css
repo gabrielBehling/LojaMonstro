@@ -1,12 +1,12 @@
 :root {
-  --cor-branco: #f8f9fa; /* Branco */
-  --cor-cinza-claro: #e9ecef; /* Cinza Claro */
-  --cor-cinza-medio: #dee2e6; /* Cinza Médio */
-  --cor-cinza-escuro: #ced4da; /* Cinza Escuro */
-  --cor-cinza-mais-escuro: #adb5bd; /* Cinza Mais Escuro */
-  --cor-cinza: #6c757d; /* Cinza */
-  --cor-antracite: #495057; /* Antracite */
-  --cor-preto: #343a40; /* Preto */
+  --cor-branco: #f8f9fa;
+  --cor-cinza-claro: #e9ecef;
+  --cor-cinza-medio: #dee2e6;
+  --cor-cinza-escuro: #ced4da;
+  --cor-cinza-mais-escuro: #adb5bd;
+  --cor-cinza: #6c757d; /* TO DO: CHANGE NAME*/
+  --cor-antracite: #495057;
+  --cor-preto: #343a40;
   --cor-preto-mais-escuro: #212529; /* Preto Mais Escuro */
 }
 
@@ -42,8 +42,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--cor-cinza-escuro); /* Cinza Escuro */
-  z-index: 999; /* Garante que fique acima de outros elementos */
+  background-color: var(--cor-cinza-escuro);
+  z-index: 999;
 }
 
 .cabecalho header {
@@ -66,54 +66,61 @@ body {
 #searchBar {
   display: flex;
   flex-direction: row;
-  width: clamp(250px, 30%, 500px);
+  width: clamp(260px, 30%, 500px);
   align-items: center;
   background-color: var(--cor-cinza-mais-escuro);
-  padding: 10px 15px; /* Aumenta o padding para um visual mais espaçoso */
-  border-radius: 50px; /* Borda arredondada */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  transition: box-shadow 0.3s ease; /* Transição suave para a sombra */
+  padding: 10px 15px;
+  border-radius: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
 }
 
 #searchBar:hover {
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Sombra mais intensa ao passar o mouse */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 #searchBar button {
   font-size: 25px;
-  padding: 0; /* Remove padding para um botão mais compacto */
+  padding: 0;
   border: none;
-  background-color: transparent; /* Fundo transparente */
+  background-color: transparent;
   cursor: pointer;
   color: var(--cor-preto);
-  transition: color 0.3s ease; /* Transição suave para a cor */
+  transition: color 0.3s ease;
 }
 
 #searchBar button:hover {
-  color: var(--cor-preto-mais-escuro); /* Muda a cor ao passar o mouse */
+  color: var(--cor-preto-mais-escuro);
 }
 
 #searchInput {
   flex: 1; /* Faz o input ocupar o espaço restante */
-  height: 40px; /* Altura fixa para o input */
-  padding: 10px 15px; /* Padding interno */
-  margin-left: 10px; /* Espaço entre o botão e o input */
-  font-size: 16px; /* Tamanho da fonte */
-  border: 1px solid var(--cor-preto); /* Borda cinza */
-  border-radius: 25px; /* Borda arredondada */
-  background-color: transparent; /* Fundo transparente */
+  height: 40px;
+  padding: 10px 15px;
+  margin-left: 10px;
+  font-size: 16px;
+  border: 1px solid var(--cor-preto);
+  border-radius: 25px;
+  background-color: transparent;
   color: var(--cor-preto);
-  transition: border-color 0.3s ease; /* Transição suave para a borda */
+  transition: border-color 0.3s ease;
+}
+
+@media (max-width: 732px) {
+  #searchInput {
+    padding: 10px 7.5px;
+    margin-left: 5px;
+  }
 }
 
 #searchInput:focus-visible {
-  outline: none; /* Remove o contorno padrão */
-  border-color: var(--cor-preto-mais-escuro); /* Muda a cor da borda ao focar */
+  outline: none;
+  border-color: var(--cor-preto-mais-escuro);
 }
 
 #searchInput::placeholder {
-  color: var(--cor-cinza); /* Cor do placeholder */
-  opacity: 0.7; /* Leve transparência no placeholder */
+  color: var(--cor-cinza);
+  opacity: 0.7;
 }
 
 .profile {
