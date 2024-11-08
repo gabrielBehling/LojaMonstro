@@ -30,8 +30,6 @@ html {
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  color: var(--cor-preto); /* Texto Preto */
-  background-color: var(--cor-branco); /* Fundo Branco */
 }
 
 .cabecalho {
@@ -149,10 +147,11 @@ li {
 .sub-navigation {
   background-color: var(--cor-cinza-mais-escuro);
   padding: 10px;
-  position: fixed; /* Fixa a barra de navegação no topo */
-  top: 80px; /* Abaixo da barra de cabeçalho */
-  width: clamp(100px, 20%); /* Largura total */
-  z-index: 999; /* Garante que fique acima de outros elementos */
+  position: fixed;
+  top: 80px;
+  width: clamp(100px, 20%);
+  z-index: 999;
+  border-radius: 8px;
 }
 
 .sub-navigation ul {
@@ -166,6 +165,7 @@ li {
   text-decoration: none;
   color: var(--cor-preto);
   transition: color 0.3s ease;
+  border: 1px solid var(--cor-cinza);
 }
 
 .sub-navigation a:hover {
@@ -207,10 +207,10 @@ li {
 }
 
 #ultimasPostagens {
-  background-color: var(--cor-branco); /* Fundo Branco */
+  background-color: var(--cor-branco);
   margin-top: 25px;
-  padding: 25px; /* Adiciona padding ao redor da seção */
-  border-radius: 8px; /* Adiciona borda arredondada */
+  padding: 25px;
+  border-radius: 8px;
 }
 
 #ultimasPostagens header {
@@ -218,15 +218,15 @@ li {
   display: flex;
   text-align: center;
   flex-direction: column;
-  color: var(--cor-preto); /* Texto Preto */
-  margin-bottom: 20px; /* Espaço abaixo do cabeçalho */
+  color: var(--cor-preto);
+  margin-bottom: 20px;
 }
 
 #ultimasPostagens main {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   padding: 10px 15px;
-  gap: calc(100% / 40);
 }
 
 .postagem {
@@ -234,7 +234,7 @@ li {
   text-align: center;
   padding: 20px;
   background-color: var(--cor-cinza-claro);
-  border-radius: 8px; /* Borda arredondada */
+  border-radius: 8px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   text-decoration: none;
@@ -246,8 +246,9 @@ li {
 }
 
 .postagem img {
-  max-width: 100%; /* Garante que a imagem não ultrapasse o limite do contêiner */
-  border-radius: 5px;
+  object-fit: cover;
+  max-width: 100%;
+  border-radius: 8px;
 }
 
 .postagem h3 {
@@ -288,7 +289,7 @@ footer {
   padding: 10px 15px;
   background-color: var(--cor-antracite);
   align-items: center;
-  height: fit-content;
+  height: 300px;
   text-decoration: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
@@ -315,9 +316,15 @@ footer {
 }
 
 .footer-main {
-  display: inline-flex;
+  width: 100%
+  display: flex;
   flex-direction: row;
   gap: 2rem;
+}
+
+.footer-main a {
+  text-decoration: none;
+  color: var(--cor-cinza-claro);
 }
 
 .githubIcon {
@@ -328,7 +335,6 @@ footer {
 
 .footer-link-title {
   text-align: center;
-  text-decoration: none;
   font-size: 20px;
   font-weight: 500;
   transition: scale 0.3s ease, font-weight 0.3s ease;
