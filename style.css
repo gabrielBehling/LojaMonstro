@@ -226,13 +226,13 @@ li {
   display: flex;
   flex-direction: row;
   padding: 20px;
-  gap: calc(100% / 20);
+  gap: calc(100% / 33);
 }
 
 .postagem {
   flex: 0 0 30%; /* Largura fixa de 30% */
   text-align: center;
-  padding: 20px; /* Aumenta o padding interno */
+  padding: 20px;
   background-color: var(--cor-cinza-claro); /* Fundo Cinza Claro */
   border-radius: 8px; /* Borda arredondada */
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Adiciona transição para sombra */
@@ -265,7 +265,7 @@ li {
 }
 
 .mais-postagens a {
-  text-decoration: none; /* Remove o sublinhado do link */
+  text-decoration: none;
   color: var(--cor-antracite); /* Cor do texto */
   font-size: 18px; /* Tamanho da fonte */
   display: inline-flex; /* Para alinhar o ícone e o texto */
@@ -284,11 +284,14 @@ li {
 
 footer {
   display: flex;
-  justify-content: space-between;
-  background-color: var(--cor-antracite); /* Antracite */
+  justify-content: space-around;
+  padding: 10px 15px;
+  background-color: var(--cor-antracite);
   align-items: center;
-  height: 100px;
-  color: var(--cor-branco); /* Texto Branco */
+  height: fit-content;
+  color: var(--cor-branco);
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .githubIcon {
