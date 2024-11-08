@@ -268,7 +268,7 @@ li {
   width: 40px;
   height: 40px;
   background-color: var(--cor-cinza-mais-escuro);
-  color: var(--cor-cinza-claro);
+  color: var(--cor-preto);
   font-size: 2rem;
   border: none;
   outline: none;
@@ -276,10 +276,11 @@ li {
   padding: 0.5rem;
   margin: 0 0.5rem;
   border-radius: 50%;
-  transition: background-color 0.3s ease;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
 .carrossel-btn:hover {
+  color: var(--cor-preto-mais-escuro);
   background-color: var(--cor-cinza);
 }
 
