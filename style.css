@@ -66,7 +66,7 @@ body {
 #searchBar {
   display: flex;
   flex-direction: row;
-  width: clamp(260px, 30%, 500px);
+  width: clamp(275px, 30%, 500px);
   align-items: center;
   background-color: var(--cor-cinza-mais-escuro);
   padding: 10px 15px;
@@ -107,6 +107,10 @@ body {
 }
 
 @media (max-width: 732px) {
+  #searchBar {
+    padding: 10px 10px;
+  }
+  
   #searchInput {
     padding: 10px 7.5px;
     margin-left: 5px;
