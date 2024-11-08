@@ -216,6 +216,7 @@ li {
   display: flex;
   align-items: center;
   width: 100%;
+  padding: 25px 5px;
   overflow: hidden;
   position: relative;
 }
@@ -269,14 +270,13 @@ li {
   height: 40px;
   background-color: var(--cor-cinza-mais-escuro);
   color: var(--cor-preto);
-  font-size: 2rem;
+  font-size: 1.8rem;
   text-align: center;
   text-decoration: none;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 0.5rem;
-  margin: 0 0.5rem;
+  padding: 5px;
   border-radius: 50%;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
