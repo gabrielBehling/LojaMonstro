@@ -264,30 +264,23 @@ li {
 }
 
 .carrossel-btn {
+  display: flex;
   width: 40px;
   height: 40px;
   background-color: var(--cor-cinza-mais-escuro);
   color: var(--cor-cinza-claro);
-  font-size: 18px;
+  font-size: 2rem;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 5px;
-  margin: 0 5px;
+  padding: 0.5rem;
+  margin: 0 0.5rem;
   border-radius: 50%;
   transition: background-color 0.3s ease;
 }
 
 .carrossel-btn:hover {
   background-color: var(--cor-cinza);
-}
-
-#prev-btn {
-  margin-right: 10px;
-}
-
-#next-btn {
-  margin-left: 10px;
 }
 
 #ultimasPostagens {
