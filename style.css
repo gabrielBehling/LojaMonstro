@@ -44,13 +44,15 @@ body {
   z-index: 999;
 }
 
-.cabecalho header {
+.cabecalho header a {
   display: flex;
   align-items: center;
   gap: 1rem;
+  text-decoration: none;
+  color: var(--cor-preto);
 }
 
-.cabecalho header img {
+.cabecalho header a img {
   height: 60px;
   object-fit: cover;
 }
