@@ -149,23 +149,26 @@ li {
   padding: 10px;
   position: fixed;
   top: 80px;
-  width: clamp(100px, 20%);
+  width: 100%;
   z-index: 999;
-  border-radius: 8px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .sub-navigation ul {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   text-align: center;
   list-style: none;
 }
 
 .sub-navigation a {
+  font-weight: 500;
   text-decoration: none;
   color: var(--cor-preto);
   transition: color 0.3s ease;
-  border: 1px solid var(--cor-cinza);
+  padding: 2.5px 5px;
+  border-radius: 8px;
 }
 
 .sub-navigation a:hover {
@@ -177,7 +180,7 @@ li {
   padding: 20px;
   height: 100vh;
   color: var(--cor-preto-mais-escuro);
-  background-color: var(--cor-cinza-mais-escuro);
+  background-color: var(--cor-cinza);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -278,15 +281,9 @@ li {
 }
 
 #ultimasPostagens {
-  background-color: var(--cor-preto);
-  margin-top: 25px;
-  padding-top: 25px;
-}
-
-#ultimasPostagens {
   background-color: var(--cor-branco);
   margin-top: 25px;
-  padding: 25px;
+  padding: 25px 10px;
   border-radius: 8px;
 }
 
@@ -350,7 +347,7 @@ li {
   align-items: center;
   justify-content: center;
   padding: 10px 20px;
-  background-color: var(--cor-cinza-claro);
+  background-color: var(--cor-cinza-medio);
   border-radius: 8px;
   transition: background-color 0.3s ease;
 }
@@ -366,7 +363,7 @@ footer {
   padding: 10px 15px;
   background-color: var(--cor-antracite);
   align-items: center;
-  height: 300px;
+  height: 250px;
   text-decoration: none;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
