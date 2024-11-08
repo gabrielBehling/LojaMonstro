@@ -421,8 +421,8 @@ footer {
 .footer-main a {
   display: flex;
   align-items: center;
-  font-size: 20px;
-  gap: 0.8rem;
+  font-size: 24px;
+  gap: 10px;
   text-decoration: none;
   color: var(--cor-cinza-claro);
   transition: scale 0.3s ease, font-weight 0.3s ease;
