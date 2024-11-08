@@ -92,20 +92,20 @@
     />
   </head>
   <body>
-    <header class="cabecalho">
+    <header class="page-header">
       <header>
         <img src="./img/logo/logo-nobg.png" alt="Logo da Monsters Antique" />
         <h1 id="title">Monsters Antique</h1>
       </header>
-      <main id="searchBar">
-        <button type="button" id="searchButton" aria-label="Buscar">
+      <main class="search">
+        <button type="button" id="search__button" aria-label="Buscar">
           <i class="bx bx-search-alt" aria-hidden="true"></i>
         </button>
         <input
           name="search"
           type="text"
-          placeholder="Buscar produto..."
-          id="searchInput"
+          placeholder="Sangue Humano..."
+          class="search__input"
           aria-label="Campo de busca"
           required
         />
@@ -118,33 +118,42 @@
         />
       </button>
     </header>
-    <nav class="sub-navigation" aria-label="Navegação principal">
+    <!-- <nav class="sub-navigation" aria-label="Navegação principal">
       <ul>
         <li><a href="#produtos">Produtos</a></li>
-        <li><a href="#sobreNos">Sobre Nós</a></li>
+        <li><a href="#sobreNos">Sobre</a></li>
         <li><a href="#caridade">Caridade</a></li>
-        <li><a href="#ultimasPostagens">Últimas Postagens</a></li>
+        <li><a href="#ultimasPostagens">Postagens</a></li>
       </ul>
-    </nav>
+    </nav> -->
 
-    <section class="welcome" id="welcome" aria-labelledby="welcome">
-      <header class="welcome-header">
-        <h2>Bem-vindo à Monsters Antique!</h2>
-        <p>Seu destino para produtos sobrenaturais.</p>
-      </header>
+    <section class="home" id="home" aria-labelledby="home__title">
+      <main class="home__container">
+        <main class="home__data">
+          <h1 class="home__title">
+            <span>Monsters Antique</span>Sejam Bem-Vindos!!
+            <i class="bx bxs-skull home__title-icon-1"></i>
+            <i class="bx bxs-skull home__title-icon-2"></i>
+          </h1>
+
+          <p class="home__description">
+            Seu destino para produtos sobrenaturais.
+          </p>
+        </main>
+      </main>
       <main class="welcome-header">
-        <div class="produtos" role="list" aria-label="Lista de produtos">
-          <div class="produto" role="listitem">
+        <div class="products" role="list" aria-label="Lista de produtos">
+          <div class="product" role="listitem">
             <img src="https://via.placeholder.com/150" alt="Produto 1" />
             <h3>Produto 1</h3>
             <p>Descrição do Produto 1</p>
           </div>
-          <div class="produto" role="listitem">
+          <div class="product" role="listitem">
             <img src="https://via.placeholder.com/150" alt="Produto 2" />
             <h3>Produto 2</h3>
             <p>Descrição do Produto 2</p>
           </div>
-          <div class="produto" role="listitem">
+          <div class="product" role="listitem">
             <img src="https://via.placeholder.com/150" alt="Produto 3" />
             <h3>Produto 3</h3>
             <p>Descrição do Produto 3</p>
@@ -155,13 +164,13 @@
 
     <section id="carrossel-container" aria-label="Carrossel de produtos">
       <button id="prev-btn" class="carrossel-btn" aria-label="Produto anterior">
-        <i class='bx bxs-chevron-left' ></i>
+        <i class="bx bxs-chevron-left"></i>
       </button>
       <ul id="produtos" class="carrossel" role="list">
         <!-- Itens do carrossel serão adicionados aqui -->
       </ul>
       <button id="next-btn" class="carrossel-btn" aria-label="Próximo produto">
-        <i class='bx bxs-chevron-right' ></i>
+        <i class="bx bxs-chevron-right"></i>
       </button>
     </section>
 
@@ -218,8 +227,8 @@
       </header>
       <main class="footer-main">
         <a
-        href="https://github.com/gabrielBehling"
-        aria-label="Perfil do GitHub de Gabriel Behling"
+          href="https://github.com/gabrielBehling"
+          aria-label="Perfil do GitHub de Gabriel Behling"
         >
           <img
             src="https://avatars.githubusercontent.com/u/102189169?v=4"
