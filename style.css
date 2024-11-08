@@ -191,6 +191,11 @@ li {
   border-bottom-left-radius: 8px;
 }
 
+.welcome-header img {
+  object-fit: cover;
+  border-radius: 8px;
+}
+
 .produtos {
   display: flex;
   justify-content: space-around;
@@ -363,6 +368,7 @@ li {
 }
 
 footer {
+  min-height: 200px;
   display: flex;
   flex-direction: column;
   padding: 25px 15px;
@@ -403,6 +409,8 @@ footer {
 
 .footer-main a {
   display: flex;
+  align-items: center;
+  gap: 1rem;
   text-decoration: none;
   color: var(--cor-cinza-claro);
   transition: scale 0.3s ease, font-weight 0.3s ease;
