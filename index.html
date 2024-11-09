@@ -112,7 +112,13 @@
           aria-label="Campo de busca"
           required
         />
-        <button type="button" class="search__cart" aria-label="Carrinho" onclick="">
+        <button
+          type="button"
+          class="search__cart"
+          id="search__cart"
+          aria-label="Carrinho"
+          onclick=""
+        >
           <i class="bx bx-cart" aria-hidden="true"></i>
         </button>
       </main>
@@ -138,26 +144,30 @@
       </ul>
     </nav>
 
-    <aside id="nota-fiscal">
-      <button id="limpar-carrinho" class="nota-fiscal-botao">
-        <i class="bx bx-trash"></i> Limpar
-      </button>
-      <button id="fechar-nota" class="nota-fiscal-botao">
-        <i class="bx bx-x"></i> Fechar
-      </button>
+    <aside id="bill">
+      <header class="bill__header">
+        <button id="bill__button-clear" class="bill__button">
+          <i class="bx bx-trash"></i> Limpar
+        </button>
+        <button id="bill__button-close" class="bill__button">
+          <i class="bx bx-x"></i> Fechar
+        </button>
+      </header>
 
-      <h2>Nota Fiscal</h2>
-      <ul id="nota-fiscal-itens"></ul>
-      <p>Total: R$ <span id="nota-fiscal-total">0.00</span></p>
+      <main class="bill__main">
+        <h2>Nota Fiscal</h2>
+        <ul id="bill__itens"></ul>
+        <p>Total: R$ <span id="bill__itens-total">0.00</span></p>
+      </main>
 
-      <div class="nota-fiscal-botoes">
-        <button id="finalizar-compra" class="nota-fiscal-botao">
+      <footer class="bill__footer">
+        <button id="bill__button-checkout" class="bill__button">
           <i class="bx bx-check"></i> Finalizar Compra
         </button>
-        <button id="imprimir-nota-fiscal" class="nota-fiscal-botao">
+        <button id="bill__button-print" class="bill__button">
           <i class="bx bx-printer"></i> Imprimir Nota Fiscal
         </button>
-      </div>
+      </footer>
     </aside>
 
     <section class="home" id="home" aria-labelledby="home__title">
