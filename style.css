@@ -426,6 +426,8 @@ img {
   text-align: center;
   align-self: center;
   padding: 2.5px 0;
+  font-weight: var(--font-medium);
+  font-size: var(--h3-font-size);
   border-bottom: 1px dashed var(--blood-red-light);
 }
 
