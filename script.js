@@ -147,17 +147,6 @@ function mudarSlide(direction) {
 // Carrega os produtos ao carregar a página
 document.addEventListener("DOMContentLoaded", carregarProdutos);
 
-// Function to close the bill with animation
-function closeBill(bill) {
-  bill.classList.add("closing"); // Add closing class for animation
-
-  // Wait for the animation to complete before hiding the element
-  setTimeout(() => {
-    bill.style.display = "none"; // Hide the element after animation
-    bill.classList.remove("closing"); // Clean up the class
-  }, 300); // Match this duration with the CSS transition duration
-}
-
 // Evento para o botão do carrinho
 document.getElementById("search__cart").addEventListener("click", () => {
   const bill = document.getElementById("bill");
@@ -177,7 +166,6 @@ document.getElementById("search__cart").addEventListener("click", () => {
 document.getElementById("bill__button-close").addEventListener("click", () => {
   document.getElementById("bill").style.display = "none";
 });
-
 
 // Event for the "Limpar" button (optional, if you want to add functionality)
 document.getElementById("bill__button-clear").addEventListener("click", () => {

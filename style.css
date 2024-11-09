@@ -4,6 +4,11 @@
   src: url("./fonts/Creepster/Creepster-Regular.ttf");
 }
 
+@font-face {
+  font-family: Butcherman;
+  src: url("./fonts/Butcherman/Butcherman-Regular.ttf");
+}
+
 :root {
   --orange-color: hsl(22, 72%, 50%);
   --orange-color-alt: hsl(22, 72%, 46%);
@@ -14,18 +19,19 @@
   --light-purple: #9e186a;
   --purple: #5f0f40;
   --dark-purple: #2b071d;
-  --neon-green: #00ff00; /* Cor verde neon */
-  --yellow-halloween: #ffdd00; /* Cor amarela brilhante */
-  --pumpkin-orange: #ff7518; /* Laranja de abóbora */
-  --black-halloween: #111; /* Preto profundo de Halloween */
-  --blood-red: #9b111e; /* Vermelho sangue */
-  --haunting-purple: #6200ee; /* Roxo assombrado */
-  --dark-brown: #5a3d3a; /* Marrom escuro */
-  --fog-gray: #d1d1d1; /* Cinza nevoento */
-  --spooky-blue: #243c5a; /* Azul sombrio */
+  --neon-green: #00ff00;
+  --yellow-halloween: #ffdd00;
+  --pumpkin-orange: #ff7518;
+  --black-halloween: #111;
+  --blood-red: #9b111e;
+  --blood-red-light: #c72c3b;
+  --dark-brown: #5a3d3a;
+  --fog-gray: #d1d1d1;
+  --spooky-blue: #243c5a;
 
   --body-font: Verdana, sans-serif;
   --second-font: Creepster, cursive;
+  --third-font: Butcherman, cursive;
 
   --biggest-font-size: 2rem;
   --h1-font-size: 1.5rem;
@@ -157,7 +163,7 @@ img {
 .search__glass,
 .search__cart {
   width: fit-content;
-  font-size: var(--h1-font-size);
+  font-size: var(--biggest-font-size);
   padding: 0;
   border: none;
   background-color: transparent;
@@ -329,12 +335,10 @@ img {
   color: var(--white-color);
   z-index: 1000;
   padding: 20px;
-  overflow-y: auto;
   border-radius: 8px;
-  transition: all 0.3s ease;
+  transition: height 0.3s ease, opacity 0.3s ease;
    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
 }
-
 .bill__button {
   display: flex;
   place-content: center;
@@ -342,8 +346,16 @@ img {
   padding: 5px 10px;
   border: none;
   border-radius: 8px;
-  font-size: var(--normal-font-size);
+  font-size: var(--small-font-size);
+  font-family: var(--second-font);
+  font-weight: initial;
+  letter-spacing: 2px;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, opacity 0.3s ease, transform 0.5s ease-in-out;
+}
+
+.bill__button:hover {
+  transform: scale(1.01);
 }
 
 .bill__header {
@@ -353,8 +365,110 @@ img {
   padding: 0 0 15px;
 }
 
-.bill__header .bill__button {
-  background-color: red;
+#bill__button-close {
+  color: var(--white-color);
+  background-color: var(--blood-red-light);
+}
+
+#bill__button-close:hover {
+  background-color: var(--black-halloween);
+  color: var(--blood-red);
+}
+
+.bill__main {
+  display: flex;
+  flex-direction: column;
+}
+
+.bill__main h1 {
+  position: relative;
+  width: max-content;
+  place-self: center;
+  color: var(--orange-color);
+  font-family: var(--second-font);
+  letter-spacing: 2px;
+  font-size: var(--biggest-font-size);
+  text-align: center;
+}
+
+.bill__main h1 i {
+  width: 40px;
+  position: absolute;
+  color: var(--black-halloween);
+}
+
+.bill__main-icon-1 {
+  top: -0.75rem;
+  left: -2.5rem;
+  transform: rotate(-15deg);
+}
+
+.bill__main-icon-2 {
+  bottom: -0.5rem;
+  right: -2.75rem;
+  transform: rotate(15deg);
+}
+
+.bill__main ul {
+  width: 100%;
+}
+
+.bill__main ul li {
+  text-align: justify;
+}
+
+.bill__main p {
+  place-self: center;
+  color: var(--black-halloween);
+  font-weight: var(--font-bold);
+  margin-bottom: 2.5px;
+}
+
+#bill__button-clear {
+  width: fit-content;
+  place-self: center;
+  padding: 5px;
+  background-color: var(--orange-color);
+  font-weight: bold;
+  font-size: var(--h2-font-size);
+  opacity: 0.75;
+}
+
+#bill__button-clear:hover {
+  color: var(--blood-red);
+  background-color: var(--orange-color-alt);
+  opacity: 1;
+}
+
+.bill__footer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items:flex-end;
+}
+
+#bill__button-checkout {
+  font-size: var(--h2-font-size);
+  align-items: center;
+  background-color: var(--orange-color);
+  color: var(--black-halloween);
+}
+
+#bill__button-checkout:hover {
+  color: var(--neon-green);
+  transform: scale(1.025);
+}
+
+#bill__button-print {
+  background-color: var(--black-halloween);
+  color: var(--white-color);
+}
+
+#bill__button-print:hover {
+  background-color: var(--body-color);
+  color: var(--orange-color);
 }
 
 /* Home */
@@ -408,7 +522,7 @@ img {
 .home__title i {
   width: 40px;
   position: absolute;
-  color: var(--white-color);
+  color: var(--blood-red);
 }
 
 .home__title span {

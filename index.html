@@ -152,20 +152,25 @@
       </header>
 
       <main class="bill__main">
-        <h2>Nota Fiscal</h2>
+        <h1>
+          Nota Fiscal
+          <i class="bx bxs-receipt bill__main-icon-1"></i>
+            <i class="bx bxs-receipt bill__main-icon-2"></i>
+        </h1>
         <ul id="bill__itens"></ul>
         <p>Total: R$ <span id="bill__itens-total">0.00</span></p>
+        <button id="bill__button-clear" class="bill__button">
+          <i class="bx bx-trash"></i>
+        </button>
       </main>
 
       <footer class="bill__footer">
-        <button id="bill__button-clear" class="bill__button">
-          <i class="bx bx-trash"></i> Limpar
-        </button>
-        <button id="bill__button-checkout" class="bill__button">
-          <i class="bx bx-check"></i> Finalizar Compra
-        </button>
         <button id="bill__button-print" class="bill__button">
           <i class="bx bx-printer"></i> Imprimir Nota Fiscal
+        </button>
+        <button id="bill__button-checkout" class="bill__button">
+          Finalizar Compra
+          <i class="bx bx-basket"></i> 
         </button>
       </footer>
     </aside>
