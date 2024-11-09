@@ -42,7 +42,7 @@ document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
     const targetElement = document.querySelector(targetId);
 
     // Scroll to the target element, adjusting for the fixed header height
-    const headerOffset = 126; // Altura do cabeçalho fixo
+    const headerOffset = 150; // Altura do cabeçalho fixo
     const elementPosition = targetElement.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 let currentSlideIndex = 0; // Índice da primeira exibição do carrossel
-const itemsPerPage = 3; // Número de itens visíveis por vez
+const itemsPerPage = 6; // Número de itens visíveis por vez
 
 async function carregarProdutos() {
   try {
@@ -121,7 +121,7 @@ function updateCarrossel() {
   items.forEach((item, index) => {
     item.style.display =
       index >= currentSlideIndex && index < currentSlideIndex + itemsPerPage
-        ? "flex"
+        ? "block"
         : "none";
   });
 }

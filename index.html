@@ -113,18 +113,18 @@
           required
         />
       </main>
-
-      <button class="hamburger-menu" id="hamburger-menu" aria-label="Menu">
-        <i class="bx bx-menu"></i>
-      </button>
-
-      <button class="profile" type="button" aria-label="Perfil">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIJzvwGX_2AoP6sVrqOl4h3CHNrLOGj6ExpjvxfYZnILimKkCckX6mBsa-cfFlRt47Mrs&usqp=CAU"
-          alt="Ícone do perfil"
-          class="profile-icon"
-        />
-      </button>
+      <aside class="profile__hamburger">
+        <button class="profile" type="button" aria-label="Perfil">
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIJzvwGX_2AoP6sVrqOl4h3CHNrLOGj6ExpjvxfYZnILimKkCckX6mBsa-cfFlRt47Mrs&usqp=CAU"
+            alt="Ícone do perfil"
+            class="profile-icon"
+          />
+        </button>
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Menu">
+          <i class="bx bx-menu"></i>
+        </button>
+      </aside>
     </header>
     <nav class="sub-navigation" aria-label="Navegação principal">
       <ul>
@@ -136,7 +136,7 @@
     </nav>
 
     <section class="home" id="home" aria-labelledby="home__title">
-      <main class="home__container">
+      <header class="home__container">
         <main class="home__data">
           <h1 class="home__title">
             <span>Monsters Antique</span>Sejam Bem-Vindos!!
@@ -147,21 +147,27 @@
           <p class="home__description">
             Seu destino para produtos sobrenaturais.
           </p>
+
+          <img
+            class="home__img"
+            src="./img/skeleton.png"
+            alt="Jack'O Lantern"
+          />
         </main>
-      </main>
+      </header>
       <main class="welcome-header">
         <div class="products" role="list" aria-label="Lista de produtos">
-          <div class="product" role="listitem">
-            <img src="https://via.placeholder.com/150" alt="Produto 1" />
-            <h3>Produto 1</h3>
-            <p>Descrição do Produto 1</p>
+          <div class="product-1" role="listitem">
+            <img src="./img/drop-of-blood.png" alt="Produto 1" />
+            <h3>Sangue Humano</h3>
+            <p>Direto da fonte...</p>
           </div>
-          <div class="product" role="listitem">
+          <div class="product-2" role="listitem">
             <img src="https://via.placeholder.com/150" alt="Produto 2" />
             <h3>Produto 2</h3>
             <p>Descrição do Produto 2</p>
           </div>
-          <div class="product" role="listitem">
+          <div class="product-3" role="listitem">
             <img src="https://via.placeholder.com/150" alt="Produto 3" />
             <h3>Produto 3</h3>
             <p>Descrição do Produto 3</p>
@@ -170,17 +176,29 @@
       </main>
     </section>
 
-    <section id="carrossel-container" aria-label="Carrossel de produtos">
-      <!-- TO DO ADD TITLE-->
-      <button id="prev-btn" class="carrossel-btn" aria-label="Produto anterior">
-        <i class="bx bxs-chevron-left"></i>
-      </button>
-      <ul id="produtos" class="carrossel" role="list">
-        <!-- Itens do carrossel serão adicionados aqui -->
-      </ul>
-      <button id="next-btn" class="carrossel-btn" aria-label="Próximo produto">
-        <i class="bx bxs-chevron-right"></i>
-      </button>
+    <section class="carrossel__container" aria-label="Carrossel de produtos">
+      <header class="carrossel__header">
+        <h2 class="carrossel__title">Exclusividades</h2>
+      </header>
+      <main class="carrossel__main">
+        <button
+          id="prev-btn"
+          class="carrossel-btn"
+          aria-label="Produto anterior"
+        >
+          <i class="bx bxs-chevron-left"></i>
+        </button>
+        <ul id="produtos" class="carrossel" role="list">
+          <!-- Itens do carrossel serão adicionados aqui -->
+        </ul>
+        <button
+          id="next-btn"
+          class="carrossel-btn"
+          aria-label="Próximo produto"
+        >
+          <i class="bx bxs-chevron-right"></i>
+        </button>
+      </main>
     </section>
 
     <section id="ultimasPostagens" aria-labelledby="ultimasPostagens">
@@ -244,7 +262,10 @@
             alt="Avatar de Gabriel Behling"
             class="githubIcon"
           />
-          <p class="footer-link-title">Gabriel</p>
+          <div class="footer__data">
+            <p class="footer-link-title">Gabriel</p>
+            <p class="footer-link-description">Back-end</p>
+          </div>
         </a>
         <a
           href="https://github.com/tyxiel"
@@ -255,7 +276,10 @@
             alt="Avatar de Tyxiel"
             class="githubIcon"
           />
-          <p class="footer-link-title">Tyxiel</p>
+          <div class="footer__data">
+            <p class="footer-link-title">Tyxiel</p>
+            <p class="footer-link-description">Front-end</p>
+          </div>
         </a>
       </main>
     </footer>
