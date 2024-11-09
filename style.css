@@ -388,6 +388,7 @@ img {
   color: var(--orange-color);
   font-family: var(--second-font);
   letter-spacing: 2px;
+  margin-bottom: 1rem;
   font-size: var(--biggest-font-size);
   text-align: center;
 }
@@ -410,12 +411,22 @@ img {
   transform: rotate(15deg);
 }
 
-.bill__main ul {
-  width: 100%;
+#bill__itens {
+  display: inline-flex;
+  flex-direction: column;
+  align-self: center;
+  max-height: 200px;
+  overflow-y: auto;
+  margin-bottom: 1rem;
 }
 
-.bill__main ul li {
-  text-align: justify;
+#bill__itens li {
+  width: fit-content;
+  display: inline-flex;
+  text-align: center;
+  align-self: center;
+  padding: 2.5px 0;
+  border-bottom: 1px dashed var(--blood-red-light);
 }
 
 .bill__main p {
@@ -583,6 +594,7 @@ img {
   border-radius: 8px;
   background-color: var(--orange-color);
   transition: background-color 0.3s ease, transform 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 .cart__add i {

@@ -77,45 +77,42 @@ const itemsPerPage = 6; // Número de itens visíveis por vez
 
 async function carregarProdutos() {
   try {
-    const response = await fetch("/dados/products.json");
-    const produtos = await response.json();
+      const response = await fetch("/dados/products.json");
+      const produtos = await response.json();
 
-    const listaProdutos = document.getElementById("produtos");
-    listaProdutos.innerHTML = "";
+      const listaProdutos = document.getElementById("produtos");
+      listaProdutos.innerHTML = "";
 
-    produtos.forEach((produto, index) => {
-      const item = document.createElement("li");
-      item.classList.add("produto-item");
-      item.innerHTML = `
-                <div class="produto-detalhes">
-                    <span class="produto-nome">${produto.name}</span>
-                    <span class="produto-preco">R$${produto.price.toFixed(
-                      2
-                    )}</span>
-                    <span class="produto-fornecedor">Fornecedor: ${
-                      produto.supplier
-                    }</span>
-                    <button type="button" class="cart__add">
-              <i class='bx bxs-cart-add'></i>
-              <span>Adic. ao carrinho</span>
-            </button>
-                </div>
-            `;
-      item.style.display = "none"; // Esconde os itens inicialmente
-      listaProdutos.appendChild(item);
-    });
+      produtos.forEach((produto, index) => {
+          const item = document.createElement("li");
+          item.classList.add("produto-item");
+          item.innerHTML = `
+              <div class="produto-detalhes">
+                  <span class="produto-nome">${produto.name}</span>
+                  <span class="produto-preco">R$ ${produto.price.toFixed(2)}</span>
+                  <span class="produto-fornecedor">Fornecedor: ${produto.supplier}</span>
+                  <button type="button" class="cart__add">
+                      <i class='bx bxs-cart-add'></i>
+                      <span>Adic. ao carrinho</span>
+                  </button>
+              </div>
+          `;
+          item.style.display = "none"; // Esconde os itens inicialmente
+          listaProdutos.appendChild(item);
 
-    updateCarrossel();
+          // Adiciona evento de clique para o botão "Adicionar ao carrinho"
+          item.querySelector(".cart__add").addEventListener("click", () => {
+              addItemToCart(produto.name, produto.price);
+          });
+      });
 
-    // Adiciona eventos para navegação
-    document
-      .getElementById("prev-btn")
-      .addEventListener("click", () => mudarSlide(-1));
-    document
-      .getElementById("next-btn")
-      .addEventListener("click", () => mudarSlide(1));
+      updateCarrossel();
+
+      // Adiciona eventos para navegação
+      document.getElementById("prev-btn").addEventListener("click", () => mudarSlide(-1));
+      document.getElementById("next-btn").addEventListener("click", () => mudarSlide(1));
   } catch (error) {
-    console.error("Erro ao carregar os produtos:", error);
+      console.error("Erro ao carregar os produtos:", error);
   }
 }
 
@@ -147,6 +144,8 @@ function mudarSlide(direction) {
 // Carrega os produtos ao carregar a página
 document.addEventListener("DOMContentLoaded", carregarProdutos);
 
+// ====================================================================================== Carrinho
+
 // Evento para o botão do carrinho
 document.getElementById("search__cart").addEventListener("click", () => {
   const bill = document.getElementById("bill");
@@ -173,3 +172,112 @@ document.getElementById("bill__button-clear").addEventListener("click", () => {
   itemsList.innerHTML = ""; // Clear the items in the bill
   document.getElementById("bill__itens-total").innerText = "0.00"; // Reset total
 });
+
+let cartItems = []; // Array para armazenar os itens do carrinho
+let cartTotal = 0; // Total do carrinho
+
+// Função para adicionar item ao carrinho
+function addItemToCart(name, price) {
+  const existingItem = cartItems.find((item) => item.name === name);
+
+  if (existingItem) {
+    existingItem.quantity++;
+  } else {
+    cartItems.push({ name, price, quantity: 1 });
+  }
+
+  cartTotal += price;
+  updateBill();
+}
+
+function updateBill() {
+  const billItemsList = document.getElementById("bill__itens");
+  billItemsList.innerHTML = ""; // Limpa a lista atual
+
+  cartItems.forEach((item, index) => {
+      const li = document.createElement("li");
+      li.innerHTML = `${item.name} x ${item.quantity} - R$ ${(item.price * item.quantity).toFixed(2)}`;
+
+      // Cria o botão "X"
+      const removeButton = document.createElement("button");
+      removeButton.innerText = "X";
+      removeButton.style.color = "red";
+      removeButton.style.marginLeft = "10px"; // Espaço entre o texto e o botão
+      removeButton.style.border = "none";
+      removeButton.style.background = "none";
+      removeButton.style.cursor = "pointer";
+      removeButton.style.fontSize = "16px";
+      removeButton.style.fontWeight = "bold";
+
+      // Adiciona evento de clique para remover o item
+      removeButton.addEventListener("click", () => {
+          cartTotal -= item.price * item.quantity; // Atualiza o total
+          cartItems.splice(index, 1); // Remove o item do carrinho
+          updateBill(); // Atualiza a nota fiscal
+      });
+
+      li.appendChild(removeButton); // Adiciona o botão "X" ao item
+      billItemsList.appendChild(li); // Adiciona o item à nota fiscal
+  });
+
+  // Atualiza o total da nota fiscal
+  cartTotal = Math.max(cartTotal, 0); // Garante que o total não seja negativo
+  document.getElementById("bill__itens-total").innerText = cartTotal.toFixed(2);
+}
+
+
+// Evento para cada botão "Adicionar ao carrinho"
+document.querySelectorAll(".cart__add").forEach((button) => {
+  button.addEventListener("click", () => {
+    const productElement = button.closest("div[role='listitem']");
+    const productName = productElement.querySelector("h3").innerText;
+    const productPrice = parseFloat(
+      productElement
+        .querySelector("h4")
+        .innerText.replace("R$ ", "")
+        .replace(",", ".")
+    );
+
+    addItemToCart(productName, productPrice);
+  });
+});
+
+// Evento para o botão "Finalizar Compra"
+document
+  .getElementById("bill__button-checkout")
+  .addEventListener("click", () => {
+    alert("Compra finalizada!"); // Exemplo de alerta
+    // Aqui você pode adicionar a lógica para imprimir a nota fiscal
+    printBill();
+  });
+
+// Função para imprimir a nota fiscal
+function printBill() {
+  const billItems = document.getElementById("bill__itens").innerHTML;
+  const billTotal = document.getElementById("bill__itens-total").innerText;
+
+  const printWindow = window.open("", "_blank", "width=600,height=400");
+  printWindow.document.write(`
+    <html>
+      <head>
+        <title>Nota Fiscal</title>
+        <style>
+          body { font-family: Arial, sans-serif; padding: 20px; }
+          h1, h2 { text-align: center; }
+          ul { list-style-type: none; padding: 0; }
+          li { margin: 10px 0; }
+          .total { font-weight: bold; }
+        </style>
+      </head>
+      <body>
+        <h1>Nota Fiscal</h1>
+        <ul>${billItems}</ul>
+        <div class="total">Total: R$ ${billTotal}</div>
+      </body>
+    </html>
+  `);
+
+  printWindow.document.close();
+  printWindow.print();
+  printWindow.close();
+}
