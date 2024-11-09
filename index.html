@@ -101,7 +101,7 @@
         <h1 id="title">Monsters Antique</h1>
       </header>
       <main class="search">
-        <button type="button" id="search__button" aria-label="Buscar">
+        <button type="button" class="search__glass" aria-label="Buscar">
           <i class="bx bx-search-alt" aria-hidden="true"></i>
         </button>
         <input
@@ -112,6 +112,9 @@
           aria-label="Campo de busca"
           required
         />
+        <button type="button" class="search__cart" aria-label="Carrinho" onclick="">
+          <i class="bx bx-cart" aria-hidden="true"></i>
+        </button>
       </main>
       <aside class="profile__hamburger">
         <button class="profile" type="button" aria-label="Perfil">
@@ -134,6 +137,28 @@
         <li><a href="#ultimasPostagens">Postagens</a></li>
       </ul>
     </nav>
+
+    <aside id="nota-fiscal">
+      <button id="limpar-carrinho" class="nota-fiscal-botao">
+        <i class="bx bx-trash"></i> Limpar
+      </button>
+      <button id="fechar-nota" class="nota-fiscal-botao">
+        <i class="bx bx-x"></i> Fechar
+      </button>
+
+      <h2>Nota Fiscal</h2>
+      <ul id="nota-fiscal-itens"></ul>
+      <p>Total: R$ <span id="nota-fiscal-total">0.00</span></p>
+
+      <div class="nota-fiscal-botoes">
+        <button id="finalizar-compra" class="nota-fiscal-botao">
+          <i class="bx bx-check"></i> Finalizar Compra
+        </button>
+        <button id="imprimir-nota-fiscal" class="nota-fiscal-botao">
+          <i class="bx bx-printer"></i> Imprimir Nota Fiscal
+        </button>
+      </div>
+    </aside>
 
     <section class="home" id="home" aria-labelledby="home__title">
       <header class="home__container">
@@ -160,17 +185,32 @@
           <div class="product-1" role="listitem">
             <img src="./img/drop-of-blood.png" alt="Produto 1" />
             <h3>Sangue Humano</h3>
-            <p>Direto da fonte...</p>
+            <h4>R$ 49.90 / L</h4>
+            <p>Direto da fonte</p>
+            <button type="button" class="cart__add">
+              <i class="bx bxs-cart-add"></i>
+              <span>Adic. ao carrinho</span>
+            </button>
           </div>
           <div class="product-2" role="listitem">
             <img src="https://via.placeholder.com/150" alt="Produto 2" />
-            <h3>Produto 2</h3>
-            <p>Descrição do Produto 2</p>
+            <h3>Sangue Humano</h3>
+            <h4>R$ 49.90 / L</h4>
+            <p>Direto da fonte</p>
+            <button type="button" class="cart__add">
+              <i class="bx bxs-cart-add"></i>
+              <span>Adic. ao carrinho</span>
+            </button>
           </div>
           <div class="product-3" role="listitem">
             <img src="https://via.placeholder.com/150" alt="Produto 3" />
-            <h3>Produto 3</h3>
-            <p>Descrição do Produto 3</p>
+            <h3>Osso Maciço</h3>
+            <h4>R$ 19.90 / Kg</h4>
+            <p>Fonte de cálcio</p>
+            <button type="button" class="cart__add">
+              <i class="bx bxs-cart-add"></i>
+              <span>Adic. ao carrinho</span>
+            </button>
           </div>
         </div>
       </main>

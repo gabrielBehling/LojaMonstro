@@ -4,7 +4,6 @@
   src: url("./fonts/Creepster/Creepster-Regular.ttf");
 }
 
-
 :root {
   --orange-color: hsl(22, 72%, 50%);
   --orange-color-alt: hsl(22, 72%, 46%);
@@ -12,19 +11,19 @@
   --text-color: hsl(22, 4%, 75%);
   --text-color-light: hsl(22, 4%, 55%);
   --body-color: hsl(22, 8%, 6%);
-  --light-purple: #9E186A;
+  --light-purple: #9e186a;
   --purple: #5f0f40;
-  --dark-purple: #2B071D;
-  --neon-green: #00FF00;  /* Cor verde neon */
-  --yellow-halloween: #FFDD00;  /* Cor amarela brilhante */
-  --pumpkin-orange: #FF7518;  /* Laranja de abóbora */
-  --black-halloween: #111;  /* Preto profundo de Halloween */
-  --blood-red: #9B111E;  /* Vermelho sangue */
-  --haunting-purple: #6200EE; /* Roxo assombrado */
-  --dark-brown: #5A3D3A; /* Marrom escuro */
-  --fog-gray: #D1D1D1; /* Cinza nevoento */
+  --dark-purple: #2b071d;
+  --neon-green: #00ff00; /* Cor verde neon */
+  --yellow-halloween: #ffdd00; /* Cor amarela brilhante */
+  --pumpkin-orange: #ff7518; /* Laranja de abóbora */
+  --black-halloween: #111; /* Preto profundo de Halloween */
+  --blood-red: #9b111e; /* Vermelho sangue */
+  --haunting-purple: #6200ee; /* Roxo assombrado */
+  --dark-brown: #5a3d3a; /* Marrom escuro */
+  --fog-gray: #d1d1d1; /* Cinza nevoento */
   --spooky-blue: #243c5a; /* Azul sombrio */
-  
+
   --body-font: Verdana, sans-serif;
   --second-font: Creepster, cursive;
 
@@ -32,9 +31,9 @@
   --h1-font-size: 1.5rem;
   --h2-font-size: 1.25rem;
   --h3-font-size: 1rem;
-  --normal-font-size: .938rem;
-  --small-font-size: .813rem;
-  --smaller-font-size: .75rem;
+  --normal-font-size: 0.938rem;
+  --small-font-size: 0.813rem;
+  --smaller-font-size: 0.75rem;
 
   --font-medium: 500;
   --font-semi-bold: 600;
@@ -148,14 +147,15 @@ img {
   padding: 10px 15px;
   border-radius: 50px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: box-shadow 0.3s ease, background-color 0.3s ease;;
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .search:hover {
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
-.search button {
+.search__glass,
+.search__cart {
   width: fit-content;
   font-size: var(--h1-font-size);
   padding: 0;
@@ -166,7 +166,8 @@ img {
   transition: color 0.3s ease;
 }
 
-.search button:hover {
+.search__glass:hover,
+.search__cart:hover {
   color: var(--pumpkin-orange);
 }
 
@@ -174,7 +175,7 @@ img {
   width: 100%;
   height: 40px;
   padding: 10px 15px;
-  margin-left: 10px;
+  margin: 0 7.5px;
   font-size: var(--normal-font-size);
   border: 1px solid var(--white-color);
   border-radius: 25px;
@@ -190,13 +191,13 @@ img {
 
   .search__input {
     padding: 10px 7.5px;
-    margin-left: 5px;
+    margin: 0 5px;
   }
 }
 
 .search__input:focus-visible {
   outline: none;
-  border-color: var(--pumpkin-orange); 
+  border-color: var(--pumpkin-orange);
 }
 
 .search__input::placeholder {
@@ -222,14 +223,14 @@ img {
   display: none;
   width: clamp(115px, 8%, 500px);
   position: fixed;
-  top: 75px; 
+  top: 75px;
   right: 0;
   background-color: var(--body-color);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   z-index: var(--z-tooltip);
-  opacity: 0; 
+  opacity: 0;
   transform: translateY(-10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
@@ -258,7 +259,7 @@ img {
 }
 
 .sub-navigation a:hover {
-  background-color: var(--pumpkin-orange); 
+  background-color: var(--pumpkin-orange);
 }
 
 .profile__hamburger {
@@ -310,6 +311,156 @@ img {
   }
 }
 
+#nota-fiscal {
+  display: flex;
+  position: fixed;
+  top: 50%; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw; 
+  height: 70vh; 
+  background-color: var(--blood-red);
+  color: var(--white-color);
+  z-index: 1000;
+  padding: 20px;
+  overflow-y: auto;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+
+.nota-fiscal-botao {
+  background-color: var(--pumpkin-orange);
+  color: var(--white-color); /* Cor do texto do botão */
+  border: none; /* Sem borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  padding: 10px; /* Espaçamento interno */
+  cursor: pointer; /* Cursor de ponteiro */
+  transition: background-color 0.3s ease; /* Transição suave */
+}
+
+.nota-fiscal-botao:hover {
+  background-color: var(--orange-color); /* Cor do botão ao passar o mouse */
+}
+
+#nota-fiscal h2 {
+  border-bottom: 2px dashed var(--verde-escuro);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  margin-top: 50px;
+}
+
+#nota-fiscal ul {
+  border-bottom: 2px dashed var(--verde-escuro);
+  padding-bottom: 1rem;
+  margin-bottom: -0.5rem;
+}
+
+.nota-fiscal-botao {
+  background-color: var(--verde-escuro);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nota-fiscal-botao:hover {
+  background-color: var(--verde-muito-escuro);
+}
+
+.nota-fiscal-botoes {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+#nota-fiscal-itens {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1rem;
+}
+
+.nota-fiscal-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nota-fiscal-item button {
+  background: transparent;
+  border: none;
+  color: var(--verde-escuro);
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nota-fiscal-item button:hover {
+  color: var(--verde-muito-escuro);
+}
+
+.nota-fiscal-conteudo {
+  background-color: var(--verde-claro);
+  color: var(--verde-quase-preto);
+  border-radius: 8px;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  max-height: 80%;
+  overflow-y: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+#fechar-nota-fiscal {
+  background-color: var(--verde-escuro);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#fechar-nota,
+#limpar-carrinho {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+#fechar-nota {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--verde-escuro);
+}
+
+#fechar-nota:hover {
+  background-color: var(--verde-muito-escuro);
+}
+
+#limpar-carrinho {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background-color: red;
+}
+
+#limpar-carrinho:hover {
+  background-color: darkred;
+}
+
 /* Home */
 
 .home {
@@ -339,19 +490,22 @@ img {
   font-size: var(--biggest-font-size);
   line-height: 140%;
   width: max-content;
-  margin: 0 auto 0.5rem; 
+  margin: 0 auto 0.5rem;
   animation: glow 1.5s infinite alternate;
 }
 
 @keyframes glow {
   0% {
-    text-shadow: 0 0 5px var(--orange-color-alt), 0 0 10px var(--orange-color-alt), 0 0 15px var(--orange-color-alt);
+    text-shadow: 0 0 5px var(--orange-color-alt),
+      0 0 10px var(--orange-color-alt), 0 0 15px var(--orange-color-alt);
   }
   50% {
-    text-shadow: 0 0 10px var(--orange-color-alt), 0 0 20px var(--orange-color-alt), 0 0 30px var(--orange-color-alt);
+    text-shadow: 0 0 10px var(--orange-color-alt),
+      0 0 20px var(--orange-color-alt), 0 0 30px var(--orange-color-alt);
   }
   100% {
-    text-shadow: 0 0 5px var(--orange-color-alt), 0 0 10px var(--orange-color-alt), 0 0 15px var(--orange-color-alt);
+    text-shadow: 0 0 5px var(--orange-color-alt),
+      0 0 10px var(--orange-color-alt), 0 0 15px var(--orange-color-alt);
   }
 }
 
@@ -398,8 +552,6 @@ img {
   transform: scale(1.15);
 }
 
-
-
 @media (max-width: 850px) {
   .home__img {
     width: 25%;
@@ -412,6 +564,23 @@ img {
   }
 }
 
+.cart__add {
+  font-size: var(--normal-font-size);
+  margin-top: 5px;
+  border: none;
+  padding: 5px;
+  border-radius: 8px;
+  background-color: var(--orange-color);
+  transition: background-color 0.3s ease;
+}
+
+.cart__add i {
+  font-size: var(--h3-font-size);
+}
+
+.cart__add:hover {
+  background-color: var(--pumpkin-orange);
+}
 
 .products {
   display: flex;
@@ -419,15 +588,24 @@ img {
   margin: 20px 0;
 }
 
-.product-1, .product-2, .product-3 {
+.product-1,
+.product-2,
+.product-3 {
   height: min-content;
   text-align: center;
   transition: transform 0.3s ease;
   background-color: var(--black-halloween); /* fundo escuro */
   color: var(--white-color); /* texto claro para contraste */
-  border-radius: 50px;
+  border-radius: 16px;
   padding: 15px;
   transition: transform 0.3s ease;
+}
+
+.product-1 p,
+.product-2 p,
+.product-3 p {
+  opacity: 0.6;
+  font-weight: var(--font-medium);
 }
 
 .product-1 h3 {
@@ -436,16 +614,27 @@ img {
 
 .product-1 p {
   color: var(--blood-red);
-  opacity: 0.7;
 }
 
+.product-3 h3 {
+  color: var(--neon-green);
+  font-weight: var(--font-bold);
+}
 
-.product-1:hover, .product-2:hover, .product-3:hover {
+.product-3 p {
+  color: var(--neon-green);
+}
+
+.product-1:hover,
+.product-2:hover,
+.product-3:hover {
   transform: scale(1.05);
   background-color: var(--black-halloween);
 }
 
-.product-1 img, .product-2 img, .product-3 img {
+.product-1 img,
+.product-2 img,
+.product-3 img {
   width: 70px;
   object-fit: cover;
 }
@@ -540,7 +729,6 @@ img {
   border-radius: 50%;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
-
 
 .carrossel-btn:hover {
   color: var(--black-halloween); /* preto profundo no hover */

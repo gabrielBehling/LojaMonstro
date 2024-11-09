@@ -95,6 +95,10 @@ async function carregarProdutos() {
                     <span class="produto-fornecedor">Fornecedor: ${
                       produto.supplier
                     }</span>
+                    <button type="button" class="cart__add">
+              <i class='bx bxs-cart-add'></i>
+              <span>Adic. ao carrinho</span>
+            </button>
                 </div>
             `;
       item.style.display = "none"; // Esconde os itens inicialmente
@@ -142,3 +146,15 @@ function mudarSlide(direction) {
 
 // Carrega os produtos ao carregar a página
 document.addEventListener("DOMContentLoaded", carregarProdutos);
+
+// Evento para o botão do carrinho
+document
+  .getElementsByClassName(".search__cart")
+  .addEventListener("click", () => {
+    document.getElementById("nota-fiscal").style.display = "block";
+  });
+
+// Evento para o botão "Fechar"
+document.getElementById("fechar-nota").addEventListener("click", () => {
+  document.getElementById("nota-fiscal").style.display = "none";
+});
