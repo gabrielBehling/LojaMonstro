@@ -315,7 +315,7 @@ img {
 /* Bill */
 
 #bill {
-  display: flex;
+  display: none;
   flex-direction: column;
   position: fixed;
   top: 50%; 
@@ -356,124 +356,6 @@ img {
 .bill__header .bill__button {
   background-color: red;
 }
-
-/*#nota-fiscal h2 {
-  border-bottom: 2px dashed var(--verde-escuro);
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-  margin-top: 50px;
-}
-
-#nota-fiscal ul {
-  border-bottom: 2px dashed var(--verde-escuro);
-  padding-bottom: 1rem;
-  margin-bottom: -0.5rem;
-}
-
-.nota-fiscal-botao {
-  background-color: var(--verde-escuro);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.nota-fiscal-botao:hover {
-  background-color: var(--verde-muito-escuro);
-}
-
-.nota-fiscal-botoes {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-#nota-fiscal-itens {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1rem;
-}
-
-.nota-fiscal-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.nota-fiscal-item button {
-  background: transparent;
-  border: none;
-  color: var(--verde-escuro);
-  cursor: pointer;
-  transition: color 0.3s ease;
-}
-
-.nota-fiscal-item button:hover {
-  color: var(--verde-muito-escuro);
-}
-
-.nota-fiscal-conteudo {
-  background-color: var(--verde-claro);
-  color: var(--verde-quase-preto);
-  border-radius: 8px;
-  padding: 20px;
-  width: 80%;
-  max-width: 600px;
-  max-height: 80%;
-  overflow-y: auto;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-
-#fechar-nota-fiscal {
-  background-color: var(--verde-escuro);
-  color: white;
-  border: none;
-  padding: 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-#fechar-nota,
-#limpar-carrinho {
-  padding: 5px 10px;
-  border: none;
-  border-radius: 5px;
-  color: white;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-#fechar-nota {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background-color: var(--verde-escuro);
-}
-
-#fechar-nota:hover {
-  background-color: var(--verde-muito-escuro);
-}
-
-#limpar-carrinho {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background-color: red;
-}
-
-#limpar-carrinho:hover {
-  background-color: darkred;
-} */
 
 /* Home */
 
