@@ -148,11 +148,17 @@ function mudarSlide(direction) {
 document.addEventListener("DOMContentLoaded", carregarProdutos);
 
 // Evento para o botão do carrinho
-document
-  .getElementsByClassName(".search__cart")
-  .addEventListener("click", () => {
-    document.getElementById("nota-fiscal").style.display = "block";
-  });
+document.getElementById("search__cart").addEventListener("click", () => {
+  const notaFiscal = document.getElementById("nota-fiscal");
+
+  if (notaFiscal.style.display === "flex") {
+    // Se estiver visível, fecha a nota fiscal
+    notaFiscal.style.display = "none";
+  } else {
+    // Se não estiver visível, abre a nota fiscal
+    notaFiscal.style.display = "flex";
+  }
+});
 
 // Evento para o botão "Fechar"
 document.getElementById("fechar-nota").addEventListener("click", () => {
