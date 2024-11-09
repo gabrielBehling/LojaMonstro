@@ -125,13 +125,27 @@ img {
   transition: all 0.3s ease-in;
 }
 
-.page-header header {
+.page-header header a {
   font-family: var(--second-font);
   font-weight: initial;
   letter-spacing: 2px;
   display: flex;
   align-items: center;
+  color: var(--white-color);
   gap: 1rem;
+  transition: color 0.3s ease;
+}
+
+.page-header header a:hover {
+  color: var(--orange-color);
+}
+
+.page-header header a:visited {
+  color: var(--white-color);
+}
+
+a:active {
+  color: var(--white-color);
 }
 
 .page-header header img {
