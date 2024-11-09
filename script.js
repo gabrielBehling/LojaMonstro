@@ -77,42 +77,50 @@ const itemsPerPage = 6; // Número de itens visíveis por vez
 
 async function carregarProdutos() {
   try {
-      const response = await fetch("/dados/products.json");
-      const produtos = await response.json();
+    const response = await fetch("/dados/products.json");
+    const produtos = await response.json();
 
-      const listaProdutos = document.getElementById("produtos");
-      listaProdutos.innerHTML = "";
+    const listaProdutos = document.getElementById("produtos");
+    listaProdutos.innerHTML = "";
 
-      produtos.forEach((produto, index) => {
-          const item = document.createElement("li");
-          item.classList.add("produto-item");
-          item.innerHTML = `
+    produtos.forEach((produto, index) => {
+      const item = document.createElement("li");
+      item.classList.add("produto-item");
+      item.innerHTML = `
               <div class="produto-detalhes">
                   <span class="produto-nome">${produto.name}</span>
-                  <span class="produto-preco">R$ ${produto.price.toFixed(2)}</span>
-                  <span class="produto-fornecedor">Fornecedor: ${produto.supplier}</span>
+                  <span class="produto-preco">R$ ${produto.price.toFixed(
+                    2
+                  )}</span>
+                  <span class="produto-fornecedor">Fornecedor: ${
+                    produto.supplier
+                  }</span>
                   <button type="button" class="cart__add">
                       <i class='bx bxs-cart-add'></i>
                       <span>Adic. ao carrinho</span>
                   </button>
               </div>
           `;
-          item.style.display = "none"; // Esconde os itens inicialmente
-          listaProdutos.appendChild(item);
+      item.style.display = "none"; // Esconde os itens inicialmente
+      listaProdutos.appendChild(item);
 
-          // Adiciona evento de clique para o botão "Adicionar ao carrinho"
-          item.querySelector(".cart__add").addEventListener("click", () => {
-              addItemToCart(produto.name, produto.price);
-          });
+      // Adiciona evento de clique para o botão "Adicionar ao carrinho"
+      item.querySelector(".cart__add").addEventListener("click", () => {
+        addItemToCart(produto.name, produto.price);
       });
+    });
 
-      updateCarrossel();
+    updateCarrossel();
 
-      // Adiciona eventos para navegação
-      document.getElementById("prev-btn").addEventListener("click", () => mudarSlide(-1));
-      document.getElementById("next-btn").addEventListener("click", () => mudarSlide(1));
+    // Adiciona eventos para navegação
+    document
+      .getElementById("prev-btn")
+      .addEventListener("click", () => mudarSlide(-1));
+    document
+      .getElementById("next-btn")
+      .addEventListener("click", () => mudarSlide(1));
   } catch (error) {
-      console.error("Erro ao carregar os produtos:", error);
+    console.error("Erro ao carregar os produtos:", error);
   }
 }
 
@@ -195,36 +203,37 @@ function updateBill() {
   billItemsList.innerHTML = ""; // Limpa a lista atual
 
   cartItems.forEach((item, index) => {
-      const li = document.createElement("li");
-      li.innerHTML = `${item.name} x ${item.quantity} - R$ ${(item.price * item.quantity).toFixed(2)}`;
+    const li = document.createElement("li");
+    li.innerHTML = `${item.name} x ${item.quantity} - R$ ${(
+      item.price * item.quantity
+    ).toFixed(2)}`;
 
-      // Cria o botão "X"
-      const removeButton = document.createElement("button");
-      removeButton.innerText = "X";
-      removeButton.style.color = "red";
-      removeButton.style.marginLeft = "10px"; // Espaço entre o texto e o botão
-      removeButton.style.border = "none";
-      removeButton.style.background = "none";
-      removeButton.style.cursor = "pointer";
-      removeButton.style.fontSize = "16px";
-      removeButton.style.fontWeight = "bold";
+    // Cria o botão "X"
+    const removeButton = document.createElement("button");
+    removeButton.innerText = "X";
+    removeButton.style.color = "red";
+    removeButton.style.marginLeft = "10px"; // Espaço entre o texto e o botão
+    removeButton.style.border = "none";
+    removeButton.style.background = "none";
+    removeButton.style.cursor = "pointer";
+    removeButton.style.fontSize = "16px";
+    removeButton.style.fontWeight = "bold";
 
-      // Adiciona evento de clique para remover o item
-      removeButton.addEventListener("click", () => {
-          cartTotal -= item.price * item.quantity; // Atualiza o total
-          cartItems.splice(index, 1); // Remove o item do carrinho
-          updateBill(); // Atualiza a nota fiscal
-      });
+    // Adiciona evento de clique para remover o item
+    removeButton.addEventListener("click", () => {
+      cartTotal -= item.price * item.quantity; // Atualiza o total
+      cartItems.splice(index, 1); // Remove o item do carrinho
+      updateBill(); // Atualiza a nota fiscal
+    });
 
-      li.appendChild(removeButton); // Adiciona o botão "X" ao item
-      billItemsList.appendChild(li); // Adiciona o item à nota fiscal
+    li.appendChild(removeButton); // Adiciona o botão "X" ao item
+    billItemsList.appendChild(li); // Adiciona o item à nota fiscal
   });
 
   // Atualiza o total da nota fiscal
   cartTotal = Math.max(cartTotal, 0); // Garante que o total não seja negativo
   document.getElementById("bill__itens-total").innerText = cartTotal.toFixed(2);
 }
-
 
 // Evento para cada botão "Adicionar ao carrinho"
 document.querySelectorAll(".cart__add").forEach((button) => {
@@ -246,14 +255,23 @@ document.querySelectorAll(".cart__add").forEach((button) => {
 document
   .getElementById("bill__button-checkout")
   .addEventListener("click", () => {
+    if (cartItems.length === 0) {
+      alert("Não há itens no carrinho para finalizar a compra.");
+      return; // Impede a execução do código abaixo se não houver itens
+    }
     alert("Compra finalizada!"); // Exemplo de alerta
-    // Aqui você pode adicionar a lógica para imprimir a nota fiscal
-    printBill();
+    printBill(); // Chama a função para imprimir a nota fiscal
   });
 
 // Função para imprimir a nota fiscal
 function printBill() {
-  const billItems = document.getElementById("bill__itens").innerHTML;
+  const billItems = document.getElementById("bill__itens");
+  const billItemsClone = billItems.cloneNode(true); // Clona a lista de itens
+  const removeButtons = billItemsClone.querySelectorAll("button"); // Seleciona todos os botões "X"
+
+  // Remove todos os botões "X" da cópia
+  removeButtons.forEach((button) => button.remove());
+
   const billTotal = document.getElementById("bill__itens-total").innerText;
 
   const printWindow = window.open("", "_blank", "width=600,height=400");
@@ -262,16 +280,48 @@ function printBill() {
       <head>
         <title>Nota Fiscal</title>
         <style>
-          body { font-family: Arial, sans-serif; padding: 20px; }
-          h1, h2 { text-align: center; }
-          ul { list-style-type: none; padding: 0; }
-          li { margin: 10px 0; }
-          .total { font-weight: bold; }
+          body {
+            font-family: Arial;
+            padding: 20px;
+          }
+
+          h1 {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+          }
+
+          ul {
+            place-self: center;
+            list-style: none;
+            padding: 0;
+          }
+
+          li {
+            width: fit-content;
+            place-self: center;
+            padding: 10px 0;
+            font-size: 1rem;
+            text-align: justify;
+          }
+          
+          .total {
+            font-weight: bold;
+            font-size: 1.25rem;
+            text-align: center;
+            margin-top: 20px;
+          }
         </style>
       </head>
       <body>
         <h1>Nota Fiscal</h1>
-        <ul>${billItems}</ul>
+        <br>
+        <hr>
+        <br>
+        <ul>${billItemsClone.innerHTML}</ul>
+        <br>
+        <hr>
+        <br>
         <div class="total">Total: R$ ${billTotal}</div>
       </body>
     </html>

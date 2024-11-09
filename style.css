@@ -928,7 +928,6 @@ img {
 }
 
 .page-footer__main a:hover {
-  font-weight: bold;
   scale: 1.05;
 }
 
@@ -955,4 +954,11 @@ img {
   color: var(--orange-color-alt);
   font-size: var(--small-font-size);
   text-align: center;
+}
+
+.page-footer__rights {
+  width: 100%;
+  text-align: center;
+  margin-top: 1rem;
+  color: var(--orange-color);
 }
