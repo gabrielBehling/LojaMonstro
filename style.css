@@ -23,6 +23,7 @@
   --yellow-halloween: #ffdd00;
   --pumpkin-orange: #ff7518;
   --black-halloween: #111;
+  --blood-red-dark: #7a0e1e;
   --blood-red: #9b111e;
   --blood-red-light: #c72c3b;
   --dark-brown: #5a3d3a;
@@ -72,7 +73,7 @@ html {
 body {
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
-  background-color: var(--purple);
+  background-color: var(--body-color);
   color: var(--white-color);
   transition: background-color 0.3s ease, color 0.3s ease;
 }
@@ -291,7 +292,7 @@ img {
 }
 
 .hamburger-menu.active {
-  transform: rotate(90deg); /* Gira o ícone ao ser clicado */
+  transform: rotate(90deg);
 }
 
 .hamburger-menu:hover {
@@ -581,7 +582,7 @@ img {
   padding: 5px;
   border-radius: 8px;
   background-color: var(--orange-color);
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease-in-out;
 }
 
 .cart__add i {
@@ -590,6 +591,7 @@ img {
 
 .cart__add:hover {
   background-color: var(--pumpkin-orange);
+  scale: 1.01;
 }
 
 .products {
@@ -608,7 +610,7 @@ img {
   color: var(--white-color); 
   border-radius: 16px;
   padding: 15px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .product-1 p,
@@ -626,20 +628,36 @@ img {
   color: var(--blood-red);
 }
 
+.product-2 {
+  background-color: var(--blood-red);
+}
+
+.product-2 h3 {
+  color: var(--yellow-halloween);
+}
+
+.product-2 p {
+  color: var(--yellow-halloween);
+}
+
 .product-3 h3 {
-  color: var(--neon-green);
+  color: var(--text-color);
   font-weight: var(--font-bold);
 }
 
 .product-3 p {
-  color: var(--neon-green);
+  color: var(--text-color-light);
 }
 
 .product-1:hover,
-.product-2:hover,
 .product-3:hover {
-  transform: scale(1.05);
+  transform: scale(1.01);
   background-color: var(--black-halloween);
+}
+
+.product-2:hover {
+  transform: scale(1.01);
+  background-color: var(--blood-red-dark);
 }
 
 .product-1 img,
@@ -654,10 +672,12 @@ img {
   align-items: center;
   flex-direction: column;
   place-self: center;
-  width: 90%;
+  width: 97.5%;
   padding: 25px 5px;
   overflow: hidden;
   position: relative;
+  background-color: var(--dark-purple);
+  border-radius: 25px;
 }
 
 .carrossel__header {
@@ -760,9 +780,8 @@ img {
 #ultimasPostagens {
   width: 90%;
   place-self: center;
-  background-color: var(--dark-purple);
   padding: 25px 10px;
-  margin-bottom: 25px;
+  margin: 25px 0;
   border-radius: 8px;
 }
 
@@ -790,11 +809,11 @@ img {
   flex: 0 0 30%; /* Largura fixa de 30% */
   text-align: center;
   padding: 20px;
-  background-color: var(--purple);
-  border-radius: 8px;
+  background-color: var(--orange-color-alt);
+  border-radius: 25px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  color: var(--white-color);
+  color: var(--text-color);
 }
 
 .postagem:hover {
@@ -809,13 +828,13 @@ img {
 
 .postagem h3 {
   font-size: var(--h3-font-size);
-  color: var(--blood-red);
+  color: var(--body-color);
   margin: 10px 0;
-  font-weight: bold;
+  font-weight: var(--font-bold);
 }
 
 .postagem p {
-  color: var(--light-purple);
+  color: var(--black-halloween);
   font-weight: 500;
 }
 
@@ -837,8 +856,8 @@ img {
 }
 
 .mais-postagens a:hover {
-  background-color: var(--black-halloween);
-  color: var(--blood-red);
+  background-color: var(--dark-purple);
+  color: var(--white-color);
   transform: scale(1.05);
 }
 
@@ -847,7 +866,7 @@ img {
   display: flex;
   flex-direction: column;
   padding: 25px 15px;
-  background-color: var(--body-color);
+  background-color: var(--black-halloween);
   align-items: center;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
