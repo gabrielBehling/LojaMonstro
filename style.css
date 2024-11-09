@@ -227,6 +227,7 @@ img {
   right: 0;
   background-color: var(--body-color);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  border-bottom: 5px dashed var(--orange-color);
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   z-index: var(--z-tooltip);
@@ -311,39 +312,52 @@ img {
   }
 }
 
-#nota-fiscal {
+/* Bill */
+
+#bill {
   display: flex;
+  flex-direction: column;
   position: fixed;
   top: 50%; 
   left: 50%;
   transform: translate(-50%, -50%);
+  min-width: 300px;
   width: 90vw; 
-  height: 70vh; 
+  height: 75vh; 
   background-color: var(--blood-red);
+  border: 5px dashed var(--black-halloween);
   color: var(--white-color);
   z-index: 1000;
   padding: 20px;
   overflow-y: auto;
   border-radius: 8px;
   transition: all 0.3s ease;
+   box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
 }
 
-
-.nota-fiscal-botao {
-  background-color: var(--pumpkin-orange);
-  color: var(--white-color); /* Cor do texto do botão */
-  border: none; /* Sem borda */
-  border-radius: 5px; /* Bordas arredondadas */
-  padding: 10px; /* Espaçamento interno */
-  cursor: pointer; /* Cursor de ponteiro */
-  transition: background-color 0.3s ease; /* Transição suave */
+.bill__button {
+  display: flex;
+  place-content: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 8px;
+  font-size: var(--normal-font-size);
+  cursor: pointer;
 }
 
-.nota-fiscal-botao:hover {
-  background-color: var(--orange-color); /* Cor do botão ao passar o mouse */
+.bill__header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0 0 15px;
 }
 
-#nota-fiscal h2 {
+.bill__header .bill__button {
+  background-color: red;
+}
+
+/*#nota-fiscal h2 {
   border-bottom: 2px dashed var(--verde-escuro);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
@@ -459,7 +473,7 @@ img {
 
 #limpar-carrinho:hover {
   background-color: darkred;
-}
+} */
 
 /* Home */
 
@@ -540,8 +554,8 @@ img {
 }
 
 .home__img {
-  position: relative; /* Position relative to stack above the background */
-  z-index: 1; /* Bring the image above the background */
+  position: relative;
+  z-index: 1;
   align-self: center;
   width: 18%;
   margin: 20px 0;
@@ -594,8 +608,8 @@ img {
   height: min-content;
   text-align: center;
   transition: transform 0.3s ease;
-  background-color: var(--black-halloween); /* fundo escuro */
-  color: var(--white-color); /* texto claro para contraste */
+  background-color: var(--black-halloween);
+  color: var(--white-color); 
   border-radius: 16px;
   padding: 15px;
   transition: transform 0.3s ease;
@@ -681,10 +695,10 @@ img {
 .produto-item {
   margin: 0 5px;
   padding: 10px;
-  border: 3px solid var(--blood-red); /* borda vermelha sangue */
+  border: 3px solid var(--blood-red);
   border-radius: 8px;
-  background-color: unset; /* fundo roxo escuro */
-  color: var(--white-color); /* texto branco */
+  background-color: unset;
+  color: var(--white-color);
   text-align: center;
 }
 
@@ -731,8 +745,8 @@ img {
 }
 
 .carrossel-btn:hover {
-  color: var(--black-halloween); /* preto profundo no hover */
-  background-color: var(--haunting-purple); /* roxo assombrado no hover */
+  color: var(--black-halloween);
+  background-color: var(--haunting-purple);
 }
 
 .carrossel-btn i {
@@ -744,7 +758,7 @@ img {
 }
 
 .carrossel-btn i:hover {
-  color: var(--spooky-blue); /* azul sombrio no hover */
+  color: var(--spooky-blue);
 }
 
 #ultimasPostagens {
@@ -832,7 +846,7 @@ img {
   transform: scale(1.05);
 }
 
-footer {
+.page-footer {
   min-height: 200px;
   display: flex;
   flex-direction: column;
@@ -845,29 +859,29 @@ footer {
   border-top-right-radius: 8px;
 }
 
-.footer-header {
+.page-footer__header {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-.footer-title,
-.footer-subtitle {
+.page-footer__title,
+.page-footer__subtitle {
   text-align: center;
   width: 100%;
 }
 
-.footer-title {
+.page-footer__title {
   color: var(--blood-red);
 }
 
-.footer-subtitle {
+.page-footer__subtitle {
   color: var(--blood-red);
   opacity: 0.8;
   text-decoration: underline;
 }
 
-.footer-main {
+.page-footer__main {
   width: 100%;
   display: flex;
   flex-direction: row;
@@ -875,7 +889,7 @@ footer {
   margin-top: 10px;
 }
 
-.footer-main a {
+.page-footer__main a {
   display: flex;
   align-items: center;
   font-size: 24px;
@@ -884,31 +898,31 @@ footer {
   transition: scale 0.3s ease, font-weight 0.3s ease;
 }
 
-.footer-main a:hover {
+.page-footer__main a:hover {
   font-weight: bold;
   scale: 1.05;
 }
 
-.githubIcon {
+.github-icon {
   width: 60px;
   height: auto;
   border-radius: 50px;
 }
 
-.footer__data {
+.page-footer__data {
   margin-left: 0.5rem;
   display: inline-flex;
   flex-direction: column;
 }
 
-.footer-link-title {
+.page-footer__link-title {
   color: var(--orange-color);
   text-align: center;
   font-size: var(--h2-font-size);
   font-weight: 500;
 }
 
-.footer-link-description {
+.page-footer__link-description {
   color: var(--orange-color-alt);
   font-size: var(--small-font-size);
   text-align: center;
