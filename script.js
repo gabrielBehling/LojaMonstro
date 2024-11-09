@@ -20,13 +20,19 @@ document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
 
 // Toggle da sub-navegação e rotação do ícone de hambúrguer
 function toggleSubNav() {
-  const subNavigation = document.getElementById("sub-navigation");
+  const subNavigation = document.querySelector(".sub-navigation");
   const hamburger = document.querySelector(".hamburger-menu");
 
   // Alterna a classe "open" para sub-navegação e hambúrguer
   subNavigation.classList.toggle("open");
   hamburger.classList.toggle("open");
 }
+
+// Adiciona o evento de clique no ícone do hambúrguer
+document
+  .querySelector(".hamburger-menu")
+  .addEventListener("click", toggleSubNav);
+
 
 // Adiciona o evento de clique no ícone do hambúrguer
 document
@@ -174,11 +180,15 @@ document.getElementById("bill__button-close").addEventListener("click", () => {
   document.getElementById("bill").style.display = "none";
 });
 
-// Event for the "Limpar" button (optional, if you want to add functionality)
+// Event for the "Limpar" button
 document.getElementById("bill__button-clear").addEventListener("click", () => {
   const itemsList = document.getElementById("bill__itens");
-  itemsList.innerHTML = ""; // Clear the items in the bill
-  document.getElementById("bill__itens-total").innerText = "0.00"; // Reset total
+  itemsList.innerHTML = ""; // Limpa os itens na nota fiscal
+  document.getElementById("bill__itens-total").innerText = "0.00"; // Redefine o total
+
+  // Redefine o contador do carrinho
+  cartItems = []; // Limpa o array de itens do carrinho
+  updateCartCount(); // Atualiza o contador para 0
 });
 
 let cartItems = []; // Array para armazenar os itens do carrinho
@@ -196,6 +206,13 @@ function addItemToCart(name, price) {
 
   cartTotal += price;
   updateBill();
+  updateCartCount(); // Atualiza o contador do carrinho
+}
+
+function updateCartCount() {
+  const cartCountElement = document.getElementById("cart-count");
+  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+  cartCountElement.innerText = totalItems; // Atualiza o texto do contador
 }
 
 function updateBill() {
@@ -224,6 +241,7 @@ function updateBill() {
       cartTotal -= item.price * item.quantity; // Atualiza o total
       cartItems.splice(index, 1); // Remove o item do carrinho
       updateBill(); // Atualiza a nota fiscal
+      updateCartCount(); // Atualiza o contador do carrinho
     });
 
     li.appendChild(removeButton); // Adiciona o botão "X" ao item
