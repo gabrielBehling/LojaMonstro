@@ -1,9 +1,9 @@
 /* Configuração do grid */
 #sobre-nos {
   display: grid;
-  grid-template-columns: repeat(-1, 1fr);
   gap: 2rem;
-  padding: 2rem 5%;
+  padding: 2rem 0;
+  font-size: var(--normal-font-size);
 }
 
 /* Estilo geral do Hero */
@@ -19,7 +19,7 @@
   text-align: center;
 }
 
-.hero__content{
+.hero__content {
   max-width: 800px;
   margin: 0 auto 20px;
   padding: 20px 20px 0;
@@ -67,10 +67,10 @@
 
 /* Ajustes para dispositivos móveis */
 @media (max-width: 768px) {
-  .hero__content{
+  .hero__content {
     padding: 10px 10px 0;
   }
-  
+
   .hero__title {
     font-size: 2.5rem;
   }
@@ -92,73 +92,77 @@
   color: var(--orange-color);
 }
 
-.abous-us__main {
+.abous-us__articles {
   display: flex;
   flex-direction: column;
 }
 
-.sobre-nos-artigo,
-.linha-do-tempo,
-.trabalhos-atuais {
-  background-color: var(--dark-purple);
-  padding: 2rem;
-  margin-bottom: 2rem;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.sobre-nos-artigo h3,
-.linha-do-tempo h3,
-.trabalhos-atuais h3 {
-  font-family: var(--second-font);
-  color: var(--pumpkin-orange);
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-@media only screen and (max-width: 768px) {
-  .abous-us__main {
-    grid-template-columns: 1fr;
-  }
-
-  .sobre-nos-artigo h3,
-  .linha-do-tempo h3,
-  .trabalhos-atuais h3 {
-    font-size: 1.2rem;
-  }
-}
-
-
-.sobre-nos-artigo p,
-.linha-do-tempo ul,
-.trabalhos-atuais ul {
-  color: var(--text-color-light);
-}
-
-.sobre-nos-artigo img,
-.trabalhos-atuais img {
+.about-us__articles img {
   width: 100%;
-  border-radius: 10px;
+  object-fit: cover;
+  place-self: center;
+  margin: 1rem 0;
   margin-top: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.linha-do-tempo ul {
-  padding-left: 20px;
+.about-us__articles {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--body-color);
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: var(--text-color);
+  text-align: justify;
+  line-height: 130%;
 }
 
-.linha-do-tempo li {
+.about-us__articles h3 {
+  font-family: var(--second-font);
+  color: var(--pumpkin-orange);
+  font-size: calc(var(--h3-font-size) + 1rem);
+  margin: 2rem auto;
+  letter-spacing: 2px;
+  text-align: center;
+  text-decoration: overline;
+}
+
+.about-us__articles
+
+.about-us__articles p {
+  max-width: 48rem;
+  place-self: center;
+  font-size: 1.125rem;
+  line-height: 2rem;
+  margin-top: 2rem;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+@media only screen and (max-width: 768px) {
+  .about-us__articles h3 {
+    font-size: var(--h1-font-size);
+  }
+
+  .about-us__articles p {
+    font-size: 1.25rem;
+  }
+}
+
+.about-us__articles ul {
+  max-width: 48rem;
+  place-self: center;
+  font-size: 1.125rem;
+  line-height: 2rem;
+  margin-top: 2rem;
+}
+
+.about-us__articles li {
   list-style-type: none;
   margin-bottom: 1rem;
   color: var(--blood-red);
 }
 
-.trabalhos-atuais ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.trabalhos-atuais li {
+.about-us__articles li {
   margin-bottom: 1rem;
 }
