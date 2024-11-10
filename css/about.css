@@ -109,7 +109,7 @@
 .about-us__articles {
   display: flex;
   flex-direction: column;
-  background-color: var(--body-color);
+  background-color: unset;
   padding: 2rem;
   margin-bottom: 2rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -127,8 +127,6 @@
   text-align: center;
   text-decoration: overline;
 }
-
-.about-us__articles
 
 .about-us__articles p {
   max-width: 48rem;
