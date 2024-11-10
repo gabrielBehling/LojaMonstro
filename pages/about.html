@@ -8,9 +8,10 @@
       name="description"
       content="Seu destino para produtos sobrenaturais!"
     />
-    <link rel="stylesheet" href="../styles/main.css" />
-    <link rel="stylesheet" href="../styles/index.css" />
-    <script type="module" src="../script.js" defer></script>
+    <link rel="stylesheet" href="../css/default-style.css" />
+    <link rel="stylesheet" href="../css/about.css" />
+    <script type="module" src="../js/default-script.js" defer></script>
+    <script type="module" src="../js/about.js" defer></script>
     <link
       rel="apple-touch-icon"
       sizes="57x57"
@@ -103,29 +104,6 @@
           <h1 id="title">Monsters Antique</h1>
         </a>
       </header>
-      <main class="search">
-        <button type="button" class="search__glass" aria-label="Buscar">
-          <i class="bx bx-search-alt" aria-hidden="true"></i>
-        </button>
-        <input
-          name="search"
-          type="text"
-          placeholder="Sangue Humano..."
-          class="search__input"
-          aria-label="Campo de busca"
-          required
-        />
-        <button
-          type="button"
-          class="search__cart"
-          id="search__cart"
-          aria-label="Carrinho"
-          onclick=""
-        >
-          <div class="cart-counter" id="cart-count">0</div>
-          <i class="bx bx-cart" aria-hidden="true"></i>
-        </button>
-      </main>
       <aside class="profile__hamburger">
         <button class="profile" type="button" aria-label="Perfil">
           <img
@@ -141,16 +119,122 @@
     </header>
     <nav class="sub-navigation" aria-label="Navegação principal">
       <ul>
-        <li><a href="#produtos" class="in-page-link">Produtos</a></li>
+        <li><a href="../index.html" target="_parent">Produtos</a></li>
         <li>
-          <a href="./pages/about.html" target="_parent">Sobre Nós</a>
+          <a href="#sobre-nos" class="in-page-link">Sobre Nós</a>
         </li>
         <li>
-          <a href="./pages/charity.html" target="_parent">Caridade</a>
+          <a href="./charity.html" target="_parent">Caridade</a>
         </li>
         <li><a href="#ultimasPostagens" class="in-page-link">Postagens</a></li>
       </ul>
     </nav>
+
+    <section id="hero" class="hero">
+      <div class="hero-conteudo">
+        <h1 class="hero__title">
+          Bem-vindo à
+          <span class="hero__title-span">Ordem dos Guardiões da Noite</span>
+        </h1>
+        <p class="hero-descricao">
+          Uma fraternidade de seres que desafiam as sombras e celebram a
+          coexistência. Junte-se a nós e faça parte da história.
+        </p>
+      </div>
+      <a href="#sobre-nos" class="hero__button"
+        ><i class="bx bxs-chevrons-down"></i>
+        Saiba mais
+        <i class="bx bxs-chevrons-down"></i
+      ></a>
+    </section>
+    <div class="faixa-transicao"></div>
+    <section id="sobre-nos" aria-labelledby="sobre-nos">
+      <header>
+        <h2>Sobre Nós</h2>
+      </header>
+      <main>
+        <article class="sobre-nos-artigo">
+          <h3>A Ordem dos Guardiões da Noite</h3>
+          <p>
+            Em um mundo onde a escuridão e a luz se entrelaçam, um grupo
+            inusitado de seres decidiu unir forças. A Ordem dos Guardiões da
+            Noite foi fundada por um esqueleto sábio, chamado Ossian, e um
+            vampiro astuto, conhecido como Vladis. Juntos, eles perceberam que a
+            coexistência pacífica entre suas espécies era possível, desde que
+            houvesse um equilíbrio de poder.
+          </p>
+          <!-- 600x300 img -->
+          <img
+            src=""
+            alt="A Ordem dos Guardiões da Noite"
+            class="imagem-sobre-nos"
+          />
+          <p>
+            A ideia inicial da ordem era criar um monopólio de armas contra
+            vampiros e esqueletos, garantindo que ambos os lados estivessem
+            protegidos de ameaças externas. Com o tempo, a ordem expandiu suas
+            atividades, incluindo campanhas de doação de sangue para vampiros e
+            programas de adoção de esqueletos, promovendo a aceitação e a
+            solidariedade entre as criaturas da noite.
+          </p>
+        </article>
+
+        <article class="linha-do-tempo">
+          <h3>Linha do Tempo da Ordem</h3>
+          <ul>
+            <li>
+              <strong>2020:</strong> Fundação da Ordem dos Guardiões da Noite.
+            </li>
+            <li>
+              <strong>2021:</strong> Lançamento do monopólio de armas contra
+              vampiros e esqueletos.
+            </li>
+            <li>
+              <strong>2022:</strong> Início das campanhas de doação de sangue,
+              com grande adesão da comunidade vampírica.
+            </li>
+            <li>
+              <strong>2023:</strong> Programa de adoção de esqueletos ganha
+              destaque, promovendo a inclusão e a amizade entre as espécies.
+            </li>
+          </ul>
+        </article>
+
+        <article class="trabalhos-atuais">
+          <h3>Trabalhos Atuais</h3>
+          <p>
+            Atualmente, a Ordem dos Guardiões da Noite se dedica a várias
+            iniciativas. Além de continuar a produção e venda de armas, estamos
+            focados em:
+          </p>
+          <ul>
+            <li>
+              Organizar eventos de integração entre vampiros e esqueletos.
+            </li>
+            <li>
+              Promover campanhas de conscientização sobre a importância da
+              doação de sangue.
+            </li>
+            <li>
+              Expandir o programa de adoção de esqueletos, garantindo que cada
+              um encontre um lar acolhedor.
+            </li>
+          </ul>
+          <!-- 600x300 img -->
+          <img
+            src=""
+            alt="Campanha de doação de sangue"
+            class="imagem-sobre-nos"
+          />
+          <p>
+            Acreditamos que, trabalhando juntos, podemos criar um futuro onde
+            vampiros e esqueletos coexistam em harmonia, respeitando as
+            diferenças e celebrando a diversidade. Junte-se a nós nessa jornada!
+          </p>
+        </article>
+      </main>
+    </section>
+
     <section id="ultimasPostagens" aria-labelledby="ultimasPostagens">
       <header>
         <h2>Últimas Postagens</h2>
@@ -163,7 +247,7 @@
           class="postagem"
           role="article"
         >
-          <img src="https://via.placeholder.com/150" alt="Postagem 1" />
+          <img src="" alt="Postagem 1" />
           <h3>Título da Postagem 1</h3>
           <p>Subtítulo da Postagem 1</p>
         </a>
@@ -174,7 +258,7 @@
           class="postagem"
           role="article"
         >
-          <img src="https://via.placeholder.com/150" alt="Postagem 2" />
+          <img src="" alt="Postagem 2" />
           <h3>Título da Postagem 2</h3>
           <p>Subtítulo da Postagem 2</p>
         </a>
@@ -185,7 +269,7 @@
           class="postagem"
           role="article"
         >
-          <img src="https://via.placeholder.com/150" alt="Postagem 3" />
+          <img src="" alt="Postagem 3" />
           <h3>Título da Postagem 3</h3>
           <p>Subtítulo da Postagem 3</p>
         </a>

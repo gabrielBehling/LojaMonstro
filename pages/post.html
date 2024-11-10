@@ -1,45 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Post</title>
-</head>
-<body>
+  </head>
+  <body>
     <a href="index.html">Voltar para a lista de posts</a>
     <h1 id="post-title"></h1>
     <p id="post-meta"></p>
     <p id="post-content"></p>
 
     <script>
-        async function carregarPost() {
-            try {
-                const urlParams = new URLSearchParams(window.location.search);
-                const postId = urlParams.get('id');
+      async function carregarPost() {
+        try {
+          const urlParams = new URLSearchParams(window.location.search);
+          const postId = urlParams.get("id");
 
-                if (!postId) {
-                    document.getElementById('post-content').innerText = 'Post não encontrado.';
-                    return;
-                }
+          if (!postId) {
+            document.getElementById("post-content").innerText =
+              "Post não encontrado.";
+            return;
+          }
 
-                const response = await fetch('/dados/posts.json');
-                const posts = await response.json();
-                const post = posts.find(p => p.id === postId);
+          const response = await fetch("/dados/posts.json");
+          const posts = await response.json();
+          const post = posts.find((p) => p.id === postId);
 
-                if (post) {
-                    document.getElementById('post-title').innerText = post.title;
-                    document.getElementById('post-meta').innerText = `Por ${post.author} em ${post.date} às ${post.time}`;
-                    document.getElementById('post-content').innerText = post.content;
-                } else {
-                    document.getElementById('post-content').innerText = 'Post não encontrado.';
-                }
-            } catch (error) {
-                console.error('Erro ao carregar o post:', error);
-                document.getElementById('post-content').innerText = 'Erro ao carregar o post.';
-            }
+          if (post) {
+            document.getElementById("post-title").innerText = post.title;
+            document.getElementById(
+              "post-meta"
+            ).innerText = `Por ${post.author} em ${post.date} às ${post.time}`;
+            document.getElementById("post-content").innerText = post.content;
+          } else {
+            document.getElementById("post-content").innerText =
+              "Post não encontrado.";
+          }
+        } catch (error) {
+          console.error("Erro ao carregar o post:", error);
+          document.getElementById("post-content").innerText =
+            "Erro ao carregar o post.";
         }
+      }
 
-        document.addEventListener('DOMContentLoaded', carregarPost);
+      document.addEventListener("DOMContentLoaded", carregarPost);
     </script>
-</body>
+  </body>
 </html>

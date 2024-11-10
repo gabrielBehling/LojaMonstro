@@ -1,0 +1,154 @@
+/* Configuração do grid */
+#sobre-nos {
+  display: grid;
+  grid-template-columns: repeat(-1, 1fr);
+  gap: 2rem;
+  padding: 2rem 5%;
+}
+
+/* Estilo geral do Hero */
+#hero {
+  position: relative;
+  background-image: url("../img/home.jpg"); /* Imagem de fundo */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-conteudo {
+  max-width: 800px;
+  margin: 0 auto 20px;
+  padding: 20px 20px 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+}
+
+.hero__title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.hero__title-span {
+  display: block;
+  font-family: var(--third-font);
+  color: var(--blood-red);
+  letter-spacing: 2px;
+  word-spacing: 5px;
+  font-weight: initial;
+}
+
+.hero-descricao {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+.hero__button {
+  display: inline-flex;
+  place-self: center;
+  padding: 10px 20px;
+  gap: 1rem;
+  background-color: #ff5722; /* Cor vibrante para chamar atenção */
+  color: white;
+  font-size: var(--h2-font-size);
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.hero__button:hover {
+  background-color: #e64a19; /* Efeito hover para o botão */
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+  #hero {
+    height: 80vh;
+  }
+
+  .hero-titulo {
+    font-size: 2.5rem;
+  }
+
+  .hero-descricao {
+    font-size: 1rem;
+  }
+
+  .hero__button {
+    padding: 12px 25px;
+  }
+}
+
+.sobre-nos-artigo,
+.linha-do-tempo,
+.trabalhos-atuais {
+  background-color: var(--dark-purple);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.sobre-nos-artigo h3,
+.linha-do-tempo h3,
+.trabalhos-atuais h3 {
+  font-family: var(--third-font);
+  color: var(--pumpkin-orange);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.sobre-nos-artigo p,
+.linha-do-tempo ul,
+.trabalhos-atuais ul {
+  color: var(--text-color-light);
+}
+
+.sobre-nos-artigo img,
+.trabalhos-atuais img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.linha-do-tempo ul {
+  padding-left: 20px;
+}
+
+.linha-do-tempo li {
+  list-style-type: none;
+  margin-bottom: 1rem;
+  color: var(--blood-red);
+}
+
+.trabalhos-atuais ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.trabalhos-atuais li {
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 720px) {
+  .main-content {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .sobre-nos-artigo h3,
+  .linha-do-tempo h3,
+  .trabalhos-atuais h3 {
+    font-size: 1.2rem;
+  }
+}
