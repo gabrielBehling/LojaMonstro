@@ -3,7 +3,6 @@ function toggleSubNav() {
   const subNavigation = document.querySelector(".sub-navigation");
   const hamburger = document.querySelector(".hamburger-menu");
 
-  // Alterna a classe "open" para sub-navegação e hambúrguer
   subNavigation.classList.toggle("open");
   hamburger.classList.toggle("open");
 }
@@ -19,30 +18,20 @@ document
   .addEventListener("click", toggleSubNav);
 
 // Ajuste no evento de scroll para ajustar a posição da navegação
-document
-  .querySelectorAll(".sub-navigation .in-page__link")
-  .forEach((anchor) => {
+document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
+  if (anchor.classList.contains("in-page-link")) {
     anchor.addEventListener("click", function (e) {
       e.preventDefault();
-
       const targetId = this.getAttribute("href");
       const targetElement = document.querySelector(targetId);
-
-      // Scroll to the target element, adjusting for the fixed header height
-      const headerOffset = 150; // Altura do cabeçalho fixo
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition =
-        elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-
-      // Fecha a subnavegação após o clique
+      const headerOffset = 80;
+      const elementPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+      const offsetPosition = elementPosition - headerOffset;
+      window.scrollTo({ top: offsetPosition, behavior: "smooth" });
       toggleSubNav();
     });
-  });
+  }
+});
 
 document.addEventListener("DOMContentLoaded", () => {
   const hamburgerMenu = document.getElementById("hamburger-menu");
