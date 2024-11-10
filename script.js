@@ -13,34 +13,36 @@ document
   .querySelector(".hamburger-menu")
   .addEventListener("click", toggleSubNav);
 
-
 // Adiciona o evento de clique no ícone do hambúrguer
 document
   .querySelector(".hamburger-menu")
   .addEventListener("click", toggleSubNav);
 
 // Ajuste no evento de scroll para ajustar a posição da navegação
-document.querySelectorAll(".sub-navigation .in-page__link").forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
+document
+  .querySelectorAll(".sub-navigation .in-page__link")
+  .forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      e.preventDefault();
 
-    const targetId = this.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
+      const targetId = this.getAttribute("href");
+      const targetElement = document.querySelector(targetId);
 
-    // Scroll to the target element, adjusting for the fixed header height
-    const headerOffset = 150; // Altura do cabeçalho fixo
-    const elementPosition = targetElement.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      // Scroll to the target element, adjusting for the fixed header height
+      const headerOffset = 150; // Altura do cabeçalho fixo
+      const elementPosition = targetElement.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
 
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+
+      // Fecha a subnavegação após o clique
+      toggleSubNav();
     });
-
-    // Fecha a subnavegação após o clique
-    toggleSubNav();
   });
-});
 
 document.addEventListener("DOMContentLoaded", () => {
   const hamburgerMenu = document.getElementById("hamburger-menu");
@@ -191,7 +193,10 @@ function addItemToCart(name, price) {
 
 function updateCartCount() {
   const cartCountElement = document.getElementById("cart-count");
-  const totalItems = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const totalItems = cartItems.reduce(
+    (total, item) => total + item.quantity,
+    0
+  );
   cartCountElement.innerText = totalItems; // Atualiza o texto do contador
 }
 
