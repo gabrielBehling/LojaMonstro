@@ -1,3 +1,9 @@
+@media (max-width: 570px) {
+  #title {
+    display: none;
+  }
+}
+
 #bill {
   display: none;
   flex-direction: column;

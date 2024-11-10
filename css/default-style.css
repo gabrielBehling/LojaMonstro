@@ -153,12 +153,6 @@ a:active {
   height: 60px;
 }
 
-@media (max-width: 570px) {
-  #title {
-    display: none;
-  }
-}
-
 .search {
   display: flex;
   flex-direction: row;
