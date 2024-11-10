@@ -2,13 +2,12 @@
 #sobre-nos {
   display: grid;
   gap: 2rem;
-  padding: 2rem 0;
+  padding: 2rem 0 0;
   font-size: var(--normal-font-size);
 }
 
 hr {
-  width: 100%;
-  max-width: 48rem;
+  width: 90%;
   place-self: center;
   line-height: 2rem;
   margin: 2rem 0 0.5rem;
@@ -119,7 +118,7 @@ hr {
   display: flex;
   flex-direction: column;
   background-color: unset;
-  padding: 2rem;
+  padding: 2rem 2rem 0;
   color: var(--text-color);
   text-align: justify;
   line-height: 130%;
