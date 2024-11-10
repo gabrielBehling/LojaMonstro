@@ -6,10 +6,19 @@
   font-size: var(--normal-font-size);
 }
 
+hr {
+  width: 100%;
+  max-width: 48rem;
+  place-self: center;
+  line-height: 2rem;
+  margin: 2rem 0 0.5rem;
+  border-color: var(--orange-color);
+}
+
 /* Estilo geral do Hero */
 #hero {
   position: relative;
-  background-image: url("../img/home.jpg"); /* Imagem de fundo */
+  background-image: url("../img/images/home.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
@@ -111,30 +120,111 @@
   flex-direction: column;
   background-color: unset;
   padding: 2rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   color: var(--text-color);
   text-align: justify;
   line-height: 130%;
+  font-family: Georgia, "Times New Roman", Times, serif;
 }
 
-.about-us__articles h3 {
+.about-us__articles h2 {
   font-family: var(--second-font);
   color: var(--pumpkin-orange);
-  font-size: calc(var(--h3-font-size) + 1rem);
-  margin: 2rem auto;
+  font-size: calc(var(--h2-font-size) + 1rem);
+  margin: 3rem auto 0;
   letter-spacing: 2px;
   text-align: center;
   text-decoration: overline;
 }
 
+.about-us__articles h3,
+.about-us__articles h4,
 .about-us__articles p {
-  max-width: 48rem;
   place-self: center;
+  width: 100%;
+  max-width: 48rem;
+}
+
+.about-us__articles h3 {
+  font-family: var(--second-font);
+  font-size: calc(var(--h3-font-size) + 1rem);
+  margin: 3rem 0 0;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+.about-us__articles h4 {
+  margin: 2rem auto 1rem;
+  font-size: calc(var(--h3-font-size) + 0.5rem);
+  font-family: var(--second-font);
+  letter-spacing: 2px;
+}
+
+.about-us__articles h4:first-of-type {
+  text-align: center;
+}
+
+.about-us__articles h4 span {
+  color: var(--blood-red);
+}
+
+.about-us__articles p {
   font-size: 1.125rem;
   line-height: 2rem;
   margin-top: 2rem;
-  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.about-us__reviews {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.about-us__reviews-title {
+  text-align: center;
+}
+
+.review {
+  flex: 1;
+  flex-direction: column;
+  max-width: 23.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0 1rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.review h4 {
+  margin: 0 auto;
+  font-family: var(--second-font);
+  color: var(--orange-color-alt);
+  margin: 2rem 0 0.5rem;
+}
+
+.review p, .work p {
+  font-size: 1.125rem;
+  line-height: 1.5;
+}
+
+.about-us__work {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  gap: 1rem;
+}
+
+.work {
+  flex: 1;
+  flex-direction: column;
+  max-width: 15.5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0 1rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.work p {
+  margin-top: 1rem !important;
 }
 
 @media only screen and (max-width: 768px) {
@@ -157,10 +247,13 @@
 
 .about-us__articles li {
   list-style-type: none;
-  margin-bottom: 1rem;
   color: var(--blood-red);
 }
 
-.about-us__articles li {
+.about-us__articles li:not(:last-of-type) {
   margin-bottom: 1rem;
+}
+
+.about-us__articles li span {
+  font-family: var(--second-font);
 }
