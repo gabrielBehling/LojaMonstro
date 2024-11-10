@@ -1,4 +1,4 @@
-document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
+document.querySelectorAll(".sub-navigation .in-page__link").forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
 
