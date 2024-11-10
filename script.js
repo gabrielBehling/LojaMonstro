@@ -1,21 +1,3 @@
-document.querySelectorAll(".sub-navigation .in-page__link").forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const targetId = this.getAttribute("href");
-    const targetElement = document.querySelector(targetId);
-
-    const headerOffset = 126;
-    const elementPosition = targetElement.getBoundingClientRect().top;
-    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-    window.scrollTo({
-      top: offsetPosition,
-      behavior: "smooth",
-    });
-  });
-});
-
 // Toggle da sub-navegação e rotação do ícone de hambúrguer
 function toggleSubNav() {
   const subNavigation = document.querySelector(".sub-navigation");
@@ -38,7 +20,7 @@ document
   .addEventListener("click", toggleSubNav);
 
 // Ajuste no evento de scroll para ajustar a posição da navegação
-document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
+document.querySelectorAll(".sub-navigation .in-page__link").forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
 
@@ -52,7 +34,7 @@ document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: "smooth", // Optional: for smooth scrolling
+      behavior: "smooth",
     });
 
     // Fecha a subnavegação após o clique
