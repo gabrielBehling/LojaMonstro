@@ -1,4 +1,3 @@
-// Impede que quando clicar em link, a barra de navegação não cobre a seção
 document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();
@@ -6,14 +5,13 @@ document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
     const targetId = this.getAttribute("href");
     const targetElement = document.querySelector(targetId);
 
-    // Scroll to the target element, adjusting for the fixed header height
-    const headerOffset = 126; // Height of the fixed header
+    const headerOffset = 126;
     const elementPosition = targetElement.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
     window.scrollTo({
       top: offsetPosition,
-      behavior: "smooth", // Optional: for smooth scrolling
+      behavior: "smooth",
     });
   });
 });
