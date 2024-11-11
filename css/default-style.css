@@ -204,7 +204,7 @@ a:active {
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: var(--font-bold);
 }
 
 .search__input {
@@ -402,7 +402,7 @@ a:active {
 
 .postagem p {
   color: var(--black-halloween);
-  font-weight: 500;
+  font-weight: var(--font-medium);
 }
 
 .mais-postagens {
@@ -500,7 +500,7 @@ a:active {
   color: var(--orange-color);
   text-align: center;
   font-size: var(--h2-font-size);
-  font-weight: 500;
+  font-weight: var(--font-medium);
 }
 
 .page-footer__link-description {
