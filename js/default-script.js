@@ -2,9 +2,19 @@
 function toggleSubNav() {
   const subNavigation = document.querySelector(".sub-navigation");
   const hamburger = document.querySelector(".hamburger-menu");
+  const icon = hamburger.querySelector("i"); // Select the icon inside the hamburger menu
 
   subNavigation.classList.toggle("open");
   hamburger.classList.toggle("open");
+
+  // Change the icon based on the state of the sub-navigation
+  if (subNavigation.classList.contains("open")) {
+    icon.classList.remove("bx-menu"); // Remove the hamburger icon
+    icon.classList.add("bx-x"); // Add the close icon
+  } else {
+    icon.classList.remove("bx-x"); // Remove the close icon
+    icon.classList.add("bx-menu"); // Add the hamburger icon back
+  }
 }
 
 // Adiciona o evento de clique no ícone do hambúrguer
