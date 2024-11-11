@@ -198,10 +198,10 @@ hr {
 }
 
 .about-us__work {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-  gap: 1rem;
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  row-gap: 25px;
+  column-gap: 25px;
 }
 
 .work {
