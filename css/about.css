@@ -17,7 +17,7 @@
   padding: 20px 20px 0;
   background-color: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
-  backdrop-filter: blur(10px); 
+  backdrop-filter: blur(10px);
 }
 
 .hero__title {
@@ -32,10 +32,8 @@
   display: block;
   font-family: var(--third-font);
   color: var(--blood-red);
-  text-shadow: 
-    -2px -2px 0px var(--black-halloween),  
-    2px -2px 0px var(--black-halloween),
-    -2px 2px 0px var(--black-halloween),
+  text-shadow: -2px -2px 0px var(--black-halloween),
+    2px -2px 0px var(--black-halloween), -2px 2px 0px var(--black-halloween),
     2px 2px 0px var(--black-halloween);
 }
 
