@@ -1,3 +1,32 @@
+// document.addEventListener('DOMContentLoaded', () => {
+//   const audio = document.getElementById('audio');
+
+//   // Set initial volume to a low value for background music
+//   audio.volume = 0.0; // Start volume at 0 for fade-in
+
+//   // Function to fade in the audio
+//   function fadeInAudio(duration) {
+//       const interval = 100; // Interval in milliseconds
+//       const increment = (0.1 / (duration / interval)); // Increment volume by 0.1 over the duration
+
+//       let currentVolume = 0.0;
+//       audio.play(); // Start playing audio
+
+//       const fadeInterval = setInterval(() => {
+//           if (currentVolume < 0.1) { // Fade to 10%
+//               currentVolume = Math.min(currentVolume + increment, 0.1);
+//               audio.volume = currentVolume;
+//           } else {
+//               clearInterval(fadeInterval); // Stop the interval when target volume is reached
+//           }
+//       }, interval);
+//   }
+
+//   // Automatically fade in the audio when the page loads
+//   fadeInAudio(7500); // Fade in over 2 seconds
+// }); 
+
+
 let currentSlideIndex = 0; // Índice da primeira exibição do carrossel
 const itemsPerPage = 6; // Número de itens visíveis por vez
 

@@ -285,6 +285,12 @@
   text-decoration: underline;
 }
 
+audio {
+  align-self: center;
+  background-color: unset;
+  border-radius: 50px;
+}
+
 .cart__add {
   font-size: var(--normal-font-size);
   margin-top: 5px;
