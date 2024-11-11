@@ -1,11 +1,3 @@
-/* Configuração do grid */
-#sobre-nos {
-  display: grid;
-  gap: 2rem;
-  padding: 2rem 0 0;
-  font-size: var(--normal-font-size);
-}
-
 hr {
   width: 90%;
   place-self: center;
@@ -226,22 +218,22 @@ hr {
   margin-top: 1rem !important;
 }
 
-@media only screen and (max-width: 768px) {
-  .about-us__articles h3 {
-    font-size: var(--h1-font-size);
-  }
-
-  .about-us__articles p {
-    font-size: 1.25rem;
-  }
-}
-
 .about-us__articles ul {
   max-width: 48rem;
   place-self: center;
   font-size: 1.125rem;
   line-height: 2rem;
   margin-top: 2rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .about-us__articles h3,
+  .about-us__articles h4,
+  .about-us__articles p, 
+  .about-us__articles ul {
+    max-width: 100%;
+    font-size: 1.25rem;
+  }
 }
 
 .about-us__articles li {
