@@ -272,7 +272,7 @@ a:active {
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.sub-navigation.active {
+.sub-navigation.open {
   display: inline-flex;
   opacity: 1;
   transform: translateY(0);
@@ -324,13 +324,13 @@ a:active {
   color: var(--orange-color);
 }
 
-.hamburger-menu.active, .hamburger-menu.open {
+.hamburger-menu.open {
   transform: rotate(90deg);
 }
 
 /* Exibir o hamburger no mobile */
 @media (max-width: 570px) {
-  .sub-navigation.active {
+  .sub-navigation.open {
     display: flex;
     width: 100%;
     place-content: center;
