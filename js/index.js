@@ -3,7 +3,7 @@ const itemsPerPage = 6; // Número de itens visíveis por vez
 
 async function carregarProdutos() {
   try {
-    const response = await fetch("/dados/products.json");
+    const response = await fetch("./data/products.json");
     const produtos = await response.json();
 
     const listaProdutos = document.getElementById("produtos");
