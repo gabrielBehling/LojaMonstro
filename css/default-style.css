@@ -317,10 +317,15 @@ a:active {
   font-size: var(--biggest-font-size);
   color: var(--white-color);
   cursor: pointer;
+  transition: transform 0.5s ease;
 }
 
 .hamburger-menu:hover {
   color: var(--orange-color);
+}
+
+.hamburguer-menu.active {
+  transform: rotate(90deg);
 }
 
 /* Exibir o hamburger no mobile */
