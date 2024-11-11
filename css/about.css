@@ -207,6 +207,7 @@ hr {
 .work {
   flex: 0 0 30%; /* Largura fixa de 30% */
   text-align: center;
+  margin: 0 auto;
   background-color: rgba(255, 255, 255, 0.1);
   padding: 0 1rem 1rem;
   border-radius: 8px;
