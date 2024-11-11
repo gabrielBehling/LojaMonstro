@@ -324,7 +324,7 @@ a:active {
   color: var(--orange-color);
 }
 
-.hamburguer-menu.active {
+.hamburger-menu.active {
   transform: rotate(90deg);
 }
 
