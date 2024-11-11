@@ -9,7 +9,7 @@ async function carregarPost() {
       return;
     }
 
-    const response = await fetch("/dados/posts.json");
+    const response = await fetch("./data/posts.json");
     const posts = await response.json();
     const post = posts.find((p) => p.id === postId);
 
