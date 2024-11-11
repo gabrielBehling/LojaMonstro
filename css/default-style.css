@@ -324,16 +324,12 @@ a:active {
   color: var(--orange-color);
 }
 
-.hamburger-menu.active {
+.hamburger-menu.active, .hamburger-menu.open {
   transform: rotate(90deg);
 }
 
 /* Exibir o hamburger no mobile */
 @media (max-width: 570px) {
-  .hamburger-menu {
-    display: block; /* Exibe o ícone no mobile */
-  }
-
   .sub-navigation.active {
     display: flex;
     width: 100%;
