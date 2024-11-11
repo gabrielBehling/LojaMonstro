@@ -317,11 +317,6 @@ a:active {
   font-size: var(--biggest-font-size);
   color: var(--white-color);
   cursor: pointer;
-  transition: transform 0.3s ease;
-}
-
-.hamburger-menu.active {
-  transform: rotate(90deg);
 }
 
 .hamburger-menu:hover {
