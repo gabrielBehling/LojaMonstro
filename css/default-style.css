@@ -142,7 +142,7 @@ img {
 }
 
 .page-header header a:visited {
-  color: var(--white-color);
+  color: none;
 }
 
 a:active {
