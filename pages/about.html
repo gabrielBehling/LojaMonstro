@@ -131,7 +131,7 @@
     </nav>
 
     <section id="hero" class="hero">
-      <div class="hero-conteudo">
+      <main class="hero__content">
         <h1 class="hero__title">
           Bem-vindo à
           <span class="hero__title-span">Ordem dos Guardiões da Noite</span>
@@ -140,21 +140,24 @@
           Uma fraternidade de seres que desafiam as sombras e celebram a
           coexistência. Junte-se a nós e faça parte da história.
         </p>
-      </div>
+      </main>
       <a href="#sobre-nos" class="hero__button"
         ><i class="bx bxs-chevrons-down"></i>
         Saiba mais
         <i class="bx bxs-chevrons-down"></i
       ></a>
     </section>
-    <div class="faixa-transicao"></div>
+
     <section id="sobre-nos" aria-labelledby="sobre-nos">
-      <header>
-        <h2>Sobre Nós</h2>
-      </header>
-      <main>
-        <article class="sobre-nos-artigo">
-          <h3>A Ordem dos Guardiões da Noite</h3>
+      <main class="about-us__main">
+        <article class="about-us__articles">
+          <h2>Como tudo começou?</h2>
+          <h4>A formação da <span>Ordem</span></h4>
+          <img
+            src="../img/images//epic-handshake.jpg"
+            alt="Aperto de mãos épico"
+            class="imagem-sobre-nos"
+          />
           <p>
             Em um mundo onde a escuridão e a luz se entrelaçam, um grupo
             inusitado de seres decidiu unir forças. A Ordem dos Guardiões da
@@ -163,12 +166,23 @@
             coexistência pacífica entre suas espécies era possível, desde que
             houvesse um equilíbrio de poder.
           </p>
-          <!-- 600x300 img -->
-          <img
-            src=""
-            alt="A Ordem dos Guardiões da Noite"
-            class="imagem-sobre-nos"
-          />
+          <ul>
+            <li>
+              <span>2020:</span> Fundação da Ordem dos Guardiões da Noite.
+            </li>
+            <li>
+              <span>2021:</span> Lançamento do monopólio de armas contra
+              vampiros e esqueletos.
+            </li>
+            <li>
+              <span>2022:</span> Início das campanhas de doação de sangue, com
+              grande adesão da comunidade vampírica.
+            </li>
+            <li>
+              <span>2023:</span> Programa de adoção de esqueletos ganha
+              destaque, promovendo a inclusão e a amizade entre as espécies.
+            </li>
+          </ul>
           <p>
             A ideia inicial da ordem era criar um monopólio de armas contra
             vampiros e esqueletos, garantindo que ambos os lados estivessem
@@ -177,60 +191,72 @@
             programas de adoção de esqueletos, promovendo a aceitação e a
             solidariedade entre as criaturas da noite.
           </p>
-        </article>
-
-        <article class="linha-do-tempo">
-          <h3>Linha do Tempo da Ordem</h3>
-          <ul>
-            <li>
-              <strong>2020:</strong> Fundação da Ordem dos Guardiões da Noite.
-            </li>
-            <li>
-              <strong>2021:</strong> Lançamento do monopólio de armas contra
-              vampiros e esqueletos.
-            </li>
-            <li>
-              <strong>2022:</strong> Início das campanhas de doação de sangue,
-              com grande adesão da comunidade vampírica.
-            </li>
-            <li>
-              <strong>2023:</strong> Programa de adoção de esqueletos ganha
-              destaque, promovendo a inclusão e a amizade entre as espécies.
-            </li>
-          </ul>
-        </article>
-
-        <article class="trabalhos-atuais">
+          <aside class="about-us__reviews">
+            <div class="review">
+              <h4>Ossian, o Esqueleto Sábio</h4>
+              <p>
+                "A Ordem dos Guardiões da Noite é mais do que uma fraternidade;
+                é uma família. Juntos, estamos quebrando barreiras e construindo
+                um futuro melhor para todos."
+              </p>
+            </div>
+            <div class="review">
+              <h4>Vladis, o Vampiro Astuto</h4>
+              <p>
+                "A coexistência é possível. Através da compreensão e do
+                respeito, podemos viver em harmonia. A Ordem é um exemplo
+                disso."
+              </p>
+            </div>
+          </aside>
           <h3>Trabalhos Atuais</h3>
           <p>
             Atualmente, a Ordem dos Guardiões da Noite se dedica a várias
             iniciativas. Além de continuar a produção e venda de armas, estamos
             focados em:
           </p>
-          <ul>
-            <li>
-              Organizar eventos de integração entre vampiros e esqueletos.
-            </li>
-            <li>
-              Promover campanhas de conscientização sobre a importância da
-              doação de sangue.
-            </li>
-            <li>
-              Expandir o programa de adoção de esqueletos, garantindo que cada
-              um encontre um lar acolhedor.
-            </li>
-          </ul>
-          <!-- 600x300 img -->
-          <img
-            src=""
-            alt="Campanha de doação de sangue"
-            class="imagem-sobre-nos"
-          />
+          <aside class="about-us__work">
+            <section class="work">
+              <p>
+                Organizar eventos de integração entre vampiros e esqueletos.
+              </p>
+            </section>
+            <section class="work">
+              <p>
+                Promover campanhas de conscientização sobre a importância da
+                doação de sangue.
+              </p>
+            </section>
+            <section class="work">
+              <p>
+                Expandir o programa de adoção de esqueletos, garantindo que cada
+                um encontre um lar acolhedor.
+              </p>
+            </section>
+          </aside>
           <p>
             Acreditamos que, trabalhando juntos, podemos criar um futuro onde
             vampiros e esqueletos coexistam em harmonia, respeitando as
             diferenças e celebrando a diversidade. Junte-se a nós nessa jornada!
           </p>
+          <h3>Próximos Eventos</h3>
+          <h4>Festival da Lua Cheia</h4>
+          <p>
+            Data: 15 de agosto de 2024<br />
+            Local: Floresta Encantada<br />
+            Descrição: Junte-se a nós para celebrar a Lua Cheia com danças,
+            música e histórias de criaturas da noite. Um evento para todas as
+            idades, onde vampiros e esqueletos se reúnem em harmonia.
+          </p>
+          <h4>Conferência de Coexistência</h4>
+          <p>
+            Data: 30 de setembro de 2024<br />
+            Local: Centro de Convenções das Sombras<br />
+            Descrição: Um encontro para discutir a importância da coexistência
+            entre as espécies. Especialistas e líderes da comunidade
+            compartilharão suas experiências e visões para o futuro.
+          </p>
+          <hr />
         </article>
       </main>
     </section>
