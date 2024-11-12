@@ -11,24 +11,39 @@
 
 .login-form,
 .signup-form {
-  background-color: var(--purple);
+  background-color: rgba(95, 15, 64, 0.75);
+  backdrop-filter: blur(10px);
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  display: none; /* Escondido por padrão */
+  display: none;
+  overflow: hidden;
+  transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
 .login-form.active,
 .signup-form.active {
   display: block; /* Mostra o formulário ativo */
+  max-height: 500px; /* Altura máxima para a animação */
+  opacity: 1; /* Opacidade total */
 }
+
+.login-form.closing,
+.signup-form.closing {
+  max-height: 0; /* Fecha o formulário */
+  opacity: 0; /* Torna invisível */ 
+  transition: max-height 0.5s ease, opacity 0.5s ease;
+}
+
 
 .login-form h2,
 .signup-form h2 {
   font-family: var(--second-font);
-  font-size: var(--h2-font-size);
+  font-size: var(--h1-font-size);
+  font-weight: initial;
+  letter-spacing: 2px;
   color: var(--orange-color);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .login-form input,
