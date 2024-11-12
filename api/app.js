@@ -1,9 +1,13 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const db = require("./database/setup.js");
 const postsModel = require("./models/posts.js");
+const productsModel = require("./models/products.js");
 
 require("dotenv").config();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 db.createDatabase();
 
@@ -13,8 +17,15 @@ app.get("/status", (req, res) => {
   res.status(200).json({ status: "ok" });
 });
 
-app.get("/products", (req, res) => {});
-app.get("/product/:id", (req, res) => {});
+app.get("/products", async (req, res) => {
+  let product = await productsModel.getAllProducts();
+  res.status(200).json(product);
+});
+app.get("/product/:id", async (req, res) => {
+  let id = req.params["id"];
+  let product = await productsModel.getProductByID(id);
+  res.status(200).json(product);
+});
 app.post("/product", (req, res) => {});
 
 app.get("/posts", async (req, res) => {
@@ -28,7 +39,9 @@ app.get("/post/:id", async (req, res) => {
 });
 app.post("/post", (req, res) => {
   let { id, title, author, date, time, content } = req.body;
+
   postsModel.addPost(id, title, author, date, time, content);
+  res.sendStatus(201);
 });
 
 app.listen(PORT, (error) => {
