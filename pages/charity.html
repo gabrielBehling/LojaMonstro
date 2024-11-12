@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monsters Antique | Caridade</title>
+    <meta
+      name="description"
+      content="Ajude a manter a Ordem funcionando! Doe sangue ou medula ossea!"
+    />
+    <link rel="stylesheet" href="../css/default-style.css" />
+    <link rel="stylesheet" href="../css/charity.css" />
+    <script type="module" src="../js/default-script.js" defer></script>
+    <script src="../js/charity.js" defer></script>
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="../img/icon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="../img/icon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="../img/icon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="../img/icon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="../img/icon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="../img/icon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="../img/icon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="../img/icon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../img/icon/apple-icon-180x180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="../img/icon/android-icon-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../img/icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="../img/icon/favicon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../img/icon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../manifest.json" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta
+      name="msapplication-TileImage"
+      content="../img/icon/ms-icon-144x144.png"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="page-header">
+      <header>
+        <a href="../index.html">
+          <img
+            src="../img/logo/logo-inverted-nobg.png"
+            alt="Logo da Monsters Antique"
+          />
+          <h1 id="title">Monsters Antique</h1>
+        </a>
+      </header>
+      <aside class="profile__hamburger">
+        <a
+          href="./login.html"
+          target="_parent"
+          class="profile"
+          aria-label="Perfil"
+        >
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIJzvwGX_2AoP6sVrqOl4h3CHNrLOGj6ExpjvxfYZnILimKkCckX6mBsa-cfFlRt47Mrs&usqp=CAU"
+            alt="Ícone do perfil"
+            class="profile-icon"
+          />
+        </a>
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Menu">
+          <i class="bx bx-menu"></i>
+        </button>
+      </aside>
+    </header>
+
+    <nav class="sub-navigation" aria-label="Navegação principal">
+      <ul>
+        <li><a href="../index.html" target="_parent">Produtos</a></li>
+        <li>
+          <a href="#sobre-nos" class="in-page-link">Sobre Nós</a>
+        </li>
+        <li>
+          <a href="./charity.html" target="_parent">Caridade</a>
+        </li>
+        <li><a href="#ultimasPostagens" class="in-page-link">Postagens</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Programa de Caridade Da Ordem &copy;</h1>
+        <h2>Faça a Diferença Neste Halloween!</h2>
+        <p>
+          Junte-se a nós para ajudar aqueles que precisam. Sua doação pode
+          salvar vidas!
+        </p>
+        <img src="halloween-image.png" alt="Halloween" class="hero-image" />
+        <a href="#doacao" class="btn-doar"
+          ><i class="bx bxs-chevrons-down"></i>Começar a Doar<i
+            class="bx bxs-chevrons-down"
+          ></i
+        ></a>
+      </div>
+    </section>
+
+    <section id="doacao" class="doacao-section">
+      <h2>Escolha Sua Doação</h2>
+      <div class="doacao-opcoes">
+        <div class="doacao-opcao" onclick="selectOption('sangue')">
+          <img src="sangue.jpg" alt="Doação de Sangue" />
+          <h3>Doação de Sangue</h3>
+          <p>Ajude a salvar vidas com sua doação de sangue.</p>
+        </div>
+        <div class="doacao-opcao" onclick="selectOption('medula')">
+          <img src="medula.jpg" alt="Doação de Medula Óssea" />
+          <h3>Doação de Medula Óssea</h3>
+          <p>Seja um herói e ajude a encontrar um doador compatível.</p>
+        </div>
+      </div>
+      <button id="proximo" class="btn-proximo" disabled>Próximo</button>
+    </section>
+
+    <section id="formulario" class="form-section" style="display: none">
+      <h2>Formulário de Doação</h2>
+      <form id="donationForm">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" required />
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+        <label for="telefone">Telefone:</label>
+        <input type="tel" id="telefone" required />
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+
+    <section id="confirmacao" class="confirmacao-section" style="display: none">
+      <h2>Obrigado pela Sua Doação!</h2>
+      <p>Você escolheu: <span id="tipo-doacao"></span></p>
+      <p>Seu ticket de atendimento: <span id="ticket"></span></p>
+      <p>
+        Instruções sobre como prosseguir com a doação serão enviadas para o seu
+        email.
+      </p>
+    </section>
+
+    <footer class="page-footer">
+      <header class="page-footer__header">
+        <h1 class="page-footer__title">Conheça nosso trabalho <3</h1>
+        <h3 class="page-footer__subtitle">Feito por:</h3>
+      </header>
+      <main class="page-footer__main">
+        <a
+          href="https://github.com/gabrielBehling"
+          aria-label="Perfil do GitHub de Gabriel Behling"
+        >
+          <img
+            src="https://avatars.githubusercontent.com/u/102189169?v=4"
+            alt="Avatar de Gabriel Behling"
+            class="github-icon"
+          />
+          <div class="page-footer__data">
+            <p class="page-footer__link-title">Gabriel</p>
+            <p class="page-footer__link-description">Back-end</p>
+          </div>
+        </a>
+        <a
+          href="https://github.com/tyxiel"
+          aria-label="Perfil do GitHub de Tyxiel"
+        >
+          <img
+            src="https://avatars.githubusercontent.com/u/128870773?v=4"
+            alt="Avatar de Tyxiel"
+            class="github-icon"
+          />
+          <div class="page__footer__data">
+            <p class="page-footer__link-title">Tyxiel</p>
+            <p class="page-footer__link-description">Front-end</p>
+          </div>
+        </a>
+      </main>
+      <aside class="page-footer__rights">
+        &copy; 2024 Monsters Antique. Todos os direitos reservados. Imagens
+        meramente ilustrativas.
+      </aside>
+    </footer>
+  </body>
+</html>

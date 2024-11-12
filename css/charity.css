@@ -1,0 +1,186 @@
+.hero {
+  height: 100vh;
+}
+
+.hero-content {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-family: var(--second-font);
+  font-size: var(--biggest-font-size);
+  font-weight: initial;
+  color: var(--orange-color);
+  letter-spacing: 2px;
+}
+
+.hero-image {
+  max-width: 500px; /* Limita a largura da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+  margin: 20px 0; /* Espaçamento acima e abaixo da imagem */
+  border-radius: 8px; /* Bordas arredondadas */
+}
+
+.btn-doar {
+  display: inline-flex;
+  width: fit-content;
+  align-self: center;
+  background-color: var(--pumpkin-orange);
+  color: var(--white-color);
+  padding: 10px 20px;
+  gap: 0.5rem;
+  border-radius: 8px;
+  border: none;
+  font-size: var(--h2-font-size);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-doar:hover {
+  background-color: var(--orange-color);
+  transform: scale(1.05);
+}
+
+/* Seção de Doação */
+.doacao-section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: var(--dark-purple);
+  color: var(--white-color);
+}
+
+.doacao-section h2 {
+  margin-bottom: 30px;
+  font-family: var(--second-font);
+  color: var(--blood-red);
+}
+
+.doacao-opcoes {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.doacao-opcao {
+  background-color: var(--orange-color-alt);
+  border-radius: 15px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+.doacao-opcao.selected {
+  border: 2px solid var(--pumpkin-orange);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transform: scale(1.05);
+}
+
+.doacao-opcao:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.doacao-opcao img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.btn-proximo {
+  background-color: var(--blood-red);
+  color: var(--white-color);
+  padding: 15px 30px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: var(--h3-font-size);
+  margin-top: 20px;
+}
+
+.btn-proximo:disabled {
+  background-color: var(--dark-purple);
+  cursor: not-allowed;
+}
+
+.btn-proximo:hover:not(:disabled) {
+  background-color: var(--blood-red-light);
+  transform: scale(1.05);
+}
+
+/* Seção do Formulário */
+.form-section {
+  padding: 50px 20px;
+  background-color: var(--light-purple);
+  color: var(--white-color);
+  text-align: center;
+}
+
+.form-section h2 {
+  margin-bottom: 20px;
+  color: var(--blood-red);
+}
+
+.form-section form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-section input {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--white-color);
+  font-size: var(--normal-font-size);
+}
+
+.form-section button {
+  background-color: var(--pumpkin-orange);
+  color: var(--white-color);
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.form-section button:hover {
+  background-color: var(--orange-color);
+  transform: scale(1.05);
+}
+
+/* Seção de Confirmação */
+.confirmacao-section {
+  padding: 50px 20px;
+  background-color: var(--black-halloween);
+  color: var(--white-color);
+  text-align: center;
+}
+
+.confirmacao-section h2 {
+  margin-bottom: 20px;
+  color: var(--blood-red);
+}
+
+/* Footer */
+.page-footer {
+  padding: 25px 15px;
+  background-color: var(--black-halloween);
+  color: var(--white-color);
+  text-align: center;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.page-footer p {
+  margin: 0;
+}
