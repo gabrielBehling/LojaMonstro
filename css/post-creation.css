@@ -1,0 +1,88 @@
+.form-container {
+  background-color: var(--dark-purple);
+  padding: 20px;
+  min-height: 100vh;
+  border-radius: 8px;
+  margin: 75px auto 20px;
+}
+
+.form-label {
+  display: block;
+  margin-top: 15px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid var(--white-color);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--white-color);
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-input:focus {
+  border-color: var(--orange-color); /* Cor da borda ao focar */
+  background-color: rgba(255, 255, 255, 0.01); /* Leve mudança de fundo ao focar */
+}
+
+.form-title-input {
+  font-size: 1.5rem; /* Tamanho maior para o título */
+}
+
+.form-subtitle-input {
+  font-size: 1.25rem; /* Tamanho um pouco menor para o subtítulo */
+}
+
+.form-textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid var(--white-color);
+  border-radius: 8px;
+  background-color: transparent;
+  color: var(--white-color);
+  resize: vertical; /* Permite redimensionar verticalmente */
+  transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.form-textarea:focus {
+  border-color: var(--orange-color); /* Cor da borda ao focar */
+  background-color: rgba(255, 255, 255, 0.01); /* Leve mudança de fundo ao focar */
+}
+
+.form-button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-button:hover {
+  background-color: var(--blood-red);
+}
+
+.post-footer {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: var(--orange-color);
+  border-radius: 8px;
+}
+
+.footer-title {
+  margin-bottom: 10px;
+  color: var(--white-color);
+}
+
+.footer-info {
+  margin-bottom: 10px;
+}
+
+input[type="file"] {
+  cursor: pointer; /* Cursor de ponteiro para inputs de arquivo */
+}
