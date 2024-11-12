@@ -18,7 +18,7 @@ async function addProduct(name, price, supplier, imgPath) {
   let db = await conn.getDatabase();
   await db.query`
     INSERT INTO Product (name, price, supplier, img)
-    VALUES (${name}, ${price}, ${supplier}, ${img})
+    VALUES (${name}, ${price}, ${supplier}, ${imgPath})
     `;
 }
 

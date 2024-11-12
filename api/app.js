@@ -1,5 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const multer = require("multer");
+const path = require("path");
 const app = express();
 const db = require("./database/setup.js");
 const postsModel = require("./models/posts.js");
@@ -8,6 +10,19 @@ const productsModel = require("./models/products.js");
 require("dotenv").config();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "./productImages/");
+  },
+  filename: (req, file, cb) => {
+    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
+    const ext = path.extname(file.originalname);
+    cb(null, file.fieldname + "-" + uniqueSuffix + ext);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 db.createDatabase();
 
@@ -26,7 +41,19 @@ app.get("/product/:id", async (req, res) => {
   let product = await productsModel.getProductByID(id);
   res.status(200).json(product);
 });
-app.post("/product", (req, res) => {});
+app.post("/product", upload.single("img"), async (req, res) => {
+  let { name, price, supplier } = req.body;
+
+  let imgPath = null;
+  if (req.file) {
+    imgPath = `/productImages/${req.file.filename}`;
+  }
+
+  console.log(req.file);
+
+  productsModel.addProduct(name, price, supplier, imgPath);
+  res.sendStatus(201);
+});
 
 app.get("/posts", async (req, res) => {
   let posts = await postsModel.getAllPosts();
@@ -37,10 +64,10 @@ app.get("/post/:id", async (req, res) => {
   let posts = await postsModel.getPostByID(id);
   res.status(200).json(posts);
 });
-app.post("/post", (req, res) => {
+app.post("/post", async (req, res) => {
   let { id, title, author, date, time, content } = req.body;
 
-  postsModel.addPost(id, title, author, date, time, content);
+  await postsModel.addPost(id, title, author, date, time, content);
   res.sendStatus(201);
 });
 
