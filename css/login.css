@@ -1,0 +1,75 @@
+/* Estilos adicionais para a página de login */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--body-color);
+  color: var(--white-color);
+}
+
+.login-form,
+.signup-form {
+  background-color: var(--purple);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  display: none; /* Escondido por padrão */
+}
+
+.login-form.active,
+.signup-form.active {
+  display: block; /* Mostra o formulário ativo */
+}
+
+.login-form h2,
+.signup-form h2 {
+  font-family: var(--second-font);
+  font-size: var(--h2-font-size);
+  color: var(--orange-color);
+  margin-bottom: 20px;
+}
+
+.login-form input,
+.signup-form input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid var(--white-color);
+  border-radius: 5px;
+  background-color: transparent;
+  color: var(--white-color);
+  transition: border-color 0.3s ease;
+}
+
+.login-form input:focus,
+.signup-form input:focus {
+  outline: none;
+  border-color: var(--pumpkin-orange);
+}
+
+.login-form button,
+.signup-form button {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  border: none;
+  border-radius: 5px;
+  font-size: var(--normal-font-size);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-form button:hover,
+.signup-form button:hover {
+  background-color: var(--pumpkin-orange);
+}
+
+.toggle-form {
+  margin-top: 20px;
+  color: var(--white-color);
+  cursor: pointer;
+  text-decoration: underline;
+}
