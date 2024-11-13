@@ -24,7 +24,7 @@
 
 //   // Automatically fade in the audio when the page loads
 //   fadeInAudio(7500); // Fade in over 2 seconds
-// }); 
+// });
 
 let currentScrollPosition = 0; // Posição atual de rolagem
 const itemsToScroll = 4; // Número de itens a serem rolados de cada vez
@@ -43,8 +43,12 @@ async function carregarProdutos() {
       item.innerHTML = `
               <div class="produto-detalhes">
                   <span class="produto-nome">${produto.name}</span>
-                  <span class="produto-preco">R$ ${produto.price.toFixed(2)}</span>
-                  <span class="produto-fornecedor">Fornecedor: ${produto.supplier}</span>
+                  <span class="produto-preco">R$ ${produto.price.toFixed(
+                    2
+                  )}</span>
+                  <span class="produto-fornecedor">Fornecedor: ${
+                    produto.supplier
+                  }</span>
                   <button type="button" class="cart__add carrossel__product">
                       <i class='bx bxs-cart-add'></i>
                       <span>Adic. ao carrinho</span>
@@ -66,7 +70,8 @@ async function carregarProdutos() {
 // Função para mudar o slide
 function mudarSlide(direction) {
   const produtosContainer = document.getElementById("produtos");
-  const itemWidth = produtosContainer.scrollWidth / produtosContainer.children.length; // Largura média de um item
+  const itemWidth =
+    produtosContainer.scrollWidth / produtosContainer.children.length; // Largura média de um item
   const scrollAmount = itemWidth * itemsToScroll; // Quantidade a ser rolada
 
   // Atualiza a posição de rolagem
@@ -75,20 +80,46 @@ function mudarSlide(direction) {
   // Garante que a posição de rolagem não ultrapasse os limites
   if (currentScrollPosition < 0) {
     currentScrollPosition = 0;
-  } else if (currentScrollPosition > produtosContainer.scrollWidth - produtosContainer.clientWidth) {
-    currentScrollPosition = produtosContainer.scrollWidth - produtosContainer.clientWidth;
+  } else if (
+    currentScrollPosition >
+    produtosContainer.scrollWidth - produtosContainer.clientWidth
+  ) {
+    currentScrollPosition =
+      produtosContainer.scrollWidth - produtosContainer.clientWidth;
   }
 
   // Rola suavemente para a nova posição
   produtosContainer.scrollTo({
     left: currentScrollPosition,
-    behavior: 'smooth' // Habilita a rolagem suave
+    behavior: "smooth", // Habilita a rolagem suave
   });
 }
 
 // Adiciona eventos para navegação
-document.getElementById("prev-btn").addEventListener("click", () => mudarSlide(-1));
-document.getElementById("next-btn").addEventListener("click", () => mudarSlide(1));
+document
+  .getElementById("prev-btn")
+  .addEventListener("click", () => mudarSlide(-1));
+document
+  .getElementById("next-btn")
+  .addEventListener("click", () => mudarSlide(1));
+
+function verificarTamanhoTela() {
+  const produtosContainer = document.getElementById("produtos");
+  if (window.innerWidth < 850) {
+    currentScrollPosition = 0; // Reset scroll position
+    produtosContainer.scrollTo({
+      left: currentScrollPosition,
+    });
+  } else if (window.innerWidth < 570) {
+    currentScrollPosition = 0; // Reset scroll position
+    produtosContainer.scrollTo({
+      left: currentScrollPosition,
+    });
+  }
+}
+
+// Add resize event listener
+window.addEventListener("resize", verificarTamanhoTela);
 
 // Carrega os produtos ao carregar a página
 document.addEventListener("DOMContentLoaded", carregarProdutos);
