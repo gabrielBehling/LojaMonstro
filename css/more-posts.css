@@ -1,0 +1,105 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.hero img {
+  width: 100%;
+  height: auto;
+}
+
+.posts {
+  display: flex;
+  gap: 20px;
+}
+
+.post {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Adiciona transição */
+}
+
+.post:hover {
+  transform: scale(1.05); /* Aumenta a escala do post ao passar o mouse */
+  opacity: 0.9; /* Diminui a opacidade ao passar o mouse */
+}
+
+.image-section {
+  text-align: center;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Adiciona transição */
+}
+
+.image-section:hover {
+  transform: scale(1.05); /* Aumenta a escala da imagem ao passar o mouse */
+  opacity: 0.9; /* Diminui a opacidade ao passar o mouse */
+}
+
+.image-section img {
+  width: 100%;
+  height: auto;
+}
+
+.post-list {
+  list-style: none;
+  padding: 0;
+}
+
+.post-item {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  transition: transform 0.3s ease, opacity 0.3s ease; /* Adiciona transição */
+}
+
+.post-item:hover {
+  transform: scale(
+    1.02
+  ); /* Aumenta a escala do item da lista ao passar o mouse */
+  opacity: 0.9; /* Diminui a opacidade ao passar o mouse */
+}
+
+.post-item img {
+  width: 100px; /* Ajuste conforme necessário */
+  height: 100px; /* Ajuste conforme necessário */
+}
+
+.post-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .posts {
+    display: none; /* Esconde os posts laterais em telas menores */
+  }
+
+  .hero {
+    width: 100%; /* O post grande ocupa toda a largura */
+  }
+
+  .image-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .post-list {
+    display: flex;
+    flex-direction: column; /* Muda a lista para coluna */
+  }
+
+  .post-item {
+    flex-direction: row-reverse; /* Inverte a ordem da imagem e do texto */
+  }
+}
