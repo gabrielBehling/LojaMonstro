@@ -8,9 +8,11 @@ function selectOption(option, element) {
     const opcoes = document.querySelectorAll('.doacao-opcao');
     opcoes.forEach(opcao => {
         opcao.classList.remove('selected'); // Remove destaque de todas
+        opcao.classList.add('faded'); // Adiciona a classe 'faded' para opções não selecionadas
     });
 
     element.classList.add('selected'); // Adiciona destaque à opção selecionada
+    element.classList.remove('faded'); // Remove a classe 'faded' da opção selecionada
 }
 
 document.getElementById('proximo').addEventListener('click', function() {
