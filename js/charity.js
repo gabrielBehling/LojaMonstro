@@ -59,19 +59,19 @@ document.getElementById("btn-doar").addEventListener("click", function (e) {
 const telefoneInput = document.querySelector("#telefone");
 
 telefoneInput.addEventListener("input", () => {
-    // Remove todos os caracteres que não são dígitos
-    let value = telefoneInput.value.replace(/\D/g, "");
+  // Remove todos os caracteres que não são dígitos
+  let value = telefoneInput.value.replace(/\D/g, "");
 
-    // Aplica a máscara
-    if (value.length > 10) {
-        value = value.slice(0, 11); // Limita a 11 dígitos
-    }
-    if (value.length > 7) {
-        value = value.slice(0, 7) + "-" + value.slice(7); // Adiciona o hífen após 5 dígitos
-    }
-    if (value.length > 2) {
-        value = "(" + value.slice(0, 2) + ") " + value.slice(2); // Adiciona o código de área
-    }
+  // Aplica a máscara
+  if (value.length > 10) {
+    value = value.slice(0, 11); // Limita a 11 dígitos
+  }
+  if (value.length > 7) {
+    value = value.slice(0, 7) + "-" + value.slice(7); // Adiciona o hífen após 5 dígitos
+  }
+  if (value.length > 2) {
+    value = "(" + value.slice(0, 2) + ") " + value.slice(2); // Adiciona o código de área
+  }
 
-    telefoneInput.value = value; // Atualiza o valor do input
+  telefoneInput.value = value; // Atualiza o valor do input
 });
