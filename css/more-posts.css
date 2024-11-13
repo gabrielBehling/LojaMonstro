@@ -2,23 +2,56 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
+  margin-top: 50px;
+  min-height: 100vh;
+}
+
+.main-content {
+  display: flex;
+  gap: 24px;
+  padding: 25px 12px 48px;
 }
 
 .hero {
+  flex: 2; /* O post grande ocupa mais espaço */
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  width: 100%;
+  background-color: var(--black-halloween);
+  border-radius: 12px;
+  padding: 18px 12px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.hero h1 {
+  font-family: var(--second-font);
+  font-weight: initial;
+  letter-spacing: 2px;
+  color: var(--orange-color);
+}
+
+.hero p {
+  margin-bottom: 12px;
+  color: var(--white-color);
+  font-weight: var(--font-medium);
+}
+
+.hero:hover {
+  background-color: var(--blood-red-dark);
 }
 
 .hero img {
   width: 100%;
   height: auto;
+  border-radius: 8px;
 }
 
 .posts {
+  flex: 1; /* Os posts pequenos ocupam menos espaço */
   display: flex;
-  gap: 20px;
+  flex-direction: column;
+  gap: 20px; /* Espaçamento entre os posts pequenos */
 }
 
 .post {
@@ -26,42 +59,40 @@
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Adiciona transição */
+  padding: 24px 12px;
+  background-color: var(--black-halloween);
+  border-radius: 12px;
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease; /* Adiciona transição */
 }
 
 .post:hover {
-  transform: scale(1.05); /* Aumenta a escala do post ao passar o mouse */
-  opacity: 0.9; /* Diminui a opacidade ao passar o mouse */
-}
-
-.image-section {
-  text-align: center;
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Adiciona transição */
-}
-
-.image-section:hover {
-  transform: scale(1.05); /* Aumenta a escala da imagem ao passar o mouse */
-  opacity: 0.9; /* Diminui a opacidade ao passar o mouse */
-}
-
-.image-section img {
-  width: 100%;
-  height: auto;
+  background-color: var(--blood-red-dark);
+  transform: scale(1.05);
+  opacity: 0.9;
 }
 
 .post-list {
+  display: flex;
+  flex-direction: column;
   list-style: none;
+  gap: 0.5rem;
   padding: 0;
 }
 
 .post-item {
   display: flex;
+  min-width: 97.5%;
+  place-self: center;
+  padding: 18px 12px;
   gap: 10px;
   margin-bottom: 20px;
-  transition: transform 0.3s ease, opacity 0.3s ease; /* Adiciona transição */
+  border-radius: 12px;
+  background-color: var(--black-halloween);
+  transition: transform 0.3s ease, opacity 0.3s ease, background-color 0.3s ease; /* Adiciona transição */
 }
 
 .post-item:hover {
+  background-color: var(--blood-red-dark);
   transform: scale(
     1.02
   ); /* Aumenta a escala do item da lista ao passar o mouse */
@@ -79,9 +110,26 @@
   justify-content: center;
 }
 
+.post-meta {
+  display: flex; /* Usar flexbox para alinhar os elementos */
+  justify-content: space-between; /* Espaço entre os elementos */
+  margin-top: 5px; /* Espaçamento acima da linha de meta */
+  font-size: var(--small-font-size); /* Tamanho da fonte menor */
+  color: var(--text-color-light); /* Cor do texto mais clara */
+}
+
+.post-time,
+.post-author {
+  margin-right: 10px; /* Espaçamento entre o horário e o autor */
+}
+
 @media (max-width: 768px) {
+  .main-content {
+    flex-direction: column; /* Muda a direção para coluna em telas menores */
+  }
+
   .posts {
-    display: none; /* Esconde os posts laterais em telas menores */
+    margin-top: 24px;
   }
 
   .hero {
@@ -100,6 +148,8 @@
   }
 
   .post-item {
+    place-self: center;
+    width: 90%;
     flex-direction: row-reverse; /* Inverte a ordem da imagem e do texto */
   }
 }
