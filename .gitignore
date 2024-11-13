@@ -3,3 +3,4 @@ node_modules
 
 api/postImages/*
 api/productImages/*
+api/userIcons/*

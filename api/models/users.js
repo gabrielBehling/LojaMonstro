@@ -21,4 +21,10 @@ async function getUserHash(username) {
   return res.recordset[0].passwordHash
 }
 
-module.exports = { userExists, addUser, getUserHash };
+async function getUserByUsername(username) {
+  let db = await conn.getDatabase();
+  let res = await db.query`SELECT username, img FROM [User] WHERE username = ${username}`;
+  return res.recordset[0]
+}
+
+module.exports = { userExists, addUser, getUserHash, getUserByUsername };

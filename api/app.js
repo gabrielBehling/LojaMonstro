@@ -63,7 +63,7 @@ const uploadProductImages = multer({ storage: productStorage });
 
 const userIconStorage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, "./productImages/");
+    cb(null, "./userIcons/");
   },
   filename: (req, file, cb) => {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
@@ -104,7 +104,7 @@ app.post("/product", uploadProductImages.single("img"), async (req, res) => {
 
   let imgPath = null;
   if (req.file) {
-    imgPath = `/productImages/${req.file.filename}`;
+    imgPath = `/api/productImages/${req.file.filename}`;
   }
 
   productsModel.addProduct(name, price, supplier, imgPath);
@@ -139,24 +139,16 @@ app.post(
       // Verifique se os arquivos foram carregados corretamente
       if (req.files) {
         if (req.files.img && req.files.img[0]) {
-          imgPath = `/postImages/${req.files.img[0].filename}`;
+          imgPath = `/api/postImages/${req.files.img[0].filename}`;
         }
 
         if (req.files.footerImg && req.files.footerImg[0]) {
-          footerImgPath = `/postImages/${req.files.footerImg[0].filename}`;
+          footerImgPath = `/api/postImages/${req.files.footerImg[0].filename}`;
         }
       }
 
       // Adiciona o post ao banco de dados
-      await postsModel.addPost(
-        id,
-        title,
-        subtitle,
-        imgPath,
-        content,
-        footerImgPath,
-        author
-      );
+      await postsModel.addPost(id, title, subtitle, imgPath, content, footerImgPath, author);
       res.sendStatus(201);
     } catch (error) {
       console.error("Erro ao salvar post:", error);
@@ -165,7 +157,7 @@ app.post(
   }
 );
 
-app.post("/register", async (req, res) => {
+app.post("/register", uploadUserIcons.single("userIcon"), async (req, res) => {
   const { username, password } = req.body;
 
   let userExists = await usersModel.userExists(username);
@@ -182,27 +174,26 @@ app.post("/register", async (req, res) => {
     maxAge: 24 * 60 * 60 * 1000,
   });
 
-  uploadUserIcons.single("userIcon");
-
+  // Checar e salvar o caminho da imagem do usuário
   let imgPath = null;
   if (req.file) {
-    imgPath = `/userIcons/${req.file.filename}`;
+    imgPath = `/api/userIcons/${req.file.filename}`;
   }
 
+  // Criptografar a senha do usuário
   const saltRounds = 10;
   const passwordHash = await bcrypt.hash(password, saltRounds);
 
+  // Salvar os dados do usuário no banco de dados
   await usersModel.addUser(username, passwordHash, imgPath);
-  res.status(201).json({ message: "Usuário registrado com sucesso!" });
+  res.status(201).json({ message: "Usuário registrado com sucesso." });
 });
 
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
 
   if (!usersModel.userExists(username)) {
-    res
-      .status(404)
-      .json({ message: "Nenhum usuário com esse nome encontrado" });
+    res.status(404).json({ message: "Nenhum usuário com esse nome encontrado" });
   }
 
   let userHash = await usersModel.getUserHash(username);
@@ -220,6 +211,20 @@ app.post("/login", async (req, res) => {
     res.status(200).json({ message: "Usuário autenticado com sucesso." });
   } else {
     res.status(401).json({ message: "Nome de usuário ou senha incorretos." });
+  }
+});
+
+app.get("/user/profile", authenticateToken, async (req, res) => {
+  try {
+    const username = req.user.username;
+    const user = await usersModel.getUserByUsername(username);
+    if (user) {
+      res.status(200).json({ userIcon: user.img });
+    } else {
+      res.status(404).json({ message: "Usuário não encontrado." });
+    }
+  } catch (error) {
+    res.status(500).json({ message: "Erro ao buscar perfil do usuário." });
   }
 });
 
