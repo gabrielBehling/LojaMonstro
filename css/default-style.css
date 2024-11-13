@@ -445,6 +445,12 @@ a:active {
   color: var(--text-color);
 }
 
+@media (max-width: 570px) {
+  .postagem {
+    padding: 10px;
+  }
+}
+
 .postagem:hover {
   transform: translateY(-5px);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
