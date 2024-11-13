@@ -8,6 +8,7 @@
   flex-direction: column;
   place-content: center;
   text-align: center;
+  padding-top: 12rem;
 }
 
 .hero-content h1 {
@@ -19,10 +20,28 @@
 }
 
 .hero-image {
-  max-width: 500px; /* Limita a largura da imagem */
-  height: auto; /* Mantém a proporção da imagem */
-  margin: 20px 0; /* Espaçamento acima e abaixo da imagem */
-  border-radius: 8px; /* Bordas arredondadas */
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  width: 18%;
+  margin: 50px 0;
+  transition: transform 0.5s ease-in-out;
+}
+
+.hero-image:hover {
+  transform: scale(1.15);
+}
+
+@media (max-width: 850px) {
+  .hero-image {
+    width: 30%;
+  }
+}
+
+@media (max-width: 570px) {
+  .hero-image {
+    width: 50%;
+  }
 }
 
 .btn-doar {
@@ -47,31 +66,37 @@
 
 /* Seção de Doação */
 .doacao-section {
+  min-height: 75vh;
   padding: 50px 20px;
   text-align: center;
+  place-content: center;
   background-color: var(--dark-purple);
   color: var(--white-color);
+  border-radius: 8px;
 }
 
-.doacao-section h2 {
+.doacao-section h2, .form-section h2 {
   margin-bottom: 30px;
   font-family: var(--second-font);
+  font-size: calc(var(--biggest-font-size) + 3rem);
+  font-weight: initial;
   color: var(--blood-red);
 }
 
 .doacao-opcoes {
   display: flex;
   justify-content: center;
+  text-align: center;
   gap: 20px;
   flex-wrap: wrap;
 }
 
 .doacao-opcao {
-  background-color: var(--orange-color-alt);
+  background-color: var(--blood-red-dark);
   border-radius: 15px;
   padding: 20px;
   cursor: pointer;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
   width: 300px;
   text-align: center;
   position: relative;
@@ -81,6 +106,10 @@
   border: 2px solid var(--pumpkin-orange);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
   transform: scale(1.05);
+}
+
+.doacao-opcao.faded {
+  opacity: 0.5; /* Faded effect */
 }
 
 .doacao-opcao:hover {
@@ -94,19 +123,29 @@
 }
 
 .btn-proximo {
+  display: inline-flex;
+  gap: 0.5rem;
   background-color: var(--blood-red);
   color: var(--white-color);
-  padding: 15px 30px;
-  border-radius: 25px;
+  padding: 10px 20px;
+  border-radius: 8px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
-  font-size: var(--h3-font-size);
+  transition: background-color 0.3s ease, transform 0.3s ease, opacity 0.3s ease;
+  font-size: var(--h1-font-size);
+  font-family: var(--third-font);
+  font-weight: initial;
   margin-top: 20px;
 }
 
+.btn-proximo i {
+  place-self: center;
+  font-size: calc(var(--h1-font-size) + 0.25rem);
+}
+
 .btn-proximo:disabled {
-  background-color: var(--dark-purple);
+  background-color: var(--blood-red-dark);
+  opacity: 0.75;
   cursor: not-allowed;
 }
 
@@ -117,15 +156,14 @@
 
 /* Seção do Formulário */
 .form-section {
+  min-height: 75vh;
   padding: 50px 20px;
-  background-color: var(--light-purple);
+  text-align: center;
+  place-content: center;
+  background-color: var(--purple);
   color: var(--white-color);
   text-align: center;
-}
-
-.form-section h2 {
-  margin-bottom: 20px;
-  color: var(--blood-red);
+  border-radius: 8px;
 }
 
 .form-section form {
@@ -134,28 +172,70 @@
   gap: 15px;
   max-width: 400px;
   margin: 0 auto;
+  background-color: var(--blood-red-dark);
+  padding: 25px;
+  border-radius: 16px;
+}
+
+.form-group {
+  display: flex; /* Usar flexbox para alinhar label e input */
+  flex-direction: column; /* Direção da coluna */
+  gap: 5px; /* Espaçamento entre label e input */
+  width: 100%; /* Largura total do grupo */
+}
+
+.form-group label {
+  font-size: var(--h3-font-size);
+  font-weight: var(--font-bold);
+  color: var(--white-color); /* Cor do texto do label */
+  text-align: left; /* Alinha o texto à esquerda */
 }
 
 .form-section input {
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid var(--white-color);
-  font-size: var(--normal-font-size);
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 8px; /* Bordas arredondadas */
+  border: 1px solid var(--white-color); /* Borda do campo */
+  font-size: var(--normal-font-size); /* Tamanho da fonte */
+  transition: border-color 0.3s ease; /* Transição suave para a borda */
+}
+
+.form-section input::placeholder {
+  font-weight: var(--font-medium);
+  font-size: var(--normal-font-size); /* Tamanho da fonte do placeholder */
+}
+
+.form-section input:focus {
+  border: 2px dashed var(--black-halloween); 
+  outline: none; /* Remove o contorno padrão */
 }
 
 .form-section button {
-  background-color: var(--pumpkin-orange);
-  color: var(--white-color);
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-flex;
+  width: fit-content; /* Largura do botão se ajusta ao conteúdo */
+  place-self: center;
+  background-color: var(--orange-color); /* Cor de fundo do botão */
+  color: var(--white-color); /* Cor do texto do botão */
+  padding: 10px 15px; /* Espaçamento interno do botão */
+  border-radius: 8px; /* Bordas arredondadas */
+  border: none; /* Remove a borda padrão */
+  cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Transições suaves */
+  font-size: var(--h2-font-size); /* Tamanho da fonte do botão */
+  font-family: var(--second-font); /* Fonte do botão */
+  font-weight: initial; /* Peso da fonte */
+  letter-spacing: 2px;
+  margin-top: 10px; /* Espaçamento acima do botão */
+  gap: 0.5rem;
+}
+
+.form-section button i {
+  place-self: center;
+  font-size: calc(var(--h2-font-size) + 0.25rem);
 }
 
 .form-section button:hover {
-  background-color: var(--orange-color);
-  transform: scale(1.05);
+  background-color: var(--blood-red); /* Cor do botão ao passar o mouse */
+  transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
 }
 
 /* Seção de Confirmação */

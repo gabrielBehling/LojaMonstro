@@ -158,7 +158,11 @@
           Junte-se a nós para ajudar aqueles que precisam. Sua doação pode
           salvar vidas!
         </p>
-        <img src="halloween-image.png" alt="Halloween" class="hero-image" />
+        <img
+          src="../img/images/cute-vampire.png"
+          alt="Halloween"
+          class="hero-image"
+        />
         <a href="#doacao" class="btn-doar"
           ><i class="bx bxs-chevrons-down"></i>Começar a Doar<i
             class="bx bxs-chevrons-down"
@@ -169,31 +173,61 @@
 
     <section id="doacao" class="doacao-section">
       <h2>Escolha Sua Doação</h2>
-      <div class="doacao-opcoes">
-        <div class="doacao-opcao" onclick="selectOption('sangue')">
-          <img src="sangue.jpg" alt="Doação de Sangue" />
+      <main class="doacao-opcoes">
+        <section
+          id="doacao-sangue"
+          class="doacao-opcao"
+          onclick="selectOption('sangue', this)"
+        >
+          <img src="../img/images/blood-donation.jpg" alt="Doação de Sangue" />
           <h3>Doação de Sangue</h3>
           <p>Ajude a salvar vidas com sua doação de sangue.</p>
-        </div>
-        <div class="doacao-opcao" onclick="selectOption('medula')">
-          <img src="medula.jpg" alt="Doação de Medula Óssea" />
+        </section>
+        <section
+          id="doacao-medula"
+          class="doacao-opcao"
+          onclick="selectOption('medula', this)"
+        >
+          <img
+            src="../img/images/doctor-with-spine.jpg"
+            alt="Doação de Medula Óssea"
+          />
           <h3>Doação de Medula Óssea</h3>
           <p>Seja um herói e ajude a encontrar um doador compatível.</p>
-        </div>
-      </div>
-      <button id="proximo" class="btn-proximo" disabled>Próximo</button>
+        </section>
+      </main>
+      <button id="proximo" class="btn-proximo" disabled>
+        <span>Próximo</span>
+        <i class="bx bxs-right-arrow-square"></i>
+      </button>
     </section>
 
     <section id="formulario" class="form-section" style="display: none">
       <h2>Formulário de Doação</h2>
-      <form id="donationForm">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" required />
-        <label for="email">Email:</label>
-        <input type="email" id="email" required />
-        <label for="telefone">Telefone:</label>
-        <input type="tel" id="telefone" required />
-        <button type="submit">Enviar</button>
+      <form id="donationForm" class="donation-form">
+        <div class="form-group">
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" placeholder="Digite seu nome" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            placeholder="Digite seu email"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="telefone">Telefone:</label>
+          <input
+            type="tel"
+            id="telefone"
+            placeholder="Digite seu telefone"
+            required
+          />
+        </div>
+        <button type="submit" class="btn-submit">Enviar</button>
       </form>
     </section>
 
