@@ -275,7 +275,7 @@
   .home__data {
     height: 75vh;
   }
-  
+
   .home__img {
     width: 50%;
   }
@@ -414,6 +414,8 @@ audio {
 .carrossel__header h2 {
   font-family: var(--second-font);
   font-size: var(--biggest-font-size);
+  font-weight: initial;
+  letter-spacing: 2px;
   color: var(--orange-color);
 }
 
@@ -519,4 +521,103 @@ audio {
   outline: none;
   border-radius: 50%;
   transition: color 0.3s ease;
+}
+
+.historico {
+  padding: 2rem;
+  position: relative;
+  color: var(--white-color);
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.historico__header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.historico__title {
+  font-family: var(--second-font);
+  font-size: var(--biggest-font-size);
+  font-weight: initial;
+  letter-spacing: 2px;
+  color: var(--orange-color);
+}
+
+.historico__subtitle {
+  font-size: var(--h1-font-size);
+  color: var(--text-color);
+}
+
+.historico__content {
+  text-align: center;
+}
+
+.historico__image {
+  width: 60%;
+  height: auto;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+
+@media (max-width: 850px) {
+  .historico__image {
+    width: 75%;
+  }
+}
+
+@media (max-width: 570px) {
+  .historico__image {
+    width: 100%;
+  }
+}
+
+.historico__descricao {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 1.25rem;
+  place-self: center;
+  width: 60%;
+  max-width: 48rem;
+  text-align: justify;
+  line-height: 130%;
+  margin: 1rem 0;
+}
+
+@media only screen and (max-width: 850px) {
+  .historico__descricao {
+    width: 75%;
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .historico__descricao {
+    width: auto;
+    max-width: 100%;
+  }
+}
+
+.historico__button {
+  display: inline-flex;
+  gap: 0.25rem;
+  padding: 10px 20px;
+  font-size: var(--h1-font-size);
+  background-color: var(--orange-color);
+  color: var(--white-color);
+  border-radius: 15px;
+  text-decoration: none;
+  transition: color 0.3s ease, background-color 0.3s ease, transform 0.5s ease;
+}
+
+.historico__button:hover {
+  color: var(--text-color);
+  background-color: var(--blood-red-dark);
+  transform: scale(1.05);
+}
+
+
+.historico__button i {
+  place-self: center;
+  font-size: var(--h2-font-size);
 }
