@@ -155,6 +155,12 @@
   color: var(--black-halloween);
 }
 
+@media only screen and (max-width: 570px) {
+  #bill__button-checkout {
+    font-size: var(--h3-font-size);
+  }
+}
+
 #bill__button-checkout:hover {
   color: var(--neon-green);
   transform: scale(1.025);
