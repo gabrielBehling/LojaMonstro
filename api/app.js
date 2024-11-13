@@ -49,18 +49,6 @@ const postStorage = multer.diskStorage({
 });
 const uploadPostImages = multer({ storage: postStorage });
 
-const productStorage = multer.diskStorage({
-  destination: (req, file, cb) => {
-    cb(null, "./productImages/");
-  },
-  filename: (req, file, cb) => {
-    const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
-    const ext = path.extname(file.originalname);
-    cb(null, file.fieldname + "-" + uniqueSuffix + ext);
-  },
-});
-const uploadProductImages = multer({ storage: productStorage });
-
 const userIconStorage = multer.diskStorage({
   destination: (req, file, cb) => {
     cb(null, "./userIcons/");
