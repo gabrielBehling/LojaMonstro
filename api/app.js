@@ -4,6 +4,7 @@ const cookieParser = require("cookie-parser");
 const multer = require("multer");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
+const fs = require("fs");
 const jwt = require("jsonwebtoken");
 const path = require("path");
 const db = require("./database/setup.js");
@@ -15,14 +16,26 @@ const app = express();
 app.use(express.json());
 app.use(cookieParser());
 
-app.use(cors({
-  origin: "http://127.0.0.1:5500",
-  credentials: true,
-}))
+app.use(
+  cors({
+    origin: "http://127.0.0.1:5500",
+    credentials: true,
+  })
+);
 
 require("dotenv").config();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+function ensureDirectoryExists(directoryPath) {
+  if (!fs.existsSync(directoryPath)) {
+    fs.mkdirSync(directoryPath, { recursive: true });
+  }
+}
+
+ensureDirectoryExists("./postImages");
+ensureDirectoryExists("./productImages");
+ensureDirectoryExists("./userIcons");
 
 const postStorage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -88,12 +101,12 @@ app.get("/product/:id", async (req, res) => {
 });
 app.post("/product", uploadProductImages.single("img"), async (req, res) => {
   let { name, price, supplier } = req.body;
-  
+
   let imgPath = null;
   if (req.file) {
     imgPath = `/productImages/${req.file.filename}`;
   }
-  
+
   productsModel.addProduct(name, price, supplier, imgPath);
   res.sendStatus(201);
 });
@@ -107,70 +120,107 @@ app.get("/post/:id", async (req, res) => {
   let posts = await postsModel.getPostByID(id);
   res.status(200).json(posts);
 });
-app.post("/post", uploadPostImages.fields([{ name: "img" }, { name: "footerImg" }]), authenticateToken ,async (req, res) => {
-  let { title, subtitle, content } = req.body;
+app.post(
+  "/post",
+  uploadPostImages.fields([
+    { name: "img", maxCount: 1 },
+    { name: "footerImg", maxCount: 1 },
+  ]),
+  authenticateToken,
+  async (req, res) => {
+    try {
+      let { title, subtitle, content } = req.body;
+      let author = req.user.username;
+      let id = title.toLowerCase().replace(/\s+/g, "-");
 
-  let author = req.user.username
-  
-  let id = title.toLowerCase().replace(/\s+/g, "-");
-  
-  let imgPath;
-  if (req.files.img) {
-    imgPath = `/postImages/${req.files.img[0].filename}`;
+      let imgPath = null;
+      let footerImgPath = null;
+
+      // Verifique se os arquivos foram carregados corretamente
+      if (req.files) {
+        if (req.files.img && req.files.img[0]) {
+          imgPath = `/postImages/${req.files.img[0].filename}`;
+        }
+
+        if (req.files.footerImg && req.files.footerImg[0]) {
+          footerImgPath = `/postImages/${req.files.footerImg[0].filename}`;
+        }
+      }
+
+      // Adiciona o post ao banco de dados
+      await postsModel.addPost(
+        id,
+        title,
+        subtitle,
+        imgPath,
+        content,
+        footerImgPath,
+        author
+      );
+      res.sendStatus(201);
+    } catch (error) {
+      console.error("Erro ao salvar post:", error);
+      res.sendStatus(500);
+    }
   }
-  
-  let footerImgPath;
-  if (req.files.footerImg) {
-    footerImgPath = `/postImages/${req.files.footerImg[0].filename}`;
-  }
-  
-  await postsModel.addPost(id, title, subtitle, imgPath, content, footerImgPath, author);
-  res.sendStatus(201);
-});
+);
 
 app.post("/register", async (req, res) => {
   const { username, password } = req.body;
-  
+
   let userExists = await usersModel.userExists(username);
   if (userExists) {
     return res.status(400).json({ message: "Usuário já existe" });
   }
-  
-  const token = jwt.sign({ username }, process.env.JWT_SECRET, { expiresIn: "1h" });
-  res.cookie("authToken", token, { httpOnly: true, secure: true, maxAge: 24*60*60*1000 });
-  
-  uploadUserIcons.single("userIcon")
-  
+
+  const token = jwt.sign({ username }, process.env.JWT_SECRET, {
+    expiresIn: "1h",
+  });
+  res.cookie("authToken", token, {
+    httpOnly: true,
+    secure: true,
+    maxAge: 24 * 60 * 60 * 1000,
+  });
+
+  uploadUserIcons.single("userIcon");
+
   let imgPath = null;
   if (req.file) {
     imgPath = `/userIcons/${req.file.filename}`;
   }
-  
+
   const saltRounds = 10;
   const passwordHash = await bcrypt.hash(password, saltRounds);
-  
+
   await usersModel.addUser(username, passwordHash, imgPath);
   res.status(201).json({ message: "Usuário registrado com sucesso!" });
 });
 
 app.post("/login", async (req, res) => {
   const { username, password } = req.body;
-  
-  if(!usersModel.userExists(username)){
-    res.status(404).json({ message: "Nenhum usuário com esse nome encontrado" });
+
+  if (!usersModel.userExists(username)) {
+    res
+      .status(404)
+      .json({ message: "Nenhum usuário com esse nome encontrado" });
   }
-  
-  let userHash = await usersModel.getUserHash(username)
-  const isValidUser = bcrypt.compare(password, userHash)
+
+  let userHash = await usersModel.getUserHash(username);
+  const isValidUser = bcrypt.compare(password, userHash);
   if (isValidUser) {
-    const token = jwt.sign({ username }, process.env.JWT_SECRET, { expiresIn: "1h" });
-    res.cookie("authToken", token, { httpOnly: true, secure: true, maxAge: 24*60*60*1000 });
-    
+    const token = jwt.sign({ username }, process.env.JWT_SECRET, {
+      expiresIn: "1h",
+    });
+    res.cookie("authToken", token, {
+      httpOnly: true,
+      secure: true,
+      maxAge: 24 * 60 * 60 * 1000,
+    });
+
     res.status(200).json({ message: "Usuário autenticado com sucesso." });
   } else {
     res.status(401).json({ message: "Nome de usuário ou senha incorretos." });
   }
-  
 });
 
 const PORT = process.env.PORT || 3000;
