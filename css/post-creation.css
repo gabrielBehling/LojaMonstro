@@ -24,7 +24,12 @@
 
 .form-input:focus {
   border-color: var(--orange-color); /* Cor da borda ao focar */
-  background-color: rgba(255, 255, 255, 0.01); /* Leve mudança de fundo ao focar */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.01
+  ); /* Leve mudança de fundo ao focar */
 }
 
 .form-title-input {
@@ -49,7 +54,12 @@
 
 .form-textarea:focus {
   border-color: var(--orange-color); /* Cor da borda ao focar */
-  background-color: rgba(255, 255, 255, 0.01); /* Leve mudança de fundo ao focar */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.01
+  ); /* Leve mudança de fundo ao focar */
 }
 
 .form-button {

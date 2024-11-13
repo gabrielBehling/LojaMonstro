@@ -616,7 +616,6 @@ audio {
   transform: scale(1.05);
 }
 
-
 .historico__button i {
   place-self: center;
   font-size: var(--h2-font-size);
