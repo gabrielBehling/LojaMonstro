@@ -66,7 +66,7 @@
 
 /* Seção de Doação */
 .doacao-section {
-  min-height: 75vh;
+  min-height: 89vh;
   padding: 50px 20px;
   text-align: center;
   place-content: center;
@@ -75,10 +75,12 @@
   border-radius: 8px;
 }
 
-.doacao-section h2, .form-section h2 {
+.doacao-section h2,
+.form-section h2,
+.confirmacao-section h2 {
   margin-bottom: 30px;
   font-family: var(--second-font);
-  font-size: calc(var(--biggest-font-size) + 3rem);
+  font-size: calc(var(--biggest-font-size) + 1rem);
   font-weight: initial;
   color: var(--blood-red);
 }
@@ -156,11 +158,11 @@
 
 /* Seção do Formulário */
 .form-section {
-  min-height: 75vh;
+  min-height: 89vh;
   padding: 50px 20px;
   text-align: center;
   place-content: center;
-  background-color: var(--purple);
+  background-color: var(--dark-purple);
   color: var(--white-color);
   text-align: center;
   border-radius: 8px;
@@ -196,7 +198,7 @@
   border-radius: 8px; /* Bordas arredondadas */
   border: 1px solid var(--white-color); /* Borda do campo */
   font-size: var(--normal-font-size); /* Tamanho da fonte */
-  transition: border-color 0.3s ease; /* Transição suave para a borda */
+  transition: border-color 0.3s ease;
 }
 
 .form-section input::placeholder {
@@ -205,7 +207,7 @@
 }
 
 .form-section input:focus {
-  border: 2px dashed var(--black-halloween); 
+  border: 2px dashed var(--black-halloween);
   outline: none; /* Remove o contorno padrão */
 }
 
@@ -240,15 +242,45 @@
 
 /* Seção de Confirmação */
 .confirmacao-section {
+  height: 89vh;
   padding: 50px 20px;
   background-color: var(--black-halloween);
   color: var(--white-color);
   text-align: center;
 }
 
-.confirmacao-section h2 {
-  margin-bottom: 20px;
-  color: var(--blood-red);
+.confirmation__img {
+  width: fit-content;
+  place-self: center;
+}
+
+.confirmation__img img {
+  position: relative;
+  z-index: 1;
+  align-self: center;
+  width: 30%;
+  margin: 20px 0;
+  transition: transform 0.5s ease-in-out;
+}
+
+.confirmation__img img:hover {
+  transform: scale(1.15);
+}
+
+.confirmation__data {
+  width: fit-content;
+  place-self: center;
+  text-align: justify;
+  background-color: var(--body-color);
+  padding: 10px;
+  border-radius: 8px;
+  line-height: 130%;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: var(--h3-font-size);
+}
+
+.confirmation__data #tipo-doacao, .confirmation__data #ticket {
+  color: var(--orange-color);
 }
 
 /* Footer */
