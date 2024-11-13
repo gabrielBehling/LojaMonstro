@@ -346,6 +346,14 @@ a:active {
   padding: 5px;
 }
 
+.post-creation__link {
+  display: none;
+}
+
+.post-creation__link a {
+  background-color: rgba(255, 0, 0, 0.2);
+}
+
 .profile__hamburger {
   display: flex;
   flex-direction: row;
