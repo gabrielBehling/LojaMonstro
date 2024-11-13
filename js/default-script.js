@@ -40,38 +40,36 @@ document.querySelectorAll(".sub-navigation a").forEach((anchor) => {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
-    try {
-      const response = await fetch("http://127.0.0.1:3000/user/profile", {
-        method: "GET",
-        credentials: "include",
-      });
-  
-      if (response.ok) {
-        const data = await response.json();
-        const profileImage = document.querySelector(".profile-icon");
-  
-        if (data.userIcon) {
-          profileImage.src = data.userIcon;
-        }
-      } else {
-        console.error("Erro ao carregar imagem de perfil.");
-      }
-    } catch (error) {
-      console.error("Erro ao carregar perfil:", error);
-    }
-  });
-  
-document.addEventListener("DOMContentLoaded", async () => {
-    if (!document.querySelector(".ultimasPostagens")) return
-
-    const response = await fetch("http://127.0.0.1:3000/posts")
+  try {
+    const response = await fetch("http://127.0.0.1:3000/user/profile", {
+      method: "GET",
+      credentials: "include",
+    });
 
     if (response.ok) {
-        const posts = await response.json();
-        showPosts(posts)
-    }
-})
+      const data = await response.json();
+      const profileImage = document.querySelector(".profile-icon");
 
-function showPosts(posts){
-    
-}
+      if (data.userIcon) {
+        profileImage.src = data.userIcon;
+      }
+    } else {
+      console.error("Erro ao carregar imagem de perfil.");
+    }
+  } catch (error) {
+    console.error("Erro ao carregar perfil:", error);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
+  if (!document.querySelector(".ultimasPostagens")) return;
+
+  const response = await fetch("http://127.0.0.1:3000/posts");
+
+  if (response.ok) {
+    const posts = await response.json();
+    showPosts(posts);
+  }
+});
+
+function showPosts(posts) {}
