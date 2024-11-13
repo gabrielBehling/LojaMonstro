@@ -49,6 +49,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (response.ok) {
       const data = await response.json();
       const profileImage = document.querySelector(".profile-icon");
+      const postCreationLink = document.querySelector(".post-creation__link");
+
+      if (postCreationLink) {
+        postCreationLink.style.display = "inline-flex";
+      } else {
+        console.error("Erro ao mostrar link de criação de postagem.");
+      }
 
       if (data.userIcon) {
         profileImage.src = data.userIcon;
