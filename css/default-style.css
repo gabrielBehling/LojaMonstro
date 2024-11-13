@@ -331,7 +331,7 @@ a:active {
 .sub-navigation a {
   display: inline-flex;
   color: var(--white-color);
-  font-size: var(--normal-font-size);
+  font-size: var(--h3-font-size);
   padding: 10px;
   transition: background-color 0.3s ease;
   border-radius: 8px;
