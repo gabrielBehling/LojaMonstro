@@ -125,18 +125,37 @@
 
     <nav class="sub-navigation" aria-label="Navegação principal">
       <ul>
+        <li class="profile-link__li">
+          <a
+            href="./login.html"
+            target="_parent"
+            class="profile-link"
+            aria-label="Perfil"
+          >
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIJzvwGX_2AoP6sVrqOl4h3CHNrLOGj6ExpjvxfYZnILimKkCckX6mBsa-cfFlRt47Mrs&usqp=CAU"
+              alt="Ícone do perfil"
+              class="profile-link__icon"
+            />
+            <span class="profile-link__span">Faça login!</span>
+          </a>
+        </li>
         <li><a href="../index.html" target="_parent">Produtos</a></li>
         <li>
-          <a href="#sobre-nos" class="in-page-link">Sobre Nós</a>
+          <a href="./about.html" target="_parent">Sobre Nós</a>
         </li>
         <li>
           <a href="./charity.html" target="_parent">Caridade</a>
         </li>
-        <li><a href="#ultimasPostagens" class="in-page-link">Postagens</a></li>
       </ul>
     </nav>
 
-    <form method="post" action="http://127.0.0.1:3000/post" enctype="multipart/form-data" class="form-container">
+    <form
+      method="post"
+      action="http://127.0.0.1:3000/post"
+      enctype="multipart/form-data"
+      class="form-container"
+    >
       <label for="titulo" class="form-label">Título da Postagem:</label>
       <input
         type="text"
@@ -156,7 +175,13 @@
       />
 
       <label for="imagem" class="form-label">Imagem:</label>
-      <input type="file" name="img" id="imagem" class="form-input" accept="image/*" />
+      <input
+        type="file"
+        name="img"
+        id="imagem"
+        class="form-input"
+        accept="image/*"
+      />
 
       <label for="paragrafos" class="form-label">Parágrafos:</label>
       <textarea
@@ -182,7 +207,7 @@
       </footer>
 
       <button type="submit" class="form-button">Publicar Postagem</button>
-    </main>
+    </form>
 
     <footer class="page-footer">
       <header class="page-footer__header">

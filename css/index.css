@@ -262,14 +262,22 @@
 }
 
 @media (max-width: 850px) {
+  .home__data {
+    height: 77.5vh;
+  }
+
   .home__img {
-    width: 25%;
+    width: 30%;
   }
 }
 
 @media (max-width: 570px) {
+  .home__data {
+    height: 75vh;
+  }
+  
   .home__img {
-    width: 30%;
+    width: 50%;
   }
 }
 
@@ -391,7 +399,7 @@ audio {
   place-self: center;
   width: 97.5%;
   padding: 25px 5px;
-  overflow: hidden;
+  overflow: hidden; /* Oculta a rolagem vertical */
   position: relative;
   background-color: var(--dark-purple);
   border-radius: 25px;
@@ -416,16 +424,22 @@ audio {
   width: 100%;
 }
 
-.carrossel {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  row-gap: 25px;
-  column-gap: 25px;
-  width: 100%;
-  overflow: hidden;
+#produtos {
+  display: flex;
+  overflow-x: auto; /* Habilita a rolagem horizontal */
+  place-self: center;
+  scroll-behavior: smooth; /* Habilita a rolagem suave */
+  padding: 10px 0;
+  scrollbar-width: none; /* Para Firefox: oculta a barra de rolagem */
+}
+
+#produtos::-webkit-scrollbar {
+  display: none; /* Para Chrome/Safari: oculta a barra de rolagem */
 }
 
 .produto-item {
+  flex: 0 0 calc(25% - 10px); /* Define a largura para 25% menos a margem */
+  place-self: center;
   margin: 0 5px;
   padding: 10px;
   border: 3px solid var(--blood-red);
@@ -433,6 +447,18 @@ audio {
   background-color: unset;
   color: var(--white-color);
   text-align: center;
+}
+
+@media (max-width: 850px) {
+  .produto-item {
+    flex: 0 0 calc(33% - 10px);
+  }
+}
+
+@media (max-width: 570px) {
+  .produto-item {
+    flex: 0 0 calc(50% - 10px);
+  }
 }
 
 .produto-detalhes {
@@ -472,24 +498,25 @@ audio {
   outline: none;
   cursor: pointer;
   padding: 5px;
-  margin: 0 10px;
   border-radius: 50%;
   transition: color 0.3s ease, background-color 0.3s ease;
 }
 
+#prev-btn {
+  margin-left: 5px;
+}
+
+#next-btn {
+  margin-right: 5px;
+}
+
 .carrossel-btn:hover {
-  color: var(--black-halloween);
-  background-color: var(--haunting-purple);
+  color: var(--blood-red);
 }
 
 .carrossel-btn i {
-  color: var(--white-color);
   border: none;
   outline: none;
   border-radius: 50%;
   transition: color 0.3s ease;
-}
-
-.carrossel-btn i:hover {
-  color: var(--spooky-blue);
 }

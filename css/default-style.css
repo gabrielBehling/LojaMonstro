@@ -243,21 +243,56 @@ a:active {
 
 .profile {
   width: 40px;
+  height: auto;
   border: none;
   border-radius: 50%;
   background-color: unset;
   cursor: pointer;
 }
 
-.profile-icon {
+.profile-icon, .profile-link__icon {
   width: 100%;
   object-fit: cover;
   border-radius: 50%;
 }
 
+.profile-link {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  place-self: center;
+  place-content: center;
+  width: fit-content;
+  height: auto;
+  border-radius: 50%;
+  background-color: rgba(255, 0, 0, 0.2);
+  cursor: pointer;
+  
+}
+
+.profile-link:hover {
+  border: 2px dashed var(--orange-color);
+}
+
+.profile-link__icon {
+  width: calc(var(--h1-font-size) + 1rem);
+}
+
+.profile-link__span {
+  place-self: center;
+  font-family: var(--second-font);
+  letter-spacing: 2px;
+  color: var(--orange-color);
+  font-size: var(--h1-font-size);
+  border-left: 2px dashed var(--orange-color);
+  padding-left: 0.5rem;
+}
+
 .sub-navigation {
   display: none;
-  width: clamp(115px, 8%, 500px);
+  min-width: 120px;
+  width: 8%;
+  max-width: 450px;
   position: fixed;
   top: 75px;
   right: 0;
@@ -279,11 +314,18 @@ a:active {
 }
 
 .sub-navigation ul {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  place-content: center;
   gap: 5px;
   text-align: center;
   padding: 10px;
+}
+
+.sub-navigation ul hr {
+  width: calc(var(--h1-font-size) + 3rem + var(--h2-font-size));
+  place-self: center;
 }
 
 .sub-navigation a {
@@ -295,8 +337,12 @@ a:active {
   border-radius: 8px;
 }
 
-.sub-navigation a:hover {
+.sub-navigation a:hover:not(.profile-link) {
   background-color: var(--pumpkin-orange);
+}
+
+.sub-navigation a.profile-link {
+  padding: 5px;
 }
 
 .profile__hamburger {
@@ -329,11 +375,27 @@ a:active {
 }
 
 /* Exibir o hamburger no mobile */
-@media (max-width: 570px) {
+@media (min-width: 630px) {
+  .profile-link, .profile-link__li, .profile-link__icon, .profile-link__span {
+    display: none;
+    border: none;
+    background: none;
+    width: 0;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+@media (max-width: 630px) {
   .sub-navigation.open {
     display: flex;
     width: 100%;
+    max-width: 630px;
     place-content: center;
+  }
+
+  .sub-navigation .profile {
+    display: none;
   }
 
   .profile,
@@ -381,6 +443,12 @@ a:active {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   color: var(--text-color);
+}
+
+@media (max-width: 570px) {
+  .postagem {
+    padding: 10px;
+  }
 }
 
 .postagem:hover {

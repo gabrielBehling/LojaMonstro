@@ -24,11 +24,10 @@
 
 //   // Automatically fade in the audio when the page loads
 //   fadeInAudio(7500); // Fade in over 2 seconds
-// }); 
+// });
 
-
-let currentSlideIndex = 0; // Índice da primeira exibição do carrossel
-const itemsPerPage = 6; // Número de itens visíveis por vez
+let currentScrollPosition = 0; // Posição atual de rolagem
+const itemsToScroll = 4; // Número de itens a serem rolados de cada vez
 
 async function carregarProdutos() {
   try {
@@ -36,9 +35,9 @@ async function carregarProdutos() {
     const produtos = await response.json();
 
     const listaProdutos = document.getElementById("produtos");
-    listaProdutos.innerHTML = "";
+    listaProdutos.innerHTML = ""; // Limpa a lista antes de adicionar novos produtos
 
-    produtos.forEach((produto, index) => {
+    produtos.forEach((produto) => {
       const item = document.createElement("li");
       item.classList.add("produto-item");
       item.innerHTML = `
@@ -50,59 +49,77 @@ async function carregarProdutos() {
                   <span class="produto-fornecedor">Fornecedor: ${
                     produto.supplier
                   }</span>
-                  <button type="button" class="cart__add">
+                  <button type="button" class="cart__add carrossel__product">
                       <i class='bx bxs-cart-add'></i>
                       <span>Adic. ao carrinho</span>
                   </button>
               </div>
           `;
-      item.style.display = "none"; // Esconde os itens inicialmente
-      listaProdutos.appendChild(item);
+      listaProdutos.appendChild(item); // Adiciona o item à lista
 
       // Adiciona evento de clique para o botão "Adicionar ao carrinho"
       item.querySelector(".cart__add").addEventListener("click", () => {
         addItemToCart(produto.name, produto.price);
       });
     });
-
-    updateCarrossel();
-
-    // Adiciona eventos para navegação
-    document
-      .getElementById("prev-btn")
-      .addEventListener("click", () => mudarSlide(-1));
-    document
-      .getElementById("next-btn")
-      .addEventListener("click", () => mudarSlide(1));
   } catch (error) {
     console.error("Erro ao carregar os produtos:", error);
   }
 }
 
-// Função para atualizar os itens visíveis do carrossel
-function updateCarrossel() {
-  const items = document.querySelectorAll("#produtos .produto-item");
-  items.forEach((item, index) => {
-    item.style.display =
-      index >= currentSlideIndex && index < currentSlideIndex + itemsPerPage
-        ? "block"
-        : "none";
+// Função para mudar o slide
+function mudarSlide(direction) {
+  const produtosContainer = document.getElementById("produtos");
+  const itemWidth =
+    produtosContainer.scrollWidth / produtosContainer.children.length; // Largura média de um item
+  const scrollAmount = itemWidth * itemsToScroll; // Quantidade a ser rolada
+
+  // Atualiza a posição de rolagem
+  currentScrollPosition += direction * scrollAmount;
+
+  // Garante que a posição de rolagem não ultrapasse os limites
+  if (currentScrollPosition < 0) {
+    currentScrollPosition = 0;
+  } else if (
+    currentScrollPosition >
+    produtosContainer.scrollWidth - produtosContainer.clientWidth
+  ) {
+    currentScrollPosition =
+      produtosContainer.scrollWidth - produtosContainer.clientWidth;
+  }
+
+  // Rola suavemente para a nova posição
+  produtosContainer.scrollTo({
+    left: currentScrollPosition,
+    behavior: "smooth", // Habilita a rolagem suave
   });
 }
 
-// Função para mudar o slide
-function mudarSlide(direction) {
-  const totalItems = document.querySelectorAll(
-    "#produtos .produto-item"
-  ).length;
-  currentSlideIndex += direction * itemsPerPage;
+// Adiciona eventos para navegação
+document
+  .getElementById("prev-btn")
+  .addEventListener("click", () => mudarSlide(-1));
+document
+  .getElementById("next-btn")
+  .addEventListener("click", () => mudarSlide(1));
 
-  // Limita o índice para que ele não ultrapasse os limites do carrossel
-  if (currentSlideIndex < 0) currentSlideIndex = totalItems - itemsPerPage;
-  if (currentSlideIndex >= totalItems) currentSlideIndex = 0;
-
-  updateCarrossel();
+function verificarTamanhoTela() {
+  const produtosContainer = document.getElementById("produtos");
+  if (window.innerWidth < 850) {
+    currentScrollPosition = 0; // Reset scroll position
+    produtosContainer.scrollTo({
+      left: currentScrollPosition,
+    });
+  } else if (window.innerWidth < 570) {
+    currentScrollPosition = 0; // Reset scroll position
+    produtosContainer.scrollTo({
+      left: currentScrollPosition,
+    });
+  }
 }
+
+// Add resize event listener
+window.addEventListener("resize", verificarTamanhoTela);
 
 // Carrega os produtos ao carregar a página
 document.addEventListener("DOMContentLoaded", carregarProdutos);

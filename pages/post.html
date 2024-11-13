@@ -89,9 +89,135 @@
     />
   </head>
   <body>
+    <header class="page-header">
+      <header>
+        <a href="./index.html">
+          <img
+            src="./img/logo/logo-inverted-nobg.png"
+            alt="Logo da Monsters Antique"
+          />
+          <h1 id="title">Monsters Antique</h1>
+        </a>
+      </header>
+      <main class="search">
+        <button type="button" class="search__glass" aria-label="Buscar">
+          <i class="bx bx-search-alt" aria-hidden="true"></i>
+        </button>
+        <input
+          name="search"
+          type="text"
+          placeholder="Sangue Humano..."
+          class="search__input"
+          aria-label="Campo de busca"
+          required
+        />
+        <button
+          type="button"
+          class="search__cart"
+          id="search__cart"
+          aria-label="Carrinho"
+          onclick=""
+        >
+          <div class="cart-counter" id="cart-count">0</div>
+          <i class="bx bx-cart" aria-hidden="true"></i>
+        </button>
+      </main>
+      <aside class="profile__hamburger">
+        <a
+          href="./login.html"
+          target="_parent"
+          class="profile"
+          aria-label="Perfil"
+        >
+          <img
+            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIJzvwGX_2AoP6sVrqOl4h3CHNrLOGj6ExpjvxfYZnILimKkCckX6mBsa-cfFlRt47Mrs&usqp=CAU"
+            alt="Ícone do perfil"
+            class="profile-icon"
+          />
+        </a>
+        <button class="hamburger-menu" id="hamburger-menu" aria-label="Menu">
+          <i class="bx bx-menu"></i>
+        </button>
+      </aside>
+    </header>
+
+    <nav class="sub-navigation" aria-label="Navegação principal">
+      <ul>
+        <li class="profile-link__li">
+          <a
+            href="./login.html"
+            target="_parent"
+            class="profile-link"
+            aria-label="Perfil"
+          >
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIJzvwGX_2AoP6sVrqOl4h3CHNrLOGj6ExpjvxfYZnILimKkCckX6mBsa-cfFlRt47Mrs&usqp=CAU"
+              alt="Ícone do perfil"
+              class="profile-link__icon"
+            />
+            <span class="profile-link__span">Faça login!</span>
+          </a>
+        </li>
+        <li><a href="../index.html" target="_parent">Produtos</a></li>
+        <li>
+          <a href="./about.html" target="_parent">Sobre Nós</a>
+        </li>
+        <li>
+          <a href="./charity.html" target="_parent">Caridade</a>
+        </li>
+        <li><a href="#ultimasPostagens" class="in-page-link">Postagens</a></li>
+      </ul>
+    </nav>
+
     <a href="index.html">Voltar para a lista de posts</a>
     <h1 id="post-title"></h1>
     <p id="post-meta"></p>
     <p id="post-content"></p>
+
+    <section id="ultimasPostagens" aria-labelledby="ultimasPostagens">
+      <header>
+        <h2>Últimas Postagens</h2>
+      </header>
+      <main>
+        <a
+          href="http://"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="postagem"
+          role="article"
+        >
+          <img src="" alt="Postagem 1" />
+          <h3>Título da Postagem 1</h3>
+          <p>Subtítulo da Postagem 1</p>
+        </a>
+        <a
+          href="http://"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="postagem"
+          role="article"
+        >
+          <img src="" alt="Postagem 2" />
+          <h3>Título da Postagem 2</h3>
+          <p>Subtítulo da Postagem 2</p>
+        </a>
+        <a
+          href="http://"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="postagem"
+          role="article"
+        >
+          <img src="" alt="Postagem 3" />
+          <h3>Título da Postagem 3</h3>
+          <p>Subtítulo da Postagem 3</p>
+        </a>
+      </main>
+      <aside class="mais-postagens">
+        <a href="./more-posts.html" aria-label="Ver mais postagens">
+          <i class="bx bx-plus" aria-hidden="true"></i> Mais Postagens
+        </a>
+      </aside>
+    </section>
   </body>
 </html>
