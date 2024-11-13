@@ -1,12 +1,11 @@
 .form-container {
-  background-color: var(--dark-purple);
+  background-color: var(--blood-red-darker);
   padding: 20px;
-  min-height: 100vh;
   border-radius: 8px;
-  margin: 75px auto 20px;
+  margin: 75px auto 50px;
 }
 
-.form-label {
+.form-label:not(.first) {
   display: block;
   margin-top: 15px;
 }
@@ -62,10 +61,20 @@
   ); /* Leve mudança de fundo ao focar */
 }
 
+.submit__button {
+  display: flex;
+  width: 100%;
+  flex-direction: row-reverse;
+}
+
 .form-button {
   margin-top: 20px;
   padding: 10px 15px;
   background-color: var(--orange-color);
+  font-size: var(--h1-font-size);
+  font-family: var(--second-font);
+  font-weight: initial;
+  letter-spacing: 2px;
   color: var(--white-color);
   border: none;
   border-radius: 8px;
@@ -80,12 +89,12 @@
 .post-footer {
   margin-top: 20px;
   padding: 10px;
-  background-color: var(--orange-color);
+  background-color: var(--blood-red-dark);
   border-radius: 8px;
 }
 
 .footer-title {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: var(--white-color);
 }
 
