@@ -106,15 +106,9 @@ document
 function verificarTamanhoTela() {
   const produtosContainer = document.getElementById("produtos");
   if (window.innerWidth < 850) {
-    currentScrollPosition = 0; // Reset scroll position
-    produtosContainer.scrollTo({
-      left: currentScrollPosition,
-    });
+    const itemsToScroll = 3;
   } else if (window.innerWidth < 570) {
-    currentScrollPosition = 0; // Reset scroll position
-    produtosContainer.scrollTo({
-      left: currentScrollPosition,
-    });
+    const itemsToScroll = 2;
   }
 }
 
