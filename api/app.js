@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
 const multer = require("multer");
 const bcrypt = require("bcrypt");
 const cors = require("cors");
@@ -12,6 +13,7 @@ const usersModel = require("./models/users.js");
 
 const app = express();
 app.use(express.json());
+app.use(cookieParser());
 
 app.use(cors({
   origin: "http://127.0.0.1:5500",
@@ -64,9 +66,9 @@ function authenticateToken(req, res, next) {
   const token = req.cookies.authToken;
   if (!token) return res.sendStatus(403);
 
-  jwt.verify(token, process.env.JWT_SECRET, (err, username) => {
+  jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
     if (err) return res.sendStatus(403);
-    req.username = username;
+    req.user = user;
     next();
   });
 }
@@ -106,7 +108,9 @@ app.get("/post/:id", async (req, res) => {
   res.status(200).json(posts);
 });
 app.post("/post", uploadPostImages.fields([{ name: "img" }, { name: "footerImg" }]), authenticateToken ,async (req, res) => {
-  let { title, subtitle, content, author } = req.body;
+  let { title, subtitle, content } = req.body;
+
+  let author = req.user.username
   
   let id = title.toLowerCase().replace(/\s+/g, "-");
   
