@@ -1,2 +1,5 @@
 .env
 node_modules
+
+api/postImages/*
+api/productImages/*

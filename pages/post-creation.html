@@ -136,10 +136,11 @@
       </ul>
     </nav>
 
-    <main class="form-container">
+    <form method="post" action="http://127.0.0.1:3000/post" enctype="multipart/form-data" class="form-container">
       <label for="titulo" class="form-label">Título da Postagem:</label>
       <input
         type="text"
+        name="title"
         id="titulo"
         class="form-input form-title-input"
         placeholder="Título da Postagem"
@@ -148,17 +149,19 @@
       <label for="subtitulo" class="form-label">Subtítulo da Postagem:</label>
       <input
         type="text"
+        name="subtitle"
         id="subtitulo"
         class="form-input form-subtitle-input"
         placeholder="Subtítulo da Postagem"
       />
 
       <label for="imagem" class="form-label">Imagem:</label>
-      <input type="file" id="imagem" class="form-input" accept="image/*" />
+      <input type="file" name="img" id="imagem" class="form-input" accept="image/*" />
 
       <label for="paragrafos" class="form-label">Parágrafos:</label>
       <textarea
         id="paragrafos"
+        name="content"
         class="form-textarea"
         rows="5"
         placeholder="Escreva seu texto aqui..."
@@ -170,6 +173,7 @@
           <label for="footer-imagem" class="form-label">Imagem:</label>
           <input
             type="file"
+            name="footerImg"
             id="footer-imagem"
             class="form-input"
             accept="image/*"

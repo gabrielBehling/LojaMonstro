@@ -14,11 +14,11 @@ async function getPostByID(id) {
   return res.recordset[0];
 }
 
-async function addPost(id, title, author, date, time, content) {
+async function addPost(id, title, subtitle, imgPath, content, footerImgPath, author) {
   let db = await conn.getDatabase();
   await db.query`
-    INSERT INTO Post (id, title, author, date, time, content)
-    VALUES (${id}, ${title}, ${author}, ${date}, ${time}, ${content})
+    INSERT INTO Post (id, title, subtitle, img, content, footerImg, author)
+    VALUES(${id}, ${title}, ${subtitle}, ${imgPath}, ${content}, ${footerImgPath}, ${author})
     `;
 }
 
