@@ -446,6 +446,10 @@ a:active {
 }
 
 @media (max-width: 570px) {
+  #ultimasPostagens main {
+    padding: 0;
+  }
+
   .postagem {
     padding: 10px;
   }
