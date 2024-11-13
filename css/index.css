@@ -262,14 +262,22 @@
 }
 
 @media (max-width: 850px) {
+  .home__data {
+    height: 77.5vh;
+  }
+
   .home__img {
-    width: 25%;
+    width: 30%;
   }
 }
 
 @media (max-width: 570px) {
+  .home__data {
+    height: 75vh;
+  }
+  
   .home__img {
-    width: 30%;
+    width: 50%;
   }
 }
 
@@ -417,11 +425,11 @@ audio {
 }
 
 #produtos {
-  display: flex; /* Exibe os itens em linha */
+  display: flex;
   overflow-x: auto; /* Habilita a rolagem horizontal */
   place-self: center;
   scroll-behavior: smooth; /* Habilita a rolagem suave */
-  padding: 10px 0; /* Adiciona um pouco de espaço ao redor */
+  padding: 10px 0;
   scrollbar-width: none; /* Para Firefox: oculta a barra de rolagem */
 }
 
@@ -432,7 +440,7 @@ audio {
 .produto-item {
   flex: 0 0 calc(25% - 10px); /* Define a largura para 25% menos a margem */
   place-self: center;
-  margin: 0 5px; /* Espaçamento entre os itens */
+  margin: 0 5px;
   padding: 10px;
   border: 3px solid var(--blood-red);
   border-radius: 8px;
