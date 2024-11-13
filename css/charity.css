@@ -275,11 +275,12 @@
   padding: 10px;
   border-radius: 8px;
   line-height: 130%;
-  font-family: 'Times New Roman', Times, serif;
+  font-family: "Times New Roman", Times, serif;
   font-size: var(--h3-font-size);
 }
 
-.confirmation__data #tipo-doacao, .confirmation__data #ticket {
+.confirmation__data #tipo-doacao,
+.confirmation__data #ticket {
   color: var(--orange-color);
 }
 

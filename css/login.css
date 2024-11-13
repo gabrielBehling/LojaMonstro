@@ -31,10 +31,9 @@
 .login-form.closing,
 .signup-form.closing {
   max-height: 0; /* Fecha o formulário */
-  opacity: 0; /* Torna invisível */ 
+  opacity: 0; /* Torna invisível */
   transition: max-height 0.5s ease, opacity 0.5s ease;
 }
-
 
 .login-form h2,
 .signup-form h2 {

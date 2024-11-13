@@ -412,11 +412,20 @@ audio {
 }
 
 .carrossel__header h2 {
+  text-align: center;
   font-family: var(--second-font);
   font-size: var(--biggest-font-size);
   font-weight: initial;
   letter-spacing: 2px;
   color: var(--orange-color);
+}
+
+.carrossel__header h3 {
+  display: none; /* Deve aparecer quando pesquisar */
+  place-self: center;
+  text-align: center;
+  font-size: var(--h1-font-size);
+  color: var(--text-color);
 }
 
 .carrossel__main {
@@ -615,7 +624,6 @@ audio {
   background-color: var(--blood-red-dark);
   transform: scale(1.05);
 }
-
 
 .historico__button i {
   place-self: center;
