@@ -162,15 +162,21 @@
         <h2>Criar Conta</h2>
         <input
           type="text"
+          name="username"
           placeholder="Nome de usuário (3-20 caracteres)"
           required
           minlength="3"
           maxlength="20"
         />
         <label for="pfp">Foto de perfil:</label>
-        <input name="pfp" type="file" accept="image/*" required />
+        <input
+          type="file"
+          name="userIcon"
+          accept="image/*"
+        />
         <input
           type="password"
+          name="password"
           placeholder="Senha (8-64 caracteres)"
           required
           minlength="8"
