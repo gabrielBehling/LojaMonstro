@@ -106,8 +106,11 @@ app.get("/posts", async (req, res) => {
 });
 app.get("/post/:id", async (req, res) => {
   let id = req.params["id"];
-  let posts = await postsModel.getPostByID(id);
-  res.status(200).json(posts);
+  let post = await postsModel.getPostByID(id);
+
+  if (!post) res.sendStatus(404)
+
+  res.status(200).json(post);
 });
 app.post(
   "/post",

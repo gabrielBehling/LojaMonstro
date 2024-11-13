@@ -49,13 +49,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (response.ok) {
       const data = await response.json();
       const profileImage = document.querySelector(".profile-icon");
-      const postCreationLink = document.querySelector(".post-creation__link");
-
-      if (postCreationLink) {
-        postCreationLink.style.display = "inline-flex";
-      } else {
-        console.error("Erro ao mostrar link de criação de postagem.");
-      }
 
       if (data.userIcon) {
         profileImage.src = data.userIcon;
@@ -69,14 +62,33 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 document.addEventListener("DOMContentLoaded", async () => {
-  if (!document.querySelector(".ultimasPostagens")) return;
+  if (!document.querySelector("#ultimasPostagens")) return;
 
   const response = await fetch("http://127.0.0.1:3000/posts");
 
   if (response.ok) {
     const posts = await response.json();
-    showPosts(posts);
+    showPosts(posts.slice(0, 3));
   }
 });
 
-function showPosts(posts) {}
+function showPosts(posts) {
+  let parent = document.querySelector("#ultimasPostagens main");
+  parent.innerHTML = "";
+
+  posts.forEach((post) => {
+    let item = 
+`<a
+  href="/pages/post.html?id=${post.id}"
+  target="_blank"
+  rel="noopener noreferrer"
+  class="postagem"
+  role="article"
+  >
+  <img src="" alt="Postagem 1" />
+  <h3>${post.title}</h3>
+  <p>${post.subtitle}</p>
+</a>`
+    parent.innerHTML+=item
+  });
+}
