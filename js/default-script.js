@@ -61,3 +61,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   });
   
+document.addEventListener("DOMContentLoaded", async () => {
+    if (!document.querySelector(".ultimasPostagens")) return
+
+    const response = await fetch("http://127.0.0.1:3000/posts")
+
+    if (response.ok) {
+        const posts = await response.json();
+        showPosts(posts)
+    }
+})
+
+function showPosts(posts){
+    
+}

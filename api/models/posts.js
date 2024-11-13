@@ -2,7 +2,7 @@ const conn = require("../database/database");
 
 async function getAllPosts() {
   let db = await conn.getDatabase();
-  let res = await db.query`select * from Post`;
+  let res = await db.query`SELECT * FROM dbo.Post ORDER BY date DESC, time DESC`;
 
   return res.recordset;
 }
