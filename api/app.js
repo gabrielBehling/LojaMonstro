@@ -99,17 +99,6 @@ app.get("/product/:id", async (req, res) => {
   let product = await productsModel.getProductByID(id);
   res.status(200).json(product);
 });
-app.post("/product", uploadProductImages.single("img"), async (req, res) => {
-  let { name, price, supplier } = req.body;
-
-  let imgPath = null;
-  if (req.file) {
-    imgPath = `/api/productImages/${req.file.filename}`;
-  }
-
-  productsModel.addProduct(name, price, supplier, imgPath);
-  res.sendStatus(201);
-});
 
 app.get("/posts", async (req, res) => {
   let posts = await postsModel.getAllPosts();

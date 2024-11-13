@@ -14,12 +14,4 @@ async function getProductByID(id) {
   return res.recordset[0];
 }
 
-async function addProduct(name, price, supplier, imgPath) {
-  let db = await conn.getDatabase();
-  await db.query`
-    INSERT INTO Product (name, price, supplier, img)
-    VALUES (${name}, ${price}, ${supplier}, ${imgPath})
-    `;
-}
-
-module.exports = { getAllProducts, getProductByID, addProduct };
+module.exports = { getAllProducts, getProductByID };
