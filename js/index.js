@@ -123,21 +123,25 @@ document.addEventListener("DOMContentLoaded", carregarProdutos);
 // Evento para o botão do carrinho
 document.getElementById("search__cart").addEventListener("click", () => {
   const bill = document.getElementById("bill");
+  const cart = document.getElementById("search__cart");
 
   if (bill.style.display === "flex") {
     // Se estiver visível, fecha a nota fiscal
     bill.style.display = "none";
+    cart.classList.remove("opened");
     closeBill(bill);
   } else {
     // Se não estiver visível, abre a nota fiscal
     bill.style.display = "flex";
     bill.classList.remove("closing");
+    cart.classList.add("opened");
   }
 });
 
 // Evento para o botão "Fechar"
 document.getElementById("bill__button-close").addEventListener("click", () => {
   document.getElementById("bill").style.display = "none";
+  document.getElementById("search__cart").classList.remove("opened");
 });
 
 // Event for the "Limpar" button

@@ -188,6 +188,10 @@ a:active {
   color: var(--pumpkin-orange);
 }
 
+.search__cart.opened {
+  color: var(--pumpkin-orange);
+}
+
 .search__cart {
   position: relative;
 }
