@@ -1,0 +1,95 @@
+/* Main Post Styles */
+#post {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: var(--black-halloween); /* Light background for the main post */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-height: 100vh;
+}
+
+#post a {
+    display: inline-block;
+    margin-bottom: 1.5rem;
+    padding: 10px 20px;
+    background-color: var(--orange-color);
+    color: var(--white-color);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#post a:hover {
+    background-color: var(--orange-color-alt);
+    transform: scale(1.05);
+}
+
+#post h1 {
+    font-family: var(--second-font);
+    font-size: 2.5rem;
+    font-weight: initial;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+#post h2 {
+    font-family: var(--second-font);
+    font-size: 1.8rem;
+    font-weight: initial;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    color: var(--pumpkin-orange);
+}
+
+#post-img {
+    place-self: center;
+    width: 100%;
+    max-width: 48rem;
+    object-fit: cover;
+    height: auto;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+#post p {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 1rem 0;
+}
+
+#post div {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: var(--h2-font-size);
+    place-self: center;
+    margin-top: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    text-align: justify;
+    max-width: 48rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    #post h1 {
+        font-size: 2rem;
+    }
+
+    #post h2 {
+        font-size: 1.5rem;
+    }
+
+    #post p {
+        font-size: 1rem;
+    }
+
+    #post div {
+        max-width: 100%;
+    }
+
+    #post-img {
+        max-width: 100%;
+    }
+}
