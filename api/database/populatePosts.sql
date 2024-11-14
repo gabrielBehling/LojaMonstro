@@ -1,5 +1,6 @@
-INSERT INTO Posts (title, subtitle, img, content, footerImg, author) VALUES
+INSERT INTO Post (id, title, subtitle, img, content, footerImg, author) VALUES
   (
+    'como-adotar-um-esqueleto',
     'Como Adotar um Esqueleto',
     'Um guia completo sobre a adoção e cuidados com esqueletos',
     'https://example.com/esqueleto-adocao.jpg',
@@ -8,6 +9,7 @@ INSERT INTO Posts (title, subtitle, img, content, footerImg, author) VALUES
     'Associação dos Coveiros'
   ),
   (
+    'por-que-doar-sangue-para-um-vampiro',
     'Por que Doar Sangue para um Vampiro?',
     'Descubra os benefícios e a importância de ajudar um vampiro necessitado',
     'https://example.com/vampiro-doacao.jpg',

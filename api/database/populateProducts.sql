@@ -1,4 +1,4 @@
-INSERT INTO Produtos (name, price, supplier, img) VALUES
+INSERT INTO Product (name, price, supplier, img) VALUES
   ('Bala de prata', 50.99, 'Lobisomem Imports', 'https://upload.wikimedia.org/wikipedia/commons/6/64/Silver_bullet_%28rotated%29.png'),
   ('Estaca de madeira', 30.49, 'Drácula''s Workshop', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRN6xuz5t9AaXNzwBWhtRJQmoC2eR0wt4xFuw&s'),
   ('Água benta', 20.00, 'Holy Springs Inc.', 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpTa71C9vnD8u6X6tmCyp0evqJax5WvtlFDw&s'),
