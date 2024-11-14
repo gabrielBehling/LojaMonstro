@@ -38,6 +38,12 @@ async function createDatabase() {
     query = await fs.readFile("./database/createTables.sql", "utf-8");
     await pool.request().query(query);
 
+    query = await fs.readFile("./database/populatePosts.sql", "utf-8");
+    await pool.request().query(query);
+
+    query = await fs.readFile("./database/populateProducts.sql", "utf-8");
+    await pool.request().query(query);
+
     console.log("Banco de dados criado com sucesso!");
   } catch (err) {
     console.error("Erro ao criar o banco de dados:", err);
