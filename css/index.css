@@ -441,6 +441,10 @@ audio {
   width: 100%;
 }
 
+.carrossel__main ul {
+  width: 100%;
+}
+
 #produtos {
   display: flex;
   overflow-x: auto; /* Habilita a rolagem horizontal */
