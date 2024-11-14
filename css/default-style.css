@@ -23,6 +23,7 @@
   --yellow-halloween: #ffdd00;
   --pumpkin-orange: #ff7518;
   --black-halloween: #111;
+  --blood-red-darker: #5a0a14;
   --blood-red-dark: #7a0e1e;
   --blood-red: #9b111e;
   --blood-red-light: #c72c3b;
@@ -184,6 +185,10 @@ a:active {
 
 .search__glass:hover,
 .search__cart:hover {
+  color: var(--pumpkin-orange);
+}
+
+.search__cart.opened {
   color: var(--pumpkin-orange);
 }
 

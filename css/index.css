@@ -155,6 +155,12 @@
   color: var(--black-halloween);
 }
 
+@media only screen and (max-width: 570px) {
+  #bill__button-checkout {
+    font-size: var(--h3-font-size);
+  }
+}
+
 #bill__button-checkout:hover {
   color: var(--neon-green);
   transform: scale(1.025);
@@ -534,6 +540,7 @@ audio {
 
 .historico {
   padding: 2rem;
+  margin-top: 30px;
   position: relative;
   color: var(--white-color);
   background-color: rgba(0, 0, 0, 0.3);
@@ -568,6 +575,11 @@ audio {
   height: auto;
   margin: 1rem 0;
   border-radius: 8px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.historico__image:hover {
+  transform: scale(1.05);
 }
 
 @media (max-width: 850px) {

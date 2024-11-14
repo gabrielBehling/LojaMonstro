@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Monsters Antique | Postagens</title>
-    <meta name="description" content="Encontre nossas postagens mais recentes! Aprenda com a Ordem">
+    <meta
+      name="description"
+      content="Encontre nossas postagens mais recentes! Aprenda com a Ordem"
+    />
     <link rel="stylesheet" href="../css/default-style.css" />
     <link rel="stylesheet" href="../css/more-posts.css" />
     <script type="module" src="../js/default-script.js" defer></script>
@@ -151,36 +154,35 @@
     </nav>
 
     <div class="container">
-      <div class="hero">
-        <h1>Título do Post Grande</h1>
-        <p>Subtítulo do Post Grande</p>
-        <img src="imagem-grande.jpg" alt="Imagem do Post Grande" />
-      </div>
-      <div class="posts">
-        <div class="post">
-          <img src="imagem-pequena1.jpg" alt="Imagem do Post Pequeno 1" />
-          <h2>Título do Post Pequeno 1</h2>
-          <p>Subtítulo do Post Pequeno 1</p>
+      <main class="main-content">
+        <a href="./about.html" target="_parent" class="hero">
+          <h1>Sobre Nós</h1>
+          <p>Conheça a formação da Ordem.</p>
+          <img src="../img/images/home.jpg" alt="Imagem do Post Grande" />
+        </a>
+        <div class="posts">
+          <div class="post">
+            <img src="imagem-pequena1.jpg" alt="Imagem do Post Pequeno 1" />
+            <h2>Título do Post Pequeno 1</h2>
+            <p>Subtítulo do Post Pequeno 1</p>
+          </div>
+          <div class="post">
+            <img src="imagem-pequena2.jpg" alt="Imagem do Post Pequeno 2" />
+            <h2>Título do Post Pequeno 2</h2>
+            <p>Subtítulo do Post Pequeno 2</p>
+          </div>
         </div>
-        <div class="post">
-          <img src="imagem-pequena2.jpg" alt="Imagem do Post Pequeno 2" />
-          <h2>Título do Post Pequeno 2</h2>
-          <p>Subtítulo do Post Pequeno 2</p>
-        </div>
-      </div>
-      <div class="image-section">
-        <img src="imagem-quadrada.jpg" alt="Imagem Quadrada" />
-        <h2>Título da Imagem</h2>
-        <p>Subtítulo da Imagem</p>
-      </div>
+      </main>
       <ul class="post-list">
         <li class="post-item">
           <img src="imagem-lista1.jpg" alt="Imagem da Lista 1" />
           <div class="post-info">
             <h3>Título da Lista 1</h3>
             <p>Subtítulo da Lista 1</p>
-            <span>Horário: 12:00</span>
-            <span>Autor: Autor 1</span>
+            <div class="post-meta">
+              <span class="post-time">Há duas horas</span>
+              <span class="post-author">Por Ossain</span>
+            </div>
           </div>
         </li>
         <li class="post-item">
@@ -188,8 +190,10 @@
           <div class="post-info">
             <h3>Título da Lista 2</h3>
             <p>Subtítulo da Lista 2</p>
-            <span>Horário: 12:30</span>
-            <span>Autor: Autor 2</span>
+            <div class="post-meta">
+              <span class="post-time">Há uma hora</span>
+              <span class="post-author">Por Maria</span>
+            </div>
           </div>
         </li>
         <!-- Adicione mais itens conforme necessário -->
