@@ -263,6 +263,18 @@
   transition: transform 0.5s ease-in-out;
 }
 
+@media (max-width: 850px) {
+  .confirmation__img img {
+    width: 30%;
+  }
+}
+
+@media (max-width: 570px) {
+  .confirmation__img img {
+    width: 50%;
+  }
+}
+
 .confirmation__img img:hover {
   transform: scale(1.15);
 }
