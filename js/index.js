@@ -31,7 +31,7 @@ const itemsToScroll = 4; // Número de itens a serem rolados de cada vez
 
 async function carregarProdutos() {
   try {
-    const response = await fetch("./data/products.json");
+    const response = await fetch("http://127.0.0.1:3000/products");
     const produtos = await response.json();
 
     const listaProdutos = document.getElementById("produtos");
@@ -223,7 +223,7 @@ function updateBill() {
 // Evento para cada botão "Adicionar ao carrinho"
 document.querySelectorAll(".cart__add").forEach((button) => {
   button.addEventListener("click", () => {
-    const productElement = button.closest("div[role='listitem']");
+    const productElement = button.parentElement;
     const productName = productElement.querySelector("h3").innerText;
     const productPrice = parseFloat(
       productElement

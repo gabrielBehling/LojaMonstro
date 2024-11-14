@@ -36,8 +36,8 @@ loginForm.onsubmit = async function (event) {
   });
 
   if (response.ok) {
-    alert("Login bem-sucedido!");
     window.location.href = "/index.html";
+    alert("Login bem-sucedido!");
   } else {
     alert("Erro ao fazer login. Verifique suas credenciais.");
   }
@@ -69,6 +69,7 @@ signupForm.onsubmit = async function (event) {
 
   if (response.ok) {
     window.location.href = "/index.html";
+    alert("Registro bem-sucedido!");
   } else {
     const errorData = await response.json();
     alert(`Erro ao registrar usuário: ${errorData.message}`);
