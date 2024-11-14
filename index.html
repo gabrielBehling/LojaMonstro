@@ -105,7 +105,7 @@
         </a>
       </header>
       <main class="search">
-        <button type="button" class="search__glass" aria-label="Buscar">
+        <button type="button" class="search__glass" aria-label="Buscar" onclick="search()">
           <i class="bx bx-search-alt" aria-hidden="true"></i>
         </button>
         <input
@@ -117,6 +117,7 @@
           minlength="3"
           maxlength="255"
           required
+          onkeypress="handleKeyPress()"
         />
         <button
           type="button"

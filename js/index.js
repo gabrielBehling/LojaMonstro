@@ -1,6 +1,5 @@
 // document.addEventListener('DOMContentLoaded', () => {
 //   const audio = document.getElementById('audio');
-
 //   // Set initial volume to a low value for background music
 //   audio.volume = 0.0; // Start volume at 0 for fade-in
 
@@ -29,10 +28,17 @@
 let currentScrollPosition = 0; // Posição atual de rolagem
 const itemsToScroll = 4; // Número de itens a serem rolados de cada vez
 
-async function carregarProdutos() {
+async function carregarProdutos(event, query='') {
   try {
     const response = await fetch("http://127.0.0.1:3000/products");
-    const produtos = await response.json();
+    let produtos = await response.json();
+
+    if (query!='') {
+      produtos = produtos.filter(item =>
+      item.name.toLowerCase().includes(query.toLowerCase()) ||
+      item.supplier.toLowerCase().includes(query.toLowerCase())
+      );
+    }
 
     const listaProdutos = document.getElementById("produtos");
     listaProdutos.innerHTML = ""; // Limpa a lista antes de adicionar novos produtos
@@ -65,6 +71,17 @@ async function carregarProdutos() {
   } catch (error) {
     console.error("Erro ao carregar os produtos:", error);
   }
+}
+
+function handleKeyPress(){
+  if (event.key === "Enter") {
+    search()
+  }
+}
+
+async function search() {
+  let inputElement = document.querySelector(".search__input")
+  carregarProdutos( event, inputElement.value )
 }
 
 // Função para mudar o slide
