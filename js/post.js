@@ -12,7 +12,6 @@ async function carregarPost() {
 
     if (response.ok) {
       let post = await response.json();
-      console.log(post);
 
       post.date = new Date(post.date).toLocaleDateString("pt-BR", {
         year: 'numeric',
@@ -33,10 +32,6 @@ async function carregarPost() {
       document.getElementById('post-footer-img').src = post.footerImg;
     }
 
-    if (post) {
-    } else {
-      document.getElementById("post-content").innerText = "Post não encontrado.";
-    }
   } catch (error) {
     console.error("Erro ao carregar o post:", error);
     document.getElementById("post-content").innerText = "Erro ao carregar o post.";
