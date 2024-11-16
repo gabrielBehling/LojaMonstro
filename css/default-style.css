@@ -424,7 +424,7 @@ a:active {
 }
 
 #ultimasPostagens {
-  width: 90%;
+  width: 100%;
   place-self: center;
   padding: 25px 10px;
   margin: 25px 0;
@@ -446,6 +446,7 @@ a:active {
 #ultimasPostagens main {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  width: 100%;
   row-gap: 25px;
   column-gap: 25px;
   padding: 0 25px;

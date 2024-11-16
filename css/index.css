@@ -543,6 +543,8 @@ audio {
 }
 
 .historico {
+  display: flex;
+  flex-direction: column;
   padding: 2rem;
   margin-top: 30px;
   position: relative;
@@ -571,6 +573,8 @@ audio {
 }
 
 .historico__content {
+  display: inline-flex;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -580,6 +584,7 @@ audio {
   margin: 1rem 0;
   border-radius: 8px;
   transition: transform 0.3s ease-in-out;
+  place-self: center;
 }
 
 .historico__image:hover {
@@ -625,6 +630,8 @@ audio {
 
 .historico__button {
   display: inline-flex;
+  width: fit-content;
+  place-self: center;
   gap: 0.25rem;
   padding: 10px 20px;
   font-size: var(--h1-font-size);
