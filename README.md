@@ -74,7 +74,7 @@ Este projeto simula uma loja online completa, desde a visualização de produtos
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/gabrielBehling/Loja-Monstro.git](https://github.com/gabrielBehling/Loja-Monstro.git)
+    git clone https://github.com/gabrielBehling/Loja-Monstro.git
     cd monsters-antique/backend # ou o nome da pasta do seu backend
     ```
 2.  **Instale as dependências:**
