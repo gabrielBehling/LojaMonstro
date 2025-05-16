@@ -61,21 +61,6 @@ Este projeto simula uma loja online completa, desde a visualização de produtos
     * `/img` (para logo, ícones, imagens de produtos estáticos)
     * `/pages` (para outras páginas HTML como login, about, etc.)
     * `manifest.json`
-* `/backend` (ou nome similar para a pasta do servidor Node.js - *estrutura inferida*)
-    * `server.js` (ou `app.js`, `index.js` - arquivo principal do servidor)
-    * `/database`
-        * `setup.js` (configuração da conexão e criação do banco/tabelas)
-    * `/models`
-        * `posts.js`
-        * `products.js`
-        * `users.js`
-    * `/routes` (opcional, para organizar rotas)
-    * `/middleware` (opcional, para middlewares como `authenticateToken`)
-    * `/postImages` (criado dinamicamente para uploads)
-    * `/productImages` (criado dinamicamente para uploads)
-    * `/userIcons` (criado dinamicamente para uploads)
-    * `.env` (para variáveis de ambiente como `JWT_SECRET`, `PORT`, connection string do DB)
-    * `package.json`
 
 ## Pré-requisitos
 
